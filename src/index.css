@@ -1,0 +1,71 @@
+/* ── Variables ── */
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-card: #161616;
+  --accent: #00d4ff;
+  --accent-2: #7c3aed;
+  --accent-dim: rgba(0, 212, 255, 0.12);
+  --text-primary: #f2f2f2;
+  --text-secondary: #8a8a8a;
+  --border: rgba(255, 255, 255, 0.07);
+  --radius: 12px;
+  --transition: 0.3s ease;
+  --max-width: 1080px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  min-width: 320px;
+}
+
+a { color: var(--accent); text-decoration: none; transition: opacity var(--transition); }
+a:hover { opacity: 0.75; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* ── Section layout ── */
+.section {
+  padding: 96px 24px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 700;
+  margin-bottom: 52px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-primary);
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-title .num {
+  color: var(--accent);
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
