@@ -35,7 +35,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="mailto:iglinro@gmail.com"
+            href="mailto:roman@iglin.dev"
             className="header__btn"
             onClick={handleNav}
           >

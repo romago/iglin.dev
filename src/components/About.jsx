@@ -1,6 +1,9 @@
 import './About.css'
 
 export default function About() {
+  const startYear = 2010
+  const yearsExperience = Math.max(0, new Date().getFullYear() - startYear)
+
   return (
     <section id="about">
       <div className="section">
@@ -10,7 +13,7 @@ export default function About() {
         <div className="about__grid">
           <div className="about__text">
             <p>
-              I'm a full-stack web developer with <strong>14+ years of hands-on experience</strong> building
+              I'm a full-stack web developer with <strong>{yearsExperience}+ years of hands-on experience</strong> building
               websites and web applications from scratch, on CMS platforms, and brand-specific solutions.
               My core strengths are PHP, JavaScript, React, HTML, CSS, and SQL.
             </p>
@@ -54,15 +57,15 @@ export default function About() {
               </div>
               <div className="about__info-row">
                 <span className="about__info-label">Email</span>
-                <a href="mailto:iglinro@gmail.com">iglinro@gmail.com</a>
+                <a href="mailto:roman@iglin.dev">roman@iglin.dev</a>
               </div>
               <div className="about__info-row">
-                <span className="about__info-label">Phone</span>
-                <a href="tel:+17869332222">+1.786.933.2222</a>
+                <span className="about__info-label">GitHub</span>
+                <a href="https://github.com/romago" target="_blank" rel="noopener noreferrer">github.com/romago</a>
               </div>
               <div className="about__info-row">
                 <span className="about__info-label">Experience</span>
-                <span>14+ years</span>
+                <span>{yearsExperience}+ years</span>
               </div>
               <div className="about__info-row">
                 <span className="about__info-label">Status</span>

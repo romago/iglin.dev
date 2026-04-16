@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <p>
         Designed & Built by{' '}
-        <a href="mailto:iglinro@gmail.com">Roman Iglin</a>
+        <a href="mailto:roman@iglin.dev">Roman Iglin</a>
       </p>
       <p className="footer__copy">
         © {new Date().getFullYear()} iglin.dev — All rights reserved.
