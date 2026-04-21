@@ -45,34 +45,6 @@ export default function About() {
               </li>
             </ul>
           </div>
-
-          <div className="about__card">
-            <div className="about__avatar">
-              <span>RI</span>
-            </div>
-            <div className="about__info">
-              <div className="about__info-row">
-                <span className="about__info-label">Location</span>
-                <span>Woodstock, GA 30189</span>
-              </div>
-              <div className="about__info-row">
-                <span className="about__info-label">Email</span>
-                <a href="mailto:roman@iglin.dev">roman@iglin.dev</a>
-              </div>
-              <div className="about__info-row">
-                <span className="about__info-label">GitHub</span>
-                <a href="https://github.com/romago" target="_blank" rel="noopener noreferrer">github.com/romago</a>
-              </div>
-              <div className="about__info-row">
-                <span className="about__info-label">Experience</span>
-                <span>{yearsExperience}+ years</span>
-              </div>
-              <div className="about__info-row">
-                <span className="about__info-label">Status</span>
-                <span className="about__status">Available for hire</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

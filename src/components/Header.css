@@ -4,7 +4,6 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 20px 32px;
   transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
 }
 
@@ -13,7 +12,6 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--border);
-  padding: 12px 32px;
 }
 
 .header__inner {
@@ -21,9 +19,11 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
+  padding: 20px 24px;
   justify-content: space-between;
 }
 
+.header--scrolled .header__inner { padding: 12px 24px; }
 .header__logo {
   font-size: 1.25rem;
   font-weight: 700;
