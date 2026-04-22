@@ -2,7 +2,7 @@ import './Education.css'
 
 const education = [
   {
-    degree: 'Computer Classes',
+    degree: 'Front-end Developer - Practicum Yandex',
     institution: 'Norilsk, Russia',
     period: '2010',
     icon: '💻',
