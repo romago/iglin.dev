@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section id="hero" className="hero">
       <div className="hero__inner">
-        <p className="hero__greeting">Hi, my name is</p>
+        <p className="hero__greeting">Full-Stack Developer</p>
         <h1 className="hero__name">Roman Iglin.</h1>
         <h2 className="hero__title">Full-Stack Developer.</h2>
         <p className="hero__desc">
