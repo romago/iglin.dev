@@ -48,12 +48,6 @@
 
 .header__link:hover { color: var(--text-primary); opacity: 1; }
 
-.header__link-num {
-  color: var(--accent);
-  font-family: 'Courier New', monospace;
-  font-size: 0.8em;
-}
-
 .header__btn {
   padding: 8px 20px;
   border: 1px solid var(--accent);

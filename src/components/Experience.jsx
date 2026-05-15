@@ -53,9 +53,7 @@ export default function Experience() {
   return (
     <section id="experience">
       <div className="section">
-        <h2 className="section-title">
-          <span className="num">03.</span> Experience
-        </h2>
+        <h2 className="section-title">Experience</h2>
         <div className="exp__timeline">
           {jobs.map((job, i) => (
             <div key={i} className="exp__item">

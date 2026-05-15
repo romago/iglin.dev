@@ -31,9 +31,7 @@ export default function Skills() {
   return (
     <section id="skills" style={{ background: 'var(--bg-secondary)' }}>
       <div className="section">
-        <h2 className="section-title">
-          <span className="num">02.</span> Technical Skills
-        </h2>
+        <h2 className="section-title">Technical Skills</h2>
         <div className="skills__grid">
           {skillGroups.map(({ category, items }) => (
             <div key={category} className="skills__card">

@@ -7,9 +7,7 @@ export default function About() {
   return (
     <section id="about">
       <div className="section">
-        <h2 className="section-title">
-          <span className="num">01.</span> About Me
-        </h2>
+        <h2 className="section-title">About Me</h2>
         <div className="about__grid">
           <div className="about__text">
             <p>

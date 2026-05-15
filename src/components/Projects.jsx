@@ -56,9 +56,7 @@ export default function Projects() {
   return (
     <section id="projects">
       <div className="section">
-        <h2 className="section-title">
-          <span className="num">03.</span> Selected Work
-        </h2>
+        <h2 className="section-title">Selected Work</h2>
         
         <div className="projects__grid">
           {projects.map((project) => (

@@ -45,7 +45,7 @@
   transition: border-color var(--transition);
 }
 
-.exp__content:hover { border-color: rgba(0, 212, 255, 0.25); }
+.exp__content:hover { border-color: rgba(0, 255, 17, 0.3); }
 
 .exp__header {
   display: flex;

@@ -32,7 +32,7 @@ export default function Header() {
         <nav className={`header__nav${menuOpen ? ' header__nav--open' : ''}`}>
           {navLinks.map(({ href, label }, i) => (
             <a key={href} href={href} className="header__link" onClick={handleNav}>
-              <span className="header__link-num">0{i + 1}.</span> {label}
+              {label}
             </a>
           ))}
           <a
