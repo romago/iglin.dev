@@ -25,10 +25,7 @@
 
 .header--scrolled .header__inner { padding: 12px 24px; }
 .header__logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
+  height: 52px;
 }
 
 .header__logo span { color: var(--accent); }
