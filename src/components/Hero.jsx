@@ -8,8 +8,8 @@ export default function Hero() {
     <section id="hero" className="hero">
       <div className="hero__inner">
         <p className="hero__greeting">&bull; open to work</p>
-        <h1 className="hero__name">Roman Iglin.</h1>
-        <h2 className="hero__title">Web Developer.</h2>
+        <h1 className="hero__name">Roman Iglin</h1>
+        <h2 className="hero__title">Web Developer</h2>
         <p className="hero__desc">
           {yearsExperience}+ years of hands-on web development expertise. I build high-performance
           websites and web applications — from pixel-perfect frontends to robust
