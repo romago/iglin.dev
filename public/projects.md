@@ -24,8 +24,8 @@
 - **GitHub:** https://github.com/romago
 - **Core stack:** PHP, JavaScript, React, HTML5, CSS3 / SASS / LESS, SQL
 - **CMS & platforms:** WordPress, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
-- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP)
-- **Integrations:** REST API, JSON / XML, Marketo, GTM / GA4, Smartling, Google Places API
+- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer
+- **Integrations:** REST API, JSON / XML, SOAP, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
 - **Design:** Figma, Sketch, Adobe Photoshop, Adobe Illustrator, UI/UX mockups
 
@@ -36,11 +36,51 @@
 | Jun 2026 — present | Arthur Ray Law Offices | Web Developer / Technical SEO (freelance) | Memphis, TN (remote) |
 | Apr 2021 — present | Signifyd | Web Developer (freelance) | San Jose, CA (remote) |
 | May 2020 — Apr 2021 | Western Digital | Web Developer | Irvine, CA |
+| 2017 — present | Araks Inc | Web Developer (freelance) | Los Angeles, CA (remote) |
 | Jun 2012 — Apr 2020 | Polish TV Company | Web & Application Developer | New York, NY |
 
 ---
 
 ## Projects
+
+### Araks Inc — B2B wholesale ordering site (Drupal Commerce, QuickBooks integration)
+
+- **Client:** Araks Inc (Los Angeles wholesale distributor of European food products to stores)
+- **Role:** Web Developer (freelance)
+- **Period:** 2017 — present
+- **Status:** active
+- **Stack:** Drupal 7, Drupal Commerce, PHP 8.5, MariaDB / MySQL, JavaScript, jQuery, Drupal Views, Rules, Linux (Ubuntu), HestiaCP, Nginx, Apache, PHP-FPM, QuickBooks Desktop (qbXML, Web Connector SOAP), Google Gemini API, GA4 Data API, Search Console API, PageSpeed Insights API, schema.org / JSON-LD, Puppeteer, rclone, Brevo SMTP, Bash, Git
+- **Link:** https://araks.org
+- **Last updated:** 2026-10-26
+
+**Summary**
+Development, maintenance and server administration of Araks' Drupal 7 / Drupal Commerce site, where store customers and sales reps place wholesale orders from a catalog of about 1,700 products. In 2026 the work centered on a QuickBooks integration, performance, technical SEO, lead generation and server reliability.
+
+**What I did**
+- Built a QuickBooks Desktop integration from scratch: a hand-written Web Connector SOAP/qbXML endpoint with a job queue, hourly product, price and stock sync for about 7,500 QuickBooks items, daily customer and vendor account sync, and automatic export of every web order as a QuickBooks Sales Order (vendor restocking orders as Purchase Orders). It replaced manual CSV imports and XLSX order exports.
+- Added a low-margin alert that compares site prices with QuickBooks average cost and lists products below a 15% markup on the admin dashboard.
+- Made the signed-in checkout page fast despite per-customer price markups: a custom Drupal Views cache plugin keys the 1,700-product price list by a price fingerprint computed from the pricing rules, and copies are rebuilt in the background after each product sync.
+- Traced a long-standing order bug to its root cause: bottle-deposit (CRV) line items were saved but never linked to their orders. Also stopped carts from being wiped by stale, browser-restored checkout pages with cart revision checks and per-order locking.
+- Improved Core Web Vitals for public pages: local jQuery, scripts moved to the footer, self-hosted fonts, WebP images with srcset, Hotjar removed, and lazy loading for the 1,700 product photos on the catalog page.
+- Did the site's technical SEO: clean product and category URLs with about 3,900 automatic 301 redirects, an XML sitemap that had been missing most products, schema.org JSON-LD (Product, BreadcrumbList, WholesaleStore, FAQPage), visible breadcrumbs, and a brand and country-of-origin taxonomy.
+- Built an English/Russian wholesale landing page and the lead pipeline behind it: spam-protected lead form, funnel tracking, approval with expiring one-time links to the price list, follow-up reminder emails, "become a customer" applications and GA4 key events.
+- Built an AI catalog module on the Google Gemini API that rewrote raw QuickBooks item names into clean product titles and descriptions for the whole catalog, with automated checks (numbers, sizes, brands), a review and revert workflow, and nightly product photo checks.
+- Migrated production from PHP 7.4 to PHP 8.5 on Drupal 7: tested on a staging copy, then deployed with scripted backup, verification and rollback steps and 12 seconds of maintenance mode.
+- Administered the Linux server (HestiaCP, Nginx, Apache, PHP-FPM, MariaDB): diagnosed site hangs caused by database lock pile-ups, tuned MariaDB and PHP-FPM, added slow-query logging and automatic incident snapshots.
+- Found that nightly backups had been failing silently on most days of a month, fixed the cause, and added an encrypted weekly off-site copy to Google Drive with a tested restore and failure alerts.
+- Removed publicly served debug logs and backup files that exposed PHP source, and closed unused XML-RPC access.
+- Built a sales analytics dashboard (sales by year without vendor restocking orders, top products, customer debt) and connected the GA4, Search Console and PageSpeed Insights APIs for reporting.
+- Fixed the site's email Reply-To handling, verified SPF, DKIM and DMARC, and built HTML transactional emails and abandoned-cart reminders.
+
+**Results**
+- Signed-in checkout page: server response 7–13 s → about 0.5 s.
+- Catalog page with 1,700 products on a phone over 4G: full load 16.8 s → 2.1 s; data downloaded before load 13.6 MB → 0.1 MB.
+- PHP 7.4 → 8.5: uncached product page throughput +38% (7.9 → 10.9 requests/s).
+- Homepage on mobile (PageSpeed lab data): LCP 12.2 s → 4.4 s, performance score 60 → 80.
+- Database: buffer-pool hit rate 98.1% → 99.8%; slowest admin report query 4.5 s → 0.1 s.
+- Google Search Console, the month after the URL, sitemap and SEO work vs the month before: impressions +98%, clicks +62%.
+
+**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, Drupal Views, Core Web Vitals, lazy loading, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI content generation, Gemini API, Linux server administration, MariaDB tuning, Nginx, backups, disaster recovery, website security, email deliverability, debugging, data integrity
 
 ### Arthur Ray Law Offices — law firm websites (WordPress & technical SEO)
 
@@ -102,6 +142,35 @@ Ongoing development and maintenance of Signifyd's WordPress marketing website: n
 - Core Web Vitals performance score: ~30 → 90.
 
 **Keywords:** WordPress plugin development, REST API, Core Web Vitals, performance optimization, GTM, GA4, Consent Mode v2, Marketo, Smartling, localization, email templates
+
+### Signifyd Mexico & Brazil — localized websites redesign and translation
+
+- **Client:** Signifyd (e-commerce fraud protection)
+- **Role:** Web Developer (freelance)
+- **Period:** Oct 2026 — present
+- **Status:** active
+- **Stack:** WordPress, PHP, WP-CLI, Beaver Builder, Beaver Themer, Yoast SEO, FacetWP, GSAP, Node.js (PostCSS), Python, Google Sheets API, WP Engine
+- **Link:** https://mx.signifyd.com, https://br.signifyd.com
+- **Last updated:** 2026-10-26
+
+**Summary**
+Migration of Signifyd's Spanish (Mexico) and Portuguese (Brazil) WordPress sites to the company's new brand design from the main site, followed by translation of the new pages from the localization team's translation sheet.
+
+**What I did**
+- Migrated 22 pages, the global header and footer, and the blog and customer-story templates from the main site to the Mexico site, then reused the work for the Brazil site.
+- Moved the Brazil site's legal pages (privacy policies, terms of use, restricted businesses) to the new layout while keeping their existing Portuguese legal text, and reduced the localized terms of service to the Brazil section only.
+- Built WP-CLI import and export tooling for Beaver Builder layouts. It copies page data and SEO meta, re-creates media attachments and remaps their IDs, syncs global color tokens, and checks every page by rendering it before writing.
+- Wrote a Node.js (PostCSS) tool that removes unused layout CSS by testing selectors against the rendered pages, cutting page CSS by up to 97% (52 KB → 1.2 KB).
+- Kept the old and new designs side by side on a live production site by switching on page tags, so the redesign could be previewed without affecting existing pages.
+- Built a go-live script with a dry-run mode, snapshots and rollback. It swaps old pages for new ones, carries over hreflang and canonical tags, and re-points menus.
+- Applied the Spanish translation to pages, menus and SEO meta (titles, descriptions, Open Graph) with scripts that pull from the translation sheet and abort if any text fails to match. Also applied the localization team's review comments: local customer case studies, logos and calls to action.
+- Fixed mobile layout and animation issues on the localized pages and matched their spacing to the main site.
+- Audited the localized sites for publicly exposed files and coordinated the fixes with the team lead.
+
+**Results**
+- Page layout CSS reduced by up to 97% (52 KB → 1.2 KB; header 40 KB → 10 KB).
+
+**Keywords:** WordPress, website redesign, site migration, localization, internationalization, Spanish translation, Portuguese (Brazil), multilingual SEO, Yoast SEO, Beaver Builder, WP-CLI, PHP, Node.js, PostCSS, CSS optimization, deployment automation, rollback, Google Sheets API, WP Engine, website security
 
 ### Signifyd EMEA — regional website
 
@@ -169,3 +238,6 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-26 — Added Arthur Ray Law Offices: WordPress development and technical SEO for two law firm sites.
 - 2026-10-26 — Updated Arthur Ray Law Offices: mobile header redesign, filingbankruptcymemphis.com technical SEO audit and fixes, LCP/accessibility results.
 - 2026-10-26 — Updated Arthur Ray Law Offices: added the 2026 memphislaw.com redesign.
+- 2026-10-26 — Added Signifyd Mexico & Brazil: localized sites migrated to the new brand design and translated to Spanish.
+- 2026-10-26 — Updated Signifyd Mexico & Brazil: Brazil site link, Portuguese legal pages moved to the new design.
+- 2026-10-26 — Added Araks Inc: Drupal Commerce wholesale site, QuickBooks integration, performance, SEO and server work; new Employment row and Profile skills.
