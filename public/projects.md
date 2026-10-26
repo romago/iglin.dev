@@ -23,9 +23,9 @@
 - **LinkedIn:** https://www.linkedin.com/in/roman-iglin/
 - **GitHub:** https://github.com/romago
 - **Core stack:** PHP, JavaScript, React, HTML5, CSS3 / SASS / LESS, SQL
-- **CMS & platforms:** WordPress, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
-- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer
-- **Integrations:** REST API, JSON / XML, SOAP, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API
+- **CMS & platforms:** WordPress, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
+- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare
+- **Integrations:** REST API, JSON / XML, SOAP, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
 - **Design:** Figma, Sketch, Adobe Photoshop, Adobe Illustrator, UI/UX mockups
 
@@ -33,6 +33,7 @@
 
 | Period | Company | Role | Location |
 | --- | --- | --- | --- |
+| ongoing | People Movers | Web Developer / Performance Optimization (freelance) | California (remote) |
 | Jun 2026 — present | Arthur Ray Law Offices | Web Developer / Technical SEO (freelance) | Memphis, TN (remote) |
 | Apr 2021 — present | Signifyd | Web Developer (freelance) | San Jose, CA (remote) |
 | May 2020 — Apr 2021 | Western Digital | Web Developer | Irvine, CA |
@@ -42,6 +43,37 @@
 ---
 
 ## Projects
+
+### People Movers — moving company website (WordPress / Elementor redesign, performance & landing pages)
+
+- **Client:** People Movers — The Real Movers® (California moving company: Sacramento, Bay Area, Los Angeles)
+- **Role:** Web Developer / Performance Optimization (freelance)
+- **Status:** active
+- **Stack:** WordPress, Elementor / Elementor Pro, PHP, JavaScript, CSS, Python, WP-CLI, Bash, rsync, Git, Puppeteer, Lighthouse, ffmpeg, Jetpack Boost, Cloudflare, Bluehost, GTM, GA4, Google Ads, Meta Pixel, Microsoft Clarity, LeadBot / LeadCapture.io
+- **Link:** https://peoplemoverscalifornia.com
+- **Last updated:** 2026-10-26
+
+**Summary**
+Full redesign of the WordPress / Elementor website of a California moving company, followed by landing page development and performance, accessibility and tracking optimization, with a focus on the Sacramento ad landing page.
+
+**What I did**
+- Redesigned the whole website on WordPress with Elementor Pro and a custom Hello Biz child theme: homepage, city landing pages, service pages, header and footer templates, and mobile layouts.
+- Set up a Git mirror of the live WordPress site with rsync-over-SSH pull/push scripts (FTP fallback), so every server change is reviewed and versioned before and after deploys.
+- Made HTML cacheable at the host and CDN level: stripped server-side tracking cookies on anonymous requests, sent explicit Cache-Control with stale-while-revalidate, and added a cron cache warmer for key landing pages after finding that cold renders randomly dropped PageSpeed scores.
+- Delayed third-party tags (GTM, gtag, Meta Pixel, Clarity, review widget) site-wide until first interaction, excluding conversion pages, and verified identical GA/Ads/Meta/Clarity hits with and without the delay; on the Sacramento page also delayed the below-the-fold lead form with reserved space so nothing shifts.
+- Built a lazy video loader for Elementor and custom videos (load near viewport, poster images, inline autoplay in Facebook/Instagram in-app browsers, tap to unmute) and re-encoded site videos (40 MB → 5.3 MB, 25 MB → 3 MB).
+- Removed unused plugins and scripts (AMP with 301 redirects, an unused chat loader, an inactive tracking pixel and a plugin that disabled page caching), trimmed per-page assets and replaced a 453 KB icon font with a 732-byte subset.
+- Fixed accessibility issues: heading order, color contrast, labels and valid autocomplete for the third-party quote form, and accessible names for menu controls.
+- Built new landing page sections with re-runnable WP-CLI scripts that edit Elementor data through its document API: a mobile video card, a "Text us" SMS call-to-action and updated service labels.
+- Built a Python generator for an interactive SVG map section of the Long Distance page (animated routes, tooltips) embedded as a self-contained Elementor widget.
+- Wrote a Puppeteer smoke test (in-app browser user agents, tablet, desktop) that checks layout overflow, lazy video, click-to-call links, the quote form, the menu and JS errors after each change.
+- Diagnosed invalid phone numbers in leads (e.g. 000-000-0000) by inspecting the lead form configuration: the phone field had no validation, and the fix belongs in the form builder, not the CRM integration.
+
+**Results**
+- Sacramento landing page, Lighthouse mobile: Performance 33 → 96–98, page weight 17.7 MB → about 0.9 MB, Accessibility 89 → 99–100, SEO 92 → 100, Best Practices 39 → 81; desktop Performance 98–99.
+- Homepage, Lighthouse mobile: Performance 81 → 91 after the site-wide tag delay.
+
+**Keywords:** WordPress, Elementor, website redesign, custom WordPress theme, Core Web Vitals, page speed optimization, Lighthouse, PageSpeed Insights, caching, CDN, Cloudflare, third-party script delay, GTM, GA4, Meta Pixel, Microsoft Clarity, lazy loading, video optimization, accessibility, WCAG, WP-CLI, Puppeteer, landing pages, lead generation, moving company website
 
 ### Araks Inc — B2B wholesale ordering site (Drupal Commerce, QuickBooks integration)
 
@@ -241,3 +273,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-26 — Added Signifyd Mexico & Brazil: localized sites migrated to the new brand design and translated to Spanish.
 - 2026-10-26 — Updated Signifyd Mexico & Brazil: Brazil site link, Portuguese legal pages moved to the new design.
 - 2026-10-26 — Added Araks Inc: Drupal Commerce wholesale site, QuickBooks integration, performance, SEO and server work; new Employment row and Profile skills.
+- 2026-10-26 — Added People Movers: full WordPress / Elementor redesign, performance, accessibility and tracking optimization, landing page sections; new Employment row and Profile skills.
