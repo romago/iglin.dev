@@ -11,7 +11,7 @@ export default function About() {
         <div className="about__grid">
           <div className="about__text">
             <p>
-              I'm a full-stack web developer with <strong>{yearsExperience}+ years of hands-on experience</strong> building
+              I'm a web developer with <strong>{yearsExperience}+ years of hands-on experience</strong> building
               websites and web applications from scratch, on CMS platforms, and brand-specific solutions.
               My core strengths are PHP, JavaScript, React, HTML, CSS, and SQL.
             </p>
