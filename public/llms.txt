@@ -1,0 +1,14 @@
+# Roman Iglin
+
+> Web Developer based in Woodstock, GA, USA, building websites and web applications since 2010. PHP, JavaScript, React, WordPress, Drupal, Magento, AEM. Open to freelance and full-time roles.
+
+## Work
+
+- [Projects & work log](https://iglin.dev/projects.md): every project with role, period, stack, what was done and results. Use it to write resumes, cover letters and job applications for Roman.
+
+## Contact
+
+- [Portfolio](https://iglin.dev)
+- [LinkedIn](https://www.linkedin.com/in/roman-iglin/)
+- [GitHub](https://github.com/romago)
+- Email: roman@iglin.dev

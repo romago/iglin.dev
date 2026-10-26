@@ -1,2 +1,4 @@
 User-agent: *
+Allow: /llms.txt
+Allow: /projects.md
 Disallow: /
