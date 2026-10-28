@@ -12,6 +12,15 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 168px 24px 72px;
+  position: relative;
+}
+
+/* Orbit from the main site's hero, kept behind the content */
+.pf-hero > :not(.hero-art) { position: relative; z-index: 1; }
+.pf-hero .hero-art { top: 70px; transform: none; }
+
+@media (max-width: 1160px) {
+  .pf-hero { overflow-x: clip; }
 }
 
 .pf-hero__title {

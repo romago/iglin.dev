@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Logo from '../components/Logo'
+import HeroArt from '../components/HeroArt'
 import { projects, earlier } from './projects'
 import { CaseStudy, Lightbox } from './CaseStudy'
 import '../components/Header.css'
@@ -46,6 +47,7 @@ export default function Portfolio() {
       <Header />
       <main id="top">
         <section className="pf-hero">
+          <HeroArt />
           <p className="hero__greeting">&bull; Portfolio</p>
           <h1 className="pf-hero__title">
             Websites I&rsquo;ve built, redesigned <span>and made fast.</span>
