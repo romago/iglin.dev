@@ -5,4 +5,4 @@ TICKET_SECRET=local-dev-secret
 ALLOWED_ORIGINS=http://localhost:5173
 # GEMINI_API_KEY=
 # ANTHROPIC_API_KEY=
-# RESEND_API_KEY=
+# SMTP_PASSWORD=      # leave unset to log emails instead of sending them

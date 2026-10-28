@@ -10,12 +10,13 @@ compatibility_flags = ["nodejs_compat"]
 AI_PROVIDER = "gemini"
 GEMINI_MODEL = "gemini-flash-latest"
 CLAUDE_MODEL = "claude-opus-5-5"
-# Used to turn the AI's hour ranges into a price. Confirm before going live.
+# Used to turn the AI's hour ranges into a price.
 HOURLY_RATE = "50"
 NOTIFY_TO = "roman@iglin.dev"
-# onboarding@resend.dev can only send to the email the Resend account was opened with.
-# After verifying iglin.dev in Resend, switch to e.g. "Quick Estimate <estimate@iglin.dev>".
-MAIL_FROM = "Quick Estimate <onboarding@resend.dev>"
+# Mail is sent through the PrivateEmail mailbox itself; its password is the SMTP_PASSWORD secret.
+SMTP_HOST = "mail.privateemail.com"
+SMTP_PORT = "465"
+SMTP_USER = "roman@iglin.dev"
 ALLOWED_ORIGINS = "https://iglin.dev,https://www.iglin.dev"
 
 # Per-IP limit on top of Turnstile: 3 requests a minute.

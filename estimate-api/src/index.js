@@ -2,6 +2,7 @@
 // POST /estimate  Turnstile-checked project description -> AI estimate + signed ticket; emails Roman.
 // POST /send      ticket + visitor name and email -> emails Roman the project as a lead.
 import Anthropic from '@anthropic-ai/sdk'
+import { WorkerMailer } from 'worker-mailer'
 
 const TICKET_TTL_MS = 2 * 60 * 60 * 1000
 const PROJECT_TYPES = ['New website', 'Redesign', 'E-commerce', 'Web app', 'Speed & SEO', 'Integration / API', 'Support', 'Other']
@@ -289,19 +290,29 @@ function normalize(raw, rate) {
   }
 }
 
-// ── Email (Resend) ──
+// ── Email (SMTP of the roman@iglin.dev mailbox) ──
 
 async function sendMail(env, { subject, html, replyTo }) {
-  if (!env.RESEND_API_KEY) {
-    console.log('RESEND_API_KEY not set, email skipped:', subject)
+  if (!env.SMTP_PASSWORD) {
+    console.log('SMTP_PASSWORD not set, email skipped:', subject)
     return
   }
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: env.MAIL_FROM, to: [env.NOTIFY_TO], subject, html, ...(replyTo && { reply_to: replyTo }) }),
-  })
-  if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`)
+  await WorkerMailer.send(
+    {
+      host: env.SMTP_HOST,
+      port: Number(env.SMTP_PORT),
+      secure: true,
+      credentials: { username: env.SMTP_USER, password: env.SMTP_PASSWORD },
+      authType: ['plain', 'login'],
+    },
+    {
+      from: { name: 'Quick Estimate', email: env.SMTP_USER },
+      to: env.NOTIFY_TO,
+      ...(replyTo && { reply: replyTo }),
+      subject,
+      html,
+    },
+  )
 }
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
