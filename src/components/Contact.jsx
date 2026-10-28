@@ -1,4 +1,9 @@
+import { useState } from 'react'
+import { apiEnabled, post, useTurnstile } from '../lib/api'
+import './Estimate.css'
 import './Contact.css'
+
+const EMAIL = 'roman@iglin.dev'
 
 const links = [
   {
@@ -22,16 +27,6 @@ const links = [
     ),
   },
   {
-    label: 'Email',
-    href: 'mailto:roman@iglin.dev',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-        <polyline points="22,6 12,13 2,6"/>
-      </svg>
-    ),
-  },
-  {
     label: 'GitHub',
     href: 'https://github.com/romago',
     icon: (
@@ -41,6 +36,94 @@ const links = [
     ),
   },
 ]
+
+const mailIcon = (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+    )
+
+function CopyEmail() {
+  const [copied, setCopied] = useState(false)
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      window.location.href = `mailto:${EMAIL}`
+    }
+  }
+  return (
+    <button type="button" className="contact__link contact__copy" onClick={copy} aria-label={`Copy ${EMAIL}`}>
+      <span className="contact__link-icon">{mailIcon}</span>
+      <span>{EMAIL}</span>
+      <span className="contact__copy-hint">{copied ? 'Copied ✓' : 'Copy'}</span>
+    </button>
+  )
+}
+
+function ContactForm() {
+  const turnstile = useTurnstile('contact')
+  const [state, setState] = useState('idle') // idle | sending | sent
+  const [error, setError] = useState('')
+
+  const submit = async (ev) => {
+    ev.preventDefault()
+    if (!turnstile.token) {
+      setError('Please wait for the bot check to finish.')
+      return
+    }
+    const f = new FormData(ev.currentTarget)
+    setState('sending')
+    setError('')
+    try {
+      await post('/contact', { name: f.get('name'), email: f.get('email'), message: f.get('message'), company: f.get('company'), turnstileToken: turnstile.token })
+      setState('sent')
+    } catch (err) {
+      setError(err.message)
+      setState('idle')
+    } finally {
+      turnstile.reset()
+    }
+  }
+
+  if (state === 'sent') {
+    return (
+      <div className="est-sent">
+        <strong>Sent! ✓</strong> Thanks for your message. I will reply to your email soon.
+      </div>
+    )
+  }
+
+  return (
+    <form className="contact__form" onSubmit={submit}>
+      <div className="est-contact__fields">
+        <label className="est-field">
+          <span>Name</span>
+          <input name="name" required minLength={2} maxLength={100} autoComplete="name" />
+        </label>
+        <label className="est-field">
+          <span>Email</span>
+          <input name="email" type="email" required maxLength={200} autoComplete="email" />
+        </label>
+      </div>
+      <label className="est-field">
+        <span>Message</span>
+        <textarea name="message" rows={5} required minLength={10} maxLength={3000} placeholder="Tell me about your project, role or question." />
+      </label>
+      <input name="company" className="est-hp" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+      <div className="est-submit">
+        <div ref={turnstile.ref} className="est-turnstile" />
+        <button type="submit" className="est-btn" disabled={state === 'sending'}>
+          {state === 'sending' ? 'Sending…' : 'Send message →'}
+        </button>
+      </div>
+      {error && <p className="est-error" role="alert">{error}</p>}
+    </form>
+  )
+}
 
 export default function Contact() {
   return (
@@ -52,12 +135,15 @@ export default function Contact() {
             <p>
               I'm currently open to freelance projects, full-time roles, and interesting
               collaborations. Whether you have a project in mind or just want to say hi —
-              my inbox is always open.
+              send me a message and I will reply by email.
             </p>
-            <a href="mailto:roman@iglin.dev" className="contact__cta">
-              Say Hello →
-            </a>
+            {!apiEnabled && (
+              <a href={`mailto:${EMAIL}`} className="contact__cta">
+                Say Hello →
+              </a>
+            )}
           </div>
+          {apiEnabled && <ContactForm />}
           <div className="contact__links">
             {links.map(({ label, href, icon }) => (
               <a key={label} href={href} className="contact__link" target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>
@@ -65,6 +151,7 @@ export default function Contact() {
                 <span>{label}</span>
               </a>
             ))}
+            <CopyEmail />
           </div>
         </div>
       </div>
