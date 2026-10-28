@@ -1,7 +1,6 @@
 .est { background: var(--bg-secondary); }
 
 .est-intro {
-  max-width: 680px;
   color: var(--text-secondary);
   font-size: 1.05rem;
   line-height: 1.75;

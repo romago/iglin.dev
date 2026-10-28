@@ -14,6 +14,9 @@ async function post(path, data) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
+    signal: AbortSignal.timeout(90_000),
+  }).catch((err) => {
+    throw new Error(err.name === 'TimeoutError' ? 'The estimate took too long. Please try again.' : 'Could not reach the server. Please try again.')
   })
   const out = await res.json().catch(() => ({}))
   if (!res.ok) throw new Error(out.error || 'Something went wrong. Please try again.')

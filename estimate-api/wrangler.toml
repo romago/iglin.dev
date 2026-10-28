@@ -8,7 +8,8 @@ compatibility_flags = ["nodejs_compat"]
 [vars]
 # "gemini" (free tier) or "claude" (paid Claude API key, not a Claude Max subscription).
 AI_PROVIDER = "gemini"
-GEMINI_MODEL = "gemini-flash-latest"
+# Tried in order; the repeat gives the main model a second chance after a short pause.
+GEMINI_MODELS = "gemini-flash-latest,gemini-flash-lite-latest,gemini-flash-latest"
 CLAUDE_MODEL = "claude-opus-5-5"
 # Used to turn the AI's hour ranges into a price.
 HOURLY_RATE = "50"

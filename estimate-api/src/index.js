@@ -203,21 +203,42 @@ async function askModel(input, env) {
   return askGemini(input, env)
 }
 
+// Free-tier Gemini models are often briefly overloaded (503/429), so try each model in GEMINI_MODELS in turn.
 async function askGemini(input, env) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL}:generateContent`
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
-    body: JSON.stringify({
-      systemInstruction: { parts: [{ text: `${SYSTEM_PROMPT}\n\nJSON schema:\n${JSON.stringify(ESTIMATE_SCHEMA)}` }] },
-      contents: [{ role: 'user', parts: [{ text: userPrompt(input) }] }],
-      generationConfig: { responseMimeType: 'application/json' },
-    }),
+  const models = env.GEMINI_MODELS.split(',').map((m) => m.trim()).filter(Boolean)
+  const body = JSON.stringify({
+    systemInstruction: { parts: [{ text: `${SYSTEM_PROMPT}\n\nJSON schema:\n${JSON.stringify(ESTIMATE_SCHEMA)}` }] },
+    contents: [{ role: 'user', parts: [{ text: userPrompt(input) }] }],
+    generationConfig: { responseMimeType: 'application/json' },
   })
-  if (!res.ok) throw new Error(`Gemini ${res.status}: ${await res.text()}`)
-  const out = await res.json()
-  const text = out.candidates?.[0]?.content?.parts?.map((p) => p.text || '').join('') || ''
-  return JSON.parse(text)
+  let lastError
+  for (const [i, model] of models.entries()) {
+    if (i > 0) await new Promise((r) => setTimeout(r, 1000))
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+        signal: AbortSignal.timeout(25_000),
+        body,
+      })
+      if (!res.ok) {
+        lastError = new Error(`Gemini ${model} ${res.status}: ${await res.text()}`)
+        if ([404, 429, 500, 503].includes(res.status)) {
+          console.warn(lastError.message.slice(0, 200))
+          continue
+        }
+        throw lastError
+      }
+      const out = await res.json()
+      const text = out.candidates?.[0]?.content?.parts?.map((p) => p.text || '').join('') || ''
+      return JSON.parse(text)
+    } catch (err) {
+      if (err.name !== 'TimeoutError') throw err
+      lastError = new Error(`Gemini ${model} timed out`)
+      console.warn(lastError.message)
+    }
+  }
+  throw lastError
 }
 
 async function askClaude(input, env) {
