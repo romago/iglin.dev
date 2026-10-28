@@ -7,9 +7,9 @@ import '../components/Footer.css'
 import './Portfolio.css'
 
 const skills = [
-  'WordPress', 'Elementor', 'Beaver Builder', 'ACF', 'Drupal', 'PHP', 'JavaScript', 'React',
+  'WordPress', 'Elementor', 'Beaver Builder', 'ACF', 'Drupal', 'PHP', 'JavaScript', 'React', 'Chart.js',
   'HTML / CSS / SASS', 'MySQL / MariaDB', 'REST & SOAP APIs', 'Core Web Vitals', 'Technical SEO',
-  'GA4 / GTM', 'Linux / Nginx', 'WP-CLI', 'Puppeteer',
+  'GA4 / GTM', 'Linux / Nginx', 'DigitalOcean', 'WP Engine', 'WP-CLI', 'Puppeteer',
 ]
 
 function Header() {
@@ -61,7 +61,6 @@ function Browser({ shot, onOpen }) {
           <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" />
         </button>
       )}
-      {shot.scroll && <figcaption className="pf-browser__hint">Hover to scroll · click to enlarge</figcaption>}
     </figure>
   )
 }
@@ -70,7 +69,9 @@ function Phone({ shot, onOpen, className = '' }) {
   return (
     <button type="button" className={`pf-phone ${className}`} onClick={() => onOpen(shot)} aria-label={`Open screenshot: ${shot.alt}`}>
       <span className="pf-phone__notch" aria-hidden="true" />
-      <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" />
+      <span className="pf-phone__screen">
+        <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" />
+      </span>
     </button>
   )
 }
@@ -82,6 +83,7 @@ function Visual({ visual, onOpen }) {
         {visual.phones.map((p, i) => (
           <Phone key={p.src} shot={p} onOpen={onOpen} className={i === 1 ? 'pf-phone--offset' : ''} />
         ))}
+        <p className="pf-visual__hint">Hover to scroll · click to enlarge</p>
       </div>
     )
   }
@@ -90,6 +92,7 @@ function Visual({ visual, onOpen }) {
     <div className="pf-visual pf-visual--browser">
       <Browser shot={visual.browser} onOpen={onOpen} />
       {visual.phone && <Phone shot={visual.phone} onOpen={onOpen} className="pf-phone--overlap" />}
+      {visual.browser.scroll && <p className="pf-visual__hint">Hover to scroll · click to enlarge</p>}
     </div>
   )
 }
