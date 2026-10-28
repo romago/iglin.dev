@@ -56,6 +56,26 @@
   opacity: 1;
 }
 
+.contact__copy {
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.contact__copy-hint {
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .contact__link-icon {
   color: var(--accent);
   display: flex;

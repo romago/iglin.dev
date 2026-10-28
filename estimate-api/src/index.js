@@ -1,6 +1,7 @@
 // Quick Estimate API for iglin.dev.
 // POST /estimate  Turnstile-checked project description -> AI estimate + signed ticket; emails Roman.
 // POST /send      ticket + visitor name and email -> emails Roman the project as a lead.
+// POST /contact   Turnstile-checked contact form -> emails Roman the message.
 import Anthropic from '@anthropic-ai/sdk'
 import { WorkerMailer } from 'worker-mailer'
 
@@ -67,7 +68,7 @@ export default {
 
     const json = (data, status = 200) => Response.json(data, { status, headers: cors })
     const { pathname } = new URL(request.url)
-    if (request.method !== 'POST' || !['/estimate', '/send'].includes(pathname)) return json({ error: 'Not found' }, 404)
+    if (request.method !== 'POST' || !['/estimate', '/send', '/contact'].includes(pathname)) return json({ error: 'Not found' }, 404)
 
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown'
     const { success } = await env.LIMITER.limit({ key: `${pathname}:${ip}` })
@@ -84,6 +85,7 @@ export default {
 
     try {
       if (pathname === '/estimate') return json(await handleEstimate(body, env, ctx, ip, request))
+      if (pathname === '/contact') return json(await handleContact(body, env, ip))
       return json(await handleSend(body, env))
     } catch (err) {
       if (err instanceof UserError) return json({ error: err.message }, 400)
@@ -139,6 +141,29 @@ async function handleSend(body, env) {
     subject: `New project from ${name}: ${data.estimate.title}`,
     replyTo: email,
     html: leadHtml({ ...data, contact: { name, email, message }, note: `${name} sent this project from the Quick Estimate on iglin.dev. Reply to this email to answer them.` }),
+  })
+  return { ok: true }
+}
+
+async function handleContact(body, env, ip) {
+  const name = String(body.name || '').trim().slice(0, 100)
+  const email = String(body.email || '').trim().slice(0, 200)
+  const message = String(body.message || '').trim().slice(0, 3000)
+  if (name.length < 2) throw new UserError('Please enter your name.')
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) throw new UserError('Please enter a valid email.')
+  if (message.length < 10) throw new UserError('Please write a bit more (at least 10 characters).')
+
+  const human = await verifyTurnstile(body.turnstileToken, ip, env)
+  if (!human) throw new UserError('Bot check failed. Please reload the page and try again.')
+
+  await sendMail(env, {
+    subject: `Message from ${name} via iglin.dev`,
+    replyTo: email,
+    html: `<div style="font-family:system-ui,sans-serif;font-size:15px;line-height:1.5;color:#111">
+<p style="color:#555">${esc(name)} wrote through the contact form on iglin.dev. Reply to this email to answer them.</p>
+<p><b>${esc(name)}</b> &lt;<a href="mailto:${esc(email)}">${esc(email)}</a>&gt;</p>
+<p style="white-space:pre-wrap">${esc(message)}</p>
+</div>`,
   })
   return { ok: true }
 }

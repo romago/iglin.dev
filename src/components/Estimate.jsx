@@ -1,65 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
+import { apiEnabled, post, useTurnstile } from '../lib/api'
 import './Estimate.css'
-
-// Without these (see .env.*) the form falls back to a prefilled email.
-const API = import.meta.env.VITE_ESTIMATE_API
-const SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY
 
 const types = ['New website', 'Redesign', 'E-commerce', 'Web app', 'Speed & SEO', 'Integration / API', 'Support', 'Other']
 const timelines = ['ASAP', '1–2 months', 'Flexible']
 const money = (v) => `$${v.toLocaleString('en-US')}`
-
-async function post(path, data) {
-  const res = await fetch(`${API}${path}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-    signal: AbortSignal.timeout(90_000),
-  }).catch((err) => {
-    throw new Error(err.name === 'TimeoutError' ? 'The estimate took too long. Please try again.' : 'Could not reach the server. Please try again.')
-  })
-  const out = await res.json().catch(() => ({}))
-  if (!res.ok) throw new Error(out.error || 'Something went wrong. Please try again.')
-  return out
-}
-
-function useTurnstile(enabled) {
-  const ref = useRef(null)
-  const widget = useRef(null)
-  const [token, setToken] = useState('')
-
-  useEffect(() => {
-    if (!enabled) return
-    const render = () => {
-      if (widget.current !== null || !ref.current) return
-      widget.current = window.turnstile.render(ref.current, {
-        sitekey: SITE_KEY,
-        action: 'estimate',
-        theme: 'dark',
-        callback: setToken,
-        'expired-callback': () => setToken(''),
-        'error-callback': () => setToken(''),
-      })
-    }
-    if (window.turnstile) return render()
-    window.onTurnstileLoad = render
-    if (!document.querySelector('script[data-turnstile]')) {
-      const s = document.createElement('script')
-      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad'
-      s.async = true
-      s.dataset.turnstile = ''
-      document.head.appendChild(s)
-    }
-  }, [enabled])
-
-  // Tokens are single-use, so get a fresh one after every submit.
-  const reset = () => {
-    setToken('')
-    if (widget.current !== null) window.turnstile.reset(widget.current)
-  }
-
-  return { ref, token, reset }
-}
 
 function Result({ estimate: e, ticket, onRestart }) {
   const [step, setStep] = useState('idle') // idle | form | sending | sent
@@ -188,8 +133,8 @@ function Result({ estimate: e, ticket, onRestart }) {
 }
 
 export default function Estimate() {
-  const enabled = Boolean(API && SITE_KEY)
-  const turnstile = useTurnstile(enabled)
+  const enabled = apiEnabled
+  const turnstile = useTurnstile('estimate')
   const [type, setType] = useState(types[0])
   const [timeline, setTimeline] = useState(timelines[1])
   const [loading, setLoading] = useState(false)
