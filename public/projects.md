@@ -16,7 +16,7 @@
 ## Profile
 
 - **Name:** Roman Iglin
-- **Title:** Web Developer
+- **Title:** Full Stack Developer
 - **Location:** Woodstock, GA, USA
 - **Experience:** professional web development since 2010
 - **Open to:** freelance projects, full-time roles
@@ -25,8 +25,8 @@
 - **GitHub:** https://github.com/romago
 - **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, SQL
 - **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
-- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare
-- **AI:** AI integration, LLM API integration (Google Gemini API), AI-generated content with automated checks and human review
+- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare, Cloudflare Workers, Cloudflare Turnstile, GitHub Actions
+- **AI:** AI integration, LLM API integration (Google Gemini API, Claude API, Cloudflare Workers AI), structured JSON output, multi-provider fallback, AI-generated content with automated checks and human review
 - **Integrations:** REST API, JSON / XML, SOAP, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
 - **Design:** Figma, Sketch, Adobe Photoshop, Adobe Illustrator, UI/UX mockups
@@ -46,6 +46,28 @@
 ---
 
 ## Projects
+
+### iglin.dev — personal site, portfolio and AI project estimator (React, Cloudflare Workers, LLM integration)
+
+- **Client:** Personal project (Roman's own portfolio and lead-generation site)
+- **Role:** Full Stack Developer (design, front end, back end, deployment)
+- **Period:** Apr 2026 — present
+- **Status:** active
+- **Stack:** React 19, Vite, JavaScript, CSS, Cloudflare Workers, Wrangler, Cloudflare Turnstile, Cloudflare Workers AI (Llama 3.3 70B), Google Gemini API, Claude API (Anthropic SDK), JSON Schema structured output, SMTP, GitHub Actions, GitHub Pages
+- **Link:** https://iglin.dev, https://portfolio.iglin.dev
+- **Last updated:** 2026-10-28
+
+**Summary**
+Roman's personal site and a separate portfolio site built from one React codebase, with a "Quick Estimate" tool where visitors describe a project and get an AI-generated price, hours and timeline that reach Roman as leads by email.
+
+**What I did**
+- Built the main site and the portfolio site (portfolio.iglin.dev) in React and Vite from one codebase with shared case-study components: browser and phone mockups with hover-scrolling full-page screenshots, a lightbox and metric tiles; deployed with GitHub Actions to GitHub Pages.
+- Built an AI project estimator: the LLM is prompted with Roman's real reference projects, returns a JSON Schema-validated breakdown (tasks, hours, timeline, stack, assumptions, open questions), and the price is computed on the server from the hours.
+- Built the serverless back end as a Cloudflare Worker with multi-provider LLM support: Google Gemini API as the primary model, automatic fallback to Cloudflare Workers AI (Llama 3.3 70B) when the free tier is overloaded or slow, and optional Claude API; request timeouts on every call.
+- Protected the estimator from bots and abuse: server-side Cloudflare Turnstile verification, per-IP rate limiting, a honeypot field, a CORS allowlist and HMAC-signed, short-lived tickets for the follow-up step, with no database.
+- Automated lead capture: email notifications over SMTP for every estimate and for "Send to Roman" requests, with the visitor set as Reply-To so a lead can be answered directly.
+
+**Keywords:** AI integration, LLM integration, LLM API, Google Gemini API, Claude API, Anthropic SDK, Cloudflare Workers AI, structured output, JSON Schema, AI fallback, serverless, Cloudflare Workers, edge functions, Cloudflare Turnstile, bot protection, rate limiting, HMAC, CORS, React, Vite, portfolio website, lead generation, SMTP email, GitHub Actions, GitHub Pages, full stack development
 
 ### FLS Transportation Services — corporate website (WordPress migration, WPBakery to Beaver Builder rebuild, French version, SEO)
 
@@ -293,3 +315,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-28 — Updated FLS Transportation Services: custom Beaver Builder modules.
 - 2026-10-28 — Updated FLS Transportation Services: the localization plugin is Roman's own work.
 - 2026-10-28 — Updated Araks Inc: AI integration (Google Gemini API) tagged in the title, summary and keywords; AI line added to Profile.
+- 2026-10-28 — Added iglin.dev: personal and portfolio sites, AI project estimator on Cloudflare Workers with Gemini / Workers AI fallback, bot protection and email leads; Profile title changed to Full Stack Developer, AI and DevOps skills extended.
