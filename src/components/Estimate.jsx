@@ -140,8 +140,9 @@ function Result({ estimate: e, ticket, onRestart }) {
       </div>
 
       <p className="est-disclaimer">
-        This estimate was made by AI calibrated on my real projects and rate (${e.rate}/h), so it is
-        usually very close to the final quote. I confirm the exact price after a short call.
+        This estimate was made by AI calibrated on my real projects and rate (${e.rate}/h). With a
+        detailed description it is usually very close to the final price. If some details are missing,
+        I review the project, ask what I need by email and then send you an exact quote.
       </p>
 
       {step === 'sent' ? (
