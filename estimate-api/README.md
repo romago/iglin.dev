@@ -20,6 +20,8 @@ npm run dev                      # http://localhost:8787, used by the site's .en
    mode Managed. Copy the site key and the secret key.
 3. **AI key**, one of:
    - Gemini (free tier): key from https://aistudio.google.com/apikey, keep `AI_PROVIDER = "gemini"`.
+     The free models are often overloaded, so when every model in `GEMINI_MODELS` fails the worker
+     falls back to `WORKERS_AI_MODEL` on Cloudflare Workers AI (free daily allowance, no key).
    - Claude API (paid per use, a few cents per estimate): key from https://console.anthropic.com,
      set `AI_PROVIDER = "claude"`. A Claude Max subscription cannot be used for this.
 4. **Email**: nothing to sign up for. The worker logs in to mail.privateemail.com:465 as

@@ -1,7 +1,6 @@
 .est { background: var(--bg-secondary); }
 
 .est-intro {
-  max-width: 680px;
   color: var(--text-secondary);
   font-size: 1.05rem;
   line-height: 1.75;
@@ -211,6 +210,9 @@
   font-size: 0.9rem;
 }
 
+/* Shorter button label on phones */
+.est-narrow { display: none; }
+
 /* ── Result ── */
 .est-result__head {
   display: flex;
@@ -389,5 +391,7 @@
   .est-total--main .est-total__value { font-size: 1.7rem; }
   .est-total__value { font-size: 1.25rem; }
   .est-submit .est-btn,
-  .est-actions .est-btn { width: 100%; }
+  .est-actions .est-btn { width: 100%; white-space: nowrap; }
+  .est-wide { display: none; }
+  .est-narrow { display: inline; }
 }

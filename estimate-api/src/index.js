@@ -200,24 +200,63 @@ function userPrompt(input) {
 async function askModel(input, env) {
   if (env.AI_PROVIDER === 'claude') return askClaude(input, env)
   if (env.AI_PROVIDER === 'mock') return mockEstimate(input)
-  return askGemini(input, env)
+  try {
+    return await askGemini(input, env)
+  } catch (err) {
+    console.warn('Gemini failed, using Workers AI:', err.message.slice(0, 200))
+    return askWorkersAI(input, env)
+  }
 }
 
-async function askGemini(input, env) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL}:generateContent`
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
-    body: JSON.stringify({
-      systemInstruction: { parts: [{ text: `${SYSTEM_PROMPT}\n\nJSON schema:\n${JSON.stringify(ESTIMATE_SCHEMA)}` }] },
-      contents: [{ role: 'user', parts: [{ text: userPrompt(input) }] }],
-      generationConfig: { responseMimeType: 'application/json' },
-    }),
+// Fallback that runs inside Cloudflare (free daily allowance, no extra key).
+async function askWorkersAI(input, env) {
+  const out = await env.AI.run(env.WORKERS_AI_MODEL, {
+    messages: [
+      { role: 'system', content: SYSTEM_PROMPT },
+      { role: 'user', content: userPrompt(input) },
+    ],
+    response_format: { type: 'json_schema', json_schema: ESTIMATE_SCHEMA },
+    max_tokens: 4000,
   })
-  if (!res.ok) throw new Error(`Gemini ${res.status}: ${await res.text()}`)
-  const out = await res.json()
-  const text = out.candidates?.[0]?.content?.parts?.map((p) => p.text || '').join('') || ''
-  return JSON.parse(text)
+  return typeof out.response === 'string' ? JSON.parse(out.response) : out.response
+}
+
+// Free-tier Gemini models are often overloaded (503/429) or slow, so try each model in GEMINI_MODELS in turn.
+async function askGemini(input, env) {
+  const models = env.GEMINI_MODELS.split(',').map((m) => m.trim()).filter(Boolean)
+  const body = JSON.stringify({
+    systemInstruction: { parts: [{ text: `${SYSTEM_PROMPT}\n\nJSON schema:\n${JSON.stringify(ESTIMATE_SCHEMA)}` }] },
+    contents: [{ role: 'user', parts: [{ text: userPrompt(input) }] }],
+    generationConfig: { responseMimeType: 'application/json' },
+  })
+  let lastError
+  for (const [i, model] of models.entries()) {
+    if (i > 0) await new Promise((r) => setTimeout(r, 1000))
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+        signal: AbortSignal.timeout(20_000),
+        body,
+      })
+      if (!res.ok) {
+        lastError = new Error(`Gemini ${model} ${res.status}: ${await res.text()}`)
+        if ([404, 429, 500, 503].includes(res.status)) {
+          console.warn(lastError.message.slice(0, 200))
+          continue
+        }
+        throw lastError
+      }
+      const out = await res.json()
+      const text = out.candidates?.[0]?.content?.parts?.map((p) => p.text || '').join('') || ''
+      return JSON.parse(text)
+    } catch (err) {
+      if (err.name !== 'TimeoutError') throw err
+      lastError = new Error(`Gemini ${model} timed out`)
+      console.warn(lastError.message)
+    }
+  }
+  throw lastError
 }
 
 async function askClaude(input, env) {
