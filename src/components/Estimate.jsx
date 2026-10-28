@@ -140,8 +140,8 @@ function Result({ estimate: e, ticket, onRestart }) {
       </div>
 
       <p className="est-disclaimer">
-        This estimate was made by AI calibrated on my real projects and rate (${e.rate}/h). With a
-        detailed description it is usually very close to the final price. If some details are missing,
+        This estimate was made by AI calibrated on my real projects and rates. With a detailed
+        description it is usually very close to the final price. If some details are missing,
         I review the project, ask what I need by email and then send you an exact quote.
       </p>
 
@@ -237,7 +237,7 @@ export default function Estimate() {
           Describe your project and get a ballpark price, hours and timeline in about 20 seconds.
           <span className="est-intro__note">
             <span className="est-badge">✦ AI</span> The estimate is made by AI calibrated on my real
-            projects and rate, so it comes out very close to the real quote.
+            projects and rates, so it comes out very close to the real quote.
           </span>
         </p>
 
