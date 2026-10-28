@@ -210,6 +210,9 @@
   font-size: 0.9rem;
 }
 
+/* Shorter button label on phones */
+.est-narrow { display: none; }
+
 /* ── Result ── */
 .est-result__head {
   display: flex;
@@ -388,12 +391,7 @@
   .est-total--main .est-total__value { font-size: 1.7rem; }
   .est-total__value { font-size: 1.25rem; }
   .est-submit .est-btn,
-  .est-actions .est-btn { width: 100%; padding: 14px 16px; font-size: 0.95rem; white-space: nowrap; }
-}
-
-@media (max-width: 360px) {
-  .est-form,
-  .est-result { padding: 24px 16px; }
-  .est-submit .est-btn,
-  .est-actions .est-btn { padding: 14px 12px; font-size: 0.9rem; }
+  .est-actions .est-btn { width: 100%; white-space: nowrap; }
+  .est-wide { display: none; }
+  .est-narrow { display: inline; }
 }

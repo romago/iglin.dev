@@ -151,7 +151,9 @@ function Result({ estimate: e, ticket, onRestart }) {
         </div>
       ) : step === 'idle' ? (
         <div className="est-actions">
-          <button type="button" className="est-btn" onClick={() => setStep('form')}>Send this project to Roman →</button>
+          <button type="button" className="est-btn" onClick={() => setStep('form')}>
+            Send <span className="est-wide">this project</span><span className="est-narrow">it</span> to Roman →
+          </button>
           <button type="button" className="est-btn est-btn--ghost" onClick={onRestart}>New estimate</button>
         </div>
       ) : (
