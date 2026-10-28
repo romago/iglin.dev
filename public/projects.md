@@ -24,7 +24,7 @@
 - **LinkedIn:** https://www.linkedin.com/in/roman-iglin/
 - **GitHub:** https://github.com/romago
 - **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, SQL
-- **CMS & platforms:** WordPress, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
+- **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
 - **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare
 - **Integrations:** REST API, JSON / XML, SOAP, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
@@ -34,6 +34,7 @@
 
 | Period | Company | Role | Location |
 | --- | --- | --- | --- |
+| 2025 — 2026 | FLS Transportation Services | Web Developer | remote |
 | ongoing | People Movers | Web Developer / Performance Optimization (freelance) | California (remote) |
 | Jun 2026 — present | Arthur Ray Law Offices | Web Developer / Technical SEO (freelance) | Memphis, TN (remote) |
 | Apr 2021 — present | Signifyd | Web Developer (freelance, continuous since 2021) | San Jose, CA (remote) |
@@ -44,6 +45,28 @@
 ---
 
 ## Projects
+
+### FLS Transportation Services — corporate website (WordPress migration, WPBakery to Beaver Builder rebuild, French version, SEO)
+
+- **Client:** FLS Transportation Services (North American freight brokerage and logistics company)
+- **Role:** Web Developer
+- **Period:** 2025 — 2026
+- **Status:** completed
+- **Stack:** WordPress, PHP, WPBakery Page Builder, Beaver Builder, Beaver Builder theme (child theme), custom Beaver Builder modules, custom localization plugin, ACF, Yoast SEO, schema.org / JSON-LD, hreflang, JavaScript, jQuery, Swiper, Apache, GA4, Google Tag Manager, HubSpot
+- **Link:** https://www.flstransport.com
+- **Last updated:** 2026-10-28
+
+**Summary**
+Migration of FLS Transportation's WordPress website from its previous hosting to a custom server and from WPBakery Page Builder to Beaver Builder, a French (Canada) version of the site, and SEO and design improvements.
+
+**What I did**
+- Migrated the WordPress site from its previous hosting to a custom server and set it up for production.
+- Built a custom WordPress localization plugin and used it to add a French (Canada) version of the site: /fr/ URLs, a language switcher, and hreflang links between versions (en-US, fr-CA, x-default).
+- Optimized SEO with Yoast SEO: page titles and meta descriptions, schema.org JSON-LD, and multilingual SEO for the bilingual site.
+- Migrated the whole site from WPBakery Page Builder to Beaver Builder, rebuilding the pages with an improved design, a custom child theme and ACF-driven content.
+- Developed custom Beaver Builder modules (PHP, JavaScript, CSS) as reusable, editable components for the site's pages.
+
+**Keywords:** WordPress, website migration, WPBakery to Beaver Builder migration, page builder migration, custom Beaver Builder modules, server migration, hosting migration, multilingual website, French localization, fr-CA, hreflang, international SEO, technical SEO, Yoast SEO, Beaver Builder, ACF, custom WordPress plugin, web design, logistics website
 
 ### People Movers — moving company website (WordPress / Elementor redesign, performance & landing pages)
 
@@ -264,3 +287,7 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-28 — Updated Signifyd: WP Engine hosting management, configuration and caching.
 - 2026-10-28 — Updated Signifyd: React, Chart.js, Docker, data formats and design tools in the stack.
 - 2026-10-28 — Updated Araks Inc: self-provisioned DigitalOcean server, full LAMP stack and its optimization.
+- 2026-10-28 — Added FLS Transportation Services: hosting-to-custom-server migration, French (Canada) version, SEO and design.
+- 2026-10-28 — Updated FLS Transportation Services: WPBakery to Beaver Builder migration.
+- 2026-10-28 — Updated FLS Transportation Services: custom Beaver Builder modules.
+- 2026-10-28 — Updated FLS Transportation Services: the localization plugin is Roman's own work.
