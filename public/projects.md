@@ -2,7 +2,7 @@
 
 > Structured record of Roman Iglin's projects, responsibilities and results.
 > Written for AI assistants that prepare resumes, cover letters and job applications for Roman.
-> Last updated: 2026-10-26
+> Last updated: 2026-10-28
 
 ## Notes for AI readers
 
@@ -10,6 +10,7 @@
 - Entries are ordered newest first. Prefer recent work and entries whose **Stack** and **Keywords** match the job description.
 - "What I did" bullets are written to be reused in a resume, rephrased as needed.
 - Some client work is described without confidential details on purpose. Do not guess at them.
+- Signifyd is one continuous freelance engagement from April 2021 to the present. The Signifyd entries below are projects within it; a later project start date is not the start of the collaboration.
 - Human-readable portfolio: https://iglin.dev
 
 ## Profile
@@ -22,9 +23,9 @@
 - **Email:** roman@iglin.dev
 - **LinkedIn:** https://www.linkedin.com/in/roman-iglin/
 - **GitHub:** https://github.com/romago
-- **Core stack:** PHP, JavaScript, React, HTML5, CSS3 / SASS / LESS, SQL
+- **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, SQL
 - **CMS & platforms:** WordPress, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
-- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare
+- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare
 - **Integrations:** REST API, JSON / XML, SOAP, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
 - **Design:** Figma, Sketch, Adobe Photoshop, Adobe Illustrator, UI/UX mockups
@@ -35,7 +36,7 @@
 | --- | --- | --- | --- |
 | ongoing | People Movers | Web Developer / Performance Optimization (freelance) | California (remote) |
 | Jun 2026 — present | Arthur Ray Law Offices | Web Developer / Technical SEO (freelance) | Memphis, TN (remote) |
-| Apr 2021 — present | Signifyd | Web Developer (freelance) | San Jose, CA (remote) |
+| Apr 2021 — present | Signifyd | Web Developer (freelance, continuous since 2021) | San Jose, CA (remote) |
 | May 2020 — Apr 2021 | Western Digital | Web Developer | Irvine, CA |
 | 2017 — present | Araks Inc | Web Developer (freelance) | Los Angeles, CA (remote) |
 | Jun 2012 — Apr 2020 | Polish TV Company | Web & Application Developer | New York, NY |
@@ -78,12 +79,12 @@ Full redesign of the WordPress / Elementor website of a California moving compan
 - **Role:** Web Developer (freelance)
 - **Period:** 2017 — present
 - **Status:** active
-- **Stack:** Drupal 7, Drupal Commerce, PHP 8.5, MariaDB / MySQL, JavaScript, jQuery, Drupal Views, Rules, Linux (Ubuntu), HestiaCP, Nginx, Apache, PHP-FPM, QuickBooks Desktop (qbXML, Web Connector SOAP), Google Gemini API, GA4 Data API, Search Console API, PageSpeed Insights API, schema.org / JSON-LD, Puppeteer, rclone, Brevo SMTP, Bash, Git
+- **Stack:** Drupal 7, Drupal Commerce, PHP 8.5, MariaDB / MySQL, JavaScript, jQuery, Drupal Views, Rules, DigitalOcean (droplet), LAMP stack: Linux (Ubuntu), Apache, MariaDB / MySQL, PHP; Nginx, PHP-FPM, HestiaCP, Let's Encrypt, QuickBooks Desktop (qbXML, Web Connector SOAP), Google Gemini API, GA4 Data API, Search Console API, PageSpeed Insights API, schema.org / JSON-LD, Puppeteer, rclone, Brevo SMTP, Bash, Git
 - **Link:** https://araks.org
-- **Last updated:** 2026-10-26
+- **Last updated:** 2026-10-28
 
 **Summary**
-Development, maintenance and server administration of Araks' Drupal 7 / Drupal Commerce site, where store customers and sales reps place wholesale orders from a catalog of about 1,700 products. In 2026 the work centered on a QuickBooks integration, performance, technical SEO, lead generation and server reliability.
+Development, maintenance and server administration of Araks' Drupal 7 / Drupal Commerce site, hosted on a DigitalOcean server that I set up and maintain, where store customers and sales reps place wholesale orders from a catalog of about 1,700 products. In 2026 the work centered on a QuickBooks integration, performance, technical SEO, lead generation and server reliability.
 
 **What I did**
 - Built a QuickBooks Desktop integration from scratch: a hand-written Web Connector SOAP/qbXML endpoint with a job queue, hourly product, price and stock sync for about 7,500 items, daily customer and vendor sync, and automatic export of web orders as Sales Orders (restocking orders as Purchase Orders), replacing manual CSV and XLSX exchange. Added a low-margin alert and a sales analytics dashboard on top of the synced data.
@@ -92,8 +93,8 @@ Development, maintenance and server administration of Araks' Drupal 7 / Drupal C
 - Led technical SEO: clean URLs with about 3,900 automatic 301 redirects, a complete XML sitemap, schema.org JSON-LD (Product, BreadcrumbList, WholesaleStore, FAQPage) and a brand and country-of-origin taxonomy. Connected the GA4, Search Console and PageSpeed Insights APIs for reporting.
 - Built the lead generation pipeline: an English/Russian wholesale landing page, a spam-protected lead form, approval with expiring one-time price-list links, follow-up and abandoned-cart emails, and GA4 key events.
 - Built an AI catalog module on the Google Gemini API that rewrote raw QuickBooks item names into clean product titles and descriptions for the whole catalog, with automated checks and a review and revert workflow.
-- Migrated production from PHP 7.4 to PHP 8.5 on Drupal 7 through a staging copy and scripted backup, verification and rollback (12 seconds of maintenance mode). Resolved site hangs from database lock pile-ups by tuning MariaDB and PHP-FPM and adding slow-query logging.
-- Made the server reliable and secure: fixed silently failing nightly backups, added encrypted weekly off-site copies with a tested restore and alerts, removed publicly exposed debug logs and backups, and verified SPF, DKIM and DMARC.
+- Set up and maintain the production server on a DigitalOcean droplet: a full LAMP stack on Ubuntu (Apache with event MPM, MariaDB / MySQL, PHP-FPM) behind Nginx, managed with HestiaCP, with Let's Encrypt SSL, HTTP/2 and TLS 1.3. Optimized it end to end (Nginx compression and static caching, PHP-FPM pools, MariaDB memory and I/O, swap) and migrated production from PHP 7.4 to 8.5 with scripted backup and rollback and 12 seconds of maintenance mode.
+- Kept the server reliable and secure: resolved site hangs from database lock pile-ups with slow-query logging and automatic incident snapshots, fixed silently failing nightly backups and added encrypted weekly off-site copies with a tested restore and alerts, removed publicly exposed debug logs and backups, and verified SPF, DKIM and DMARC.
 
 **Results**
 - Signed-in checkout page: server response 7–13 s → about 0.5 s.
@@ -103,7 +104,7 @@ Development, maintenance and server administration of Araks' Drupal 7 / Drupal C
 - Database: buffer-pool hit rate 98.1% → 99.8%; slowest admin report query 4.5 s → 0.1 s.
 - Google Search Console, the month after the URL, sitemap and SEO work vs the month before: impressions +98%, clicks +62%.
 
-**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, Drupal Views, Core Web Vitals, lazy loading, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI content generation, Gemini API, Linux server administration, MariaDB tuning, Nginx, backups, disaster recovery, website security, email deliverability, debugging, data integrity
+**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, Drupal Views, Core Web Vitals, lazy loading, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI content generation, Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
 
 ### Arthur Ray Law Offices — law firm websites (WordPress & technical SEO)
 
@@ -140,17 +141,18 @@ Development, technical SEO and maintenance of two WordPress sites for a Memphis 
 - **Role:** Web Developer (freelance)
 - **Period:** Apr 2021 — present
 - **Status:** active
-- **Stack:** WordPress, PHP, JavaScript, Beaver Builder, REST API, Marketo, GTM, GA4, Smartling
+- **Stack:** WordPress, PHP, JavaScript, React, Chart.js, HTML, CSS, Beaver Builder, WP Engine, WP-CLI, SSH, Docker, REST API, JSON / XML, Marketo, GTM, GA4, Smartling, Figma, Sketch, Adobe Photoshop, Adobe Illustrator
 - **Link:** https://www.signifyd.com
-- **Last updated:** 2026-10-26
+- **Last updated:** 2026-10-28
 
 **Summary**
-Ongoing development and maintenance of Signifyd's WordPress marketing website: new features, custom plugins, third-party data integrations, analytics, performance and localization.
+Long-term freelance collaboration with Signifyd since April 2021: ongoing development and maintenance of its WordPress marketing website: new features, custom plugins, third-party data integrations, analytics, performance and localization.
 
 **What I did**
-- Developed custom WordPress plugins and site features, and built pages in Beaver Builder with custom HTML, CSS and JavaScript.
+- Developed custom WordPress plugins and site features with PHP, JavaScript, React and Chart.js, and built pages in Beaver Builder from Figma and Sketch designs with custom HTML, CSS and JavaScript.
 - Integrated third-party data through REST APIs: G2, Greenhouse and Marketo.
 - Led Core Web Vitals performance optimization of the site.
+- Managed and configured Signifyd's WP Engine hosting across its installs (production, development and the EMEA, Mexico and Brazil sites): environments, SSH and WP-CLI access, deployments, and page and object caching for performance.
 - Implemented analytics and consent: Google Tag Manager tags and triggers, GA4 tracking and Consent Mode v2.
 - Localized the websites through Smartling (Global Delivery Network / Connector).
 - Built Marketo forms and marketing HTML email templates.
@@ -159,39 +161,41 @@ Ongoing development and maintenance of Signifyd's WordPress marketing website: n
 **Results**
 - Core Web Vitals performance score: ~30 → 90.
 
-**Keywords:** WordPress plugin development, REST API, Core Web Vitals, performance optimization, GTM, GA4, Consent Mode v2, Marketo, Smartling, localization, email templates
+**Keywords:** WordPress plugin development, React, Chart.js, Docker, Figma, WP Engine, managed WordPress hosting, WP-CLI, caching, REST API, Core Web Vitals, performance optimization, GTM, GA4, Consent Mode v2, Marketo, Smartling, localization, email templates
 
-### Signifyd Mexico & Brazil — localized websites redesign and translation
+### Signifyd Mexico & Brazil — localized websites built from scratch, translated and redesigned
 
 - **Client:** Signifyd (e-commerce fraud protection)
 - **Role:** Web Developer (freelance)
-- **Period:** Oct 2026 — present
+- **Period:** within the Signifyd engagement, which runs since Apr 2021; 2026 redesign Oct 2026 — present
 - **Status:** active
-- **Stack:** WordPress, PHP, WP-CLI, Beaver Builder, Beaver Themer, Yoast SEO, FacetWP, GSAP, Node.js (PostCSS), Python, Google Sheets API, WP Engine
+- **Stack:** WordPress, PHP, WP-CLI, Beaver Builder, Beaver Themer, Yoast SEO, FacetWP, GSAP, Node.js (PostCSS), Python, Google Sheets API, hreflang, WP Engine
 - **Link:** https://mx.signifyd.com, https://br.signifyd.com
-- **Last updated:** 2026-10-26
+- **Last updated:** 2026-10-28
 
 **Summary**
-Migration of Signifyd's Spanish (Mexico) and Portuguese (Brazil) WordPress sites to the company's new brand design from the main site, followed by translation of the new pages from the localization team's translation sheet.
+Built Signifyd's Spanish (Mexico) and Portuguese (Brazil) WordPress sites from scratch, translated them and linked them to the company's other regional sites with hreflang. In 2026 migrated both sites to the new brand design from the main site and translated the new pages from the localization team's translation sheet.
 
 **What I did**
-- Migrated the Mexico site to the new brand design (22 pages, the global header and footer, blog and customer-story templates), then reused the work for the Brazil site, including its legal pages with the existing Portuguese text.
+- Built the Mexico and Brazil WordPress sites from scratch and localized them into Spanish and Portuguese.
+- Set up hreflang annotations across the pages, linking each localized page to its language and regional counterparts so search engines serve the right version in each market.
+- In 2026 migrated the Mexico site to the new brand design (22 pages, the global header and footer, blog and customer-story templates), then reused the work for the Brazil site, including its legal pages with the existing Portuguese text.
 - Built WP-CLI import and export tooling for Beaver Builder layouts: page data and SEO meta, media re-creation with ID remapping, global color tokens, and a render check before every write.
 - Wrote a Node.js (PostCSS) tool that removes unused layout CSS by testing selectors against the rendered pages.
 - Automated a safe release on a live production site: old and new designs ran side by side behind page tags, and a go-live script with dry-run, snapshots and rollback swapped the pages, carried over hreflang and canonical tags, and re-pointed menus.
-- Localized the new pages into Spanish: scripted import of pages, menus and SEO meta from the translation sheet with mismatch checks, plus the localization team's review changes (local case studies, logos, calls to action).
+- Translated the redesigned pages into Spanish: scripted import of pages, menus and SEO meta from the translation sheet with mismatch checks, plus the localization team's review changes (local case studies, logos, calls to action).
 - Polished mobile layouts and animations to match the main site, and audited the localized sites for publicly exposed files, coordinating the fixes with the team lead.
 
 **Results**
 - Page layout CSS reduced by up to 97% (52 KB → 1.2 KB; header 40 KB → 10 KB).
 
-**Keywords:** WordPress, website redesign, site migration, localization, internationalization, Spanish translation, Portuguese (Brazil), multilingual SEO, Yoast SEO, Beaver Builder, WP-CLI, PHP, Node.js, PostCSS, CSS optimization, deployment automation, rollback, Google Sheets API, WP Engine, website security
+**Keywords:** WordPress, website redesign, site migration, localization, internationalization, Spanish translation, Portuguese (Brazil), multilingual SEO, hreflang, international SEO, building websites from scratch, Yoast SEO, Beaver Builder, WP-CLI, PHP, Node.js, PostCSS, CSS optimization, deployment automation, rollback, Google Sheets API, WP Engine, website security
 
 ### Signifyd EMEA — regional website
 
 - **Client:** Signifyd
 - **Role:** Web Developer (freelance)
-- **Period:** within the Signifyd engagement (2021 — present)
+- **Period:** 2021 — present (project within the Signifyd engagement, which runs since Apr 2021)
 - **Status:** active
 - **Stack:** React, PHP, WordPress, REST API, SCSS
 - **Link:** https://www.signifyd.com
@@ -255,3 +259,8 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-26 — Added Araks Inc: Drupal Commerce wholesale site, QuickBooks integration, performance, SEO and server work; new Employment row and Profile skills.
 - 2026-10-26 — Added People Movers: full WordPress / Elementor redesign, performance, accessibility and tracking optimization, landing page sections; new Employment row and Profile skills.
 - 2026-10-26 — Condensed "What I did" for all projects to 6-8 grouped bullets each.
+- 2026-10-28 — Clarified that Signifyd is one continuous engagement since Apr 2021 and its projects are part of it.
+- 2026-10-28 — Updated Signifyd Mexico & Brazil: built both sites from scratch, translated them, and set up hreflang linking.
+- 2026-10-28 — Updated Signifyd: WP Engine hosting management, configuration and caching.
+- 2026-10-28 — Updated Signifyd: React, Chart.js, Docker, data formats and design tools in the stack.
+- 2026-10-28 — Updated Araks Inc: self-provisioned DigitalOcean server, full LAMP stack and its optimization.
