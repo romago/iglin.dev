@@ -2,6 +2,8 @@
 // keep them in sync and never add contact details here.
 import pmHome from './shots/peoplemovers-home-mobile.webp'
 import pmSac from './shots/peoplemovers-sac-mobile.webp'
+import flsFull from './shots/fls-full.webp'
+import flsMobile from './shots/fls-mobile.webp'
 import araksHome from './shots/araks-home-full.webp'
 import araksCatalog from './shots/araks-catalog-mobile.webp'
 import memphisFull from './shots/memphislaw-full.webp'
@@ -51,18 +53,19 @@ export const projects = [
     title: 'Araks Inc',
     tagline: 'B2B wholesale ordering site with a QuickBooks integration',
     client: 'Los Angeles food wholesale distributor',
-    role: 'Development · Integration · Server',
+    role: 'Development · Integration · DevOps',
     period: '2017 — present',
     url: 'https://araks.org',
     summary:
-      'Drupal Commerce site where store owners and sales reps order from a catalog of about 1,700 products. I built a QuickBooks Desktop integration from scratch and made the signed-in ordering flow, catalog and server fast and reliable.',
+      'Drupal Commerce site where store owners and sales reps order from a catalog of about 1,700 products, running on a DigitalOcean server I set up and maintain. I built a QuickBooks Desktop integration from scratch and made the signed-in ordering flow, catalog and server fast and reliable.',
     bullets: [
       'Hand-written QuickBooks Web Connector (SOAP / qbXML) endpoint: hourly price and stock sync for ~7,500 items, customer sync and automatic export of web orders, replacing manual CSV exchange.',
       'Custom Drupal Views cache for per-customer price lists, rebuilt in the background.',
       'Core Web Vitals work: self-hosted fonts, deferred scripts, WebP with srcset and lazy loading for 1,700 catalog photos.',
       'Technical SEO: clean URLs with ~3,900 automatic 301 redirects, XML sitemap and schema.org JSON-LD.',
       'AI catalog module on the Gemini API that rewrote raw item names into clean product titles and descriptions.',
-      'Migrated production from PHP 7.4 to 8.5 with 12 seconds of maintenance mode; tuned MariaDB and PHP-FPM.',
+      'Set up and run the production server on a DigitalOcean droplet: LAMP on Ubuntu behind Nginx, HestiaCP, Let’s Encrypt, HTTP/2 and TLS 1.3, tuned PHP-FPM and MariaDB.',
+      'Migrated production from PHP 7.4 to 8.5 with scripted backup and rollback and 12 seconds of maintenance mode; added encrypted off-site backups with a tested restore.',
     ],
     metrics: [
       { value: '7–13 → 0.5 s', label: 'Signed-in checkout server response' },
@@ -70,11 +73,39 @@ export const projects = [
       { value: '+98%', label: 'Google Search impressions after the SEO work' },
       { value: '+38%', label: 'Throughput after the PHP 8.5 upgrade' },
     ],
-    stack: ['Drupal 7', 'Drupal Commerce', 'PHP 8.5', 'MariaDB', 'QuickBooks qbXML', 'SOAP', 'Gemini API', 'Nginx', 'Linux'],
+    stack: ['Drupal 7', 'Drupal Commerce', 'PHP 8.5', 'MariaDB', 'QuickBooks qbXML', 'SOAP', 'Gemini API', 'DigitalOcean', 'Nginx', 'Apache', 'HestiaCP'],
     visual: {
       layout: 'browser',
       browser: { src: araksHome, alt: 'Araks homepage, full page', domain: 'araks.org', scroll: true },
       phone: { src: araksCatalog, alt: 'Araks wholesale catalog on a phone' },
+    },
+  },
+  {
+    id: 'fls',
+    title: 'FLS Transportation',
+    tagline: 'Logistics company website: server move, page builder rebuild and a French version',
+    client: 'North American freight brokerage',
+    role: 'Migration · Localization · SEO',
+    period: '2025 — 2026',
+    url: 'https://www.flstransport.com',
+    summary:
+      'Moved the WordPress site of a freight brokerage and logistics company to a custom server, rebuilt it from WPBakery on Beaver Builder with an improved design, and added a French (Canada) version.',
+    bullets: [
+      'Migrated the WordPress site from its previous hosting to a custom server and set it up for production.',
+      'Rebuilt the whole site from WPBakery Page Builder on Beaver Builder with an improved design, a custom child theme and ACF-driven content.',
+      'Developed custom Beaver Builder modules (PHP, JavaScript, CSS) as reusable, editable components.',
+      'Built my own WordPress localization plugin for the French (Canada) version: /fr/ URLs, a language switcher and hreflang links (en-US, fr-CA, x-default).',
+      'SEO with Yoast: titles and meta descriptions, schema.org JSON-LD and multilingual SEO for the bilingual site.',
+    ],
+    metrics: [
+      { value: 'EN + FR', label: 'Bilingual site on a custom localization plugin' },
+      { value: '100%', label: 'Pages moved from WPBakery to Beaver Builder' },
+    ],
+    stack: ['WordPress', 'Beaver Builder', 'Custom BB modules', 'WPBakery', 'PHP', 'ACF', 'JavaScript', 'Yoast SEO', 'JSON-LD', 'hreflang', 'GA4', 'GTM', 'HubSpot'],
+    visual: {
+      layout: 'browser',
+      browser: { src: flsFull, alt: 'flstransport.com homepage, full page', domain: 'flstransport.com', scroll: true },
+      phone: { src: flsMobile, alt: 'flstransport.com on a phone' },
     },
   },
   {
@@ -109,15 +140,16 @@ export const projects = [
   {
     id: 'signifyd-latam',
     title: 'Signifyd Mexico & Brazil',
-    tagline: 'Localized sites moved to a new brand design and translated',
+    tagline: 'Localized sites built from scratch, then moved to the new brand design',
     client: 'E-commerce fraud protection company',
     role: 'Migration · Localization · Automation',
-    period: '2026 — present',
+    period: 'Signifyd engagement · redesign 2026',
     url: 'https://mx.signifyd.com',
     summary:
-      'Moved the Spanish and Portuguese WordPress sites to the company’s new brand design and released them on live production with a scripted, reversible go-live.',
+      'Built the Spanish (Mexico) and Portuguese (Brazil) WordPress sites from scratch and linked them to the other regional sites with hreflang. In 2026 moved both to the company’s new brand design with a scripted, reversible go-live.',
     bullets: [
-      'Migrated 22 pages, the global header and footer, blog and customer-story templates for Mexico, then reused the work for Brazil.',
+      'Built both sites from scratch, localized them into Spanish and Portuguese and set up hreflang across all regional versions.',
+      'Migrated 22 pages, the global header and footer, blog and customer-story templates for Mexico to the new design, then reused the work for Brazil.',
       'WP-CLI import and export tooling for Beaver Builder layouts, media and SEO meta, with a render check before every write.',
       'Node.js (PostCSS) tool that removes unused layout CSS by testing selectors against the rendered pages.',
       'Go-live script with dry run, snapshots and rollback; carried over hreflang and canonical tags.',
@@ -126,9 +158,9 @@ export const projects = [
     metrics: [
       { value: '−97%', label: 'Page layout CSS (52 KB → 1.2 KB)' },
       { value: '22', label: 'Pages migrated to the new design' },
-      { value: '2', label: 'Languages: Spanish and Portuguese' },
+      { value: '2', label: 'Sites built from scratch: Spanish and Portuguese' },
     ],
-    stack: ['WordPress', 'Beaver Builder', 'PHP', 'WP-CLI', 'Node.js', 'PostCSS', 'Python', 'Google Sheets API', 'Yoast SEO'],
+    stack: ['WordPress', 'Beaver Builder', 'PHP', 'WP-CLI', 'Node.js', 'PostCSS', 'Python', 'Google Sheets API', 'Yoast SEO', 'hreflang', 'WP Engine'],
     visual: {
       layout: 'browser',
       browser: { src: mxFull, alt: 'mx.signifyd.com homepage, full page', domain: 'mx.signifyd.com', scroll: true },
@@ -144,19 +176,20 @@ export const projects = [
     period: '2021 — present',
     url: 'https://www.signifyd.com',
     summary:
-      'Ongoing development of the company’s WordPress marketing site: custom plugins, third-party data integrations, analytics, performance and localization.',
+      'Long-term freelance collaboration since April 2021: ongoing development of the company’s WordPress marketing site, custom plugins, third-party data integrations, hosting, analytics, performance and localization.',
     bullets: [
-      'Custom WordPress plugins and pages in Beaver Builder with custom HTML, CSS and JavaScript.',
+      'Custom WordPress plugins and features with PHP, JavaScript, React and Chart.js; pages in Beaver Builder built from Figma and Sketch designs.',
       'REST API integrations with G2, Greenhouse and Marketo.',
       'Core Web Vitals optimization of the whole site.',
+      'Manage WP Engine hosting for all installs (production, development, EMEA, Mexico and Brazil): environments, SSH and WP-CLI, deployments, page and object caching.',
       'Google Tag Manager, GA4 and Consent Mode v2.',
       'Localization through Smartling; Marketo forms and HTML email templates.',
     ],
     metrics: [
       { value: '30 → 90', label: 'Core Web Vitals performance score' },
-      { value: '5+ years', label: 'Ongoing engagement' },
+      { value: '5+ years', label: 'Continuous engagement since April 2021' },
     ],
-    stack: ['WordPress', 'PHP', 'JavaScript', 'Beaver Builder', 'REST API', 'Marketo', 'GTM', 'GA4', 'Smartling'],
+    stack: ['WordPress', 'PHP', 'JavaScript', 'React', 'Chart.js', 'Beaver Builder', 'WP Engine', 'WP-CLI', 'REST API', 'Marketo', 'GTM', 'GA4', 'Smartling', 'Figma'],
     visual: {
       layout: 'browser',
       browser: { src: signifydFull, alt: 'signifyd.com homepage, full page', domain: 'signifyd.com', scroll: true },
@@ -169,7 +202,7 @@ export const projects = [
     tagline: 'Regional website for Europe and the Middle East',
     client: 'E-commerce fraud protection company',
     role: 'Front-end & WordPress',
-    period: 'Signifyd engagement',
+    period: '2021 — present',
     summary:
       'Responsive regional website with a modern design, API integrations and attention to performance and conversion.',
     bullets: [

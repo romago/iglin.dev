@@ -1,0 +1,8 @@
+# Copy to .dev.vars for `npm run dev`. The Turnstile keys below are Cloudflare's public test keys (always pass).
+AI_PROVIDER=mock
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+TICKET_SECRET=local-dev-secret
+ALLOWED_ORIGINS=http://localhost:5173
+# GEMINI_API_KEY=
+# ANTHROPIC_API_KEY=
+# SMTP_PASSWORD=      # leave unset to log emails instead of sending them

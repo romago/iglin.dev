@@ -7,6 +7,7 @@ const navLinks = [
   { href: '#skills', label: 'Skills' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
+  { href: '#estimate', label: 'Estimate' },
   { href: '#education', label: 'Education' },
   { href: '#contact', label: 'Contact' },
 ]
@@ -31,7 +32,7 @@ export default function Header() {
         </a>
 
         <nav className={`header__nav${menuOpen ? ' header__nav--open' : ''}`}>
-          {navLinks.map(({ href, label }, i) => (
+          {navLinks.map(({ href, label }) => (
             <a key={href} href={href} className="header__link" onClick={handleNav}>
               {label}
             </a>
