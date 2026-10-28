@@ -16,7 +16,7 @@
 ## Profile
 
 - **Name:** Roman Iglin
-- **Title:** Web Developer
+- **Title:** Full Stack Developer
 - **Location:** Woodstock, GA, USA
 - **Experience:** professional web development since 2010
 - **Open to:** freelance projects, full-time roles
@@ -25,7 +25,8 @@
 - **GitHub:** https://github.com/romago
 - **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, SQL
 - **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
-- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare
+- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare, Cloudflare Workers, Cloudflare Turnstile, GitHub Actions
+- **AI:** AI integration, LLM API integration (Google Gemini API, Claude API, Cloudflare Workers AI), structured JSON output, multi-provider fallback, AI-generated content with automated checks and human review
 - **Integrations:** REST API, JSON / XML, SOAP, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
 - **Design:** Figma, Sketch, Adobe Photoshop, Adobe Illustrator, UI/UX mockups
@@ -45,6 +46,28 @@
 ---
 
 ## Projects
+
+### iglin.dev — personal site, portfolio and AI project estimator (React, Cloudflare Workers, LLM integration)
+
+- **Client:** Personal project (Roman's own portfolio and lead-generation site)
+- **Role:** Full Stack Developer (design, front end, back end, deployment)
+- **Period:** Apr 2026 — present
+- **Status:** active
+- **Stack:** React 19, Vite, JavaScript, CSS, Cloudflare Workers, Wrangler, Cloudflare Turnstile, Cloudflare Workers AI (Llama 3.3 70B), Google Gemini API, Claude API (Anthropic SDK), JSON Schema structured output, SMTP, GitHub Actions, GitHub Pages
+- **Link:** https://iglin.dev, https://portfolio.iglin.dev
+- **Last updated:** 2026-10-28
+
+**Summary**
+Roman's personal site and a separate portfolio site built from one React codebase, with a "Quick Estimate" tool where visitors describe a project and get an AI-generated price, hours and timeline that reach Roman as leads by email.
+
+**What I did**
+- Built the main site and the portfolio site (portfolio.iglin.dev) in React and Vite from one codebase with shared case-study components: browser and phone mockups with hover-scrolling full-page screenshots, a lightbox and metric tiles; deployed with GitHub Actions to GitHub Pages.
+- Built an AI project estimator: the LLM is prompted with Roman's real reference projects, returns a JSON Schema-validated breakdown (tasks, hours, timeline, stack, assumptions, open questions), and the price is computed on the server from the hours.
+- Built the serverless back end as a Cloudflare Worker with multi-provider LLM support: Google Gemini API as the primary model, automatic fallback to Cloudflare Workers AI (Llama 3.3 70B) when the free tier is overloaded or slow, and optional Claude API; request timeouts on every call.
+- Protected the estimator from bots and abuse: server-side Cloudflare Turnstile verification, per-IP rate limiting, a honeypot field, a CORS allowlist and HMAC-signed, short-lived tickets for the follow-up step, with no database.
+- Automated lead capture: email notifications over SMTP for every estimate and for "Send to Roman" requests, with the visitor set as Reply-To so a lead can be answered directly.
+
+**Keywords:** AI integration, LLM integration, LLM API, Google Gemini API, Claude API, Anthropic SDK, Cloudflare Workers AI, structured output, JSON Schema, AI fallback, serverless, Cloudflare Workers, edge functions, Cloudflare Turnstile, bot protection, rate limiting, HMAC, CORS, React, Vite, portfolio website, lead generation, SMTP email, GitHub Actions, GitHub Pages, full stack development
 
 ### FLS Transportation Services — corporate website (WordPress migration, WPBakery to Beaver Builder rebuild, French version, SEO)
 
@@ -96,7 +119,7 @@ Full redesign of the WordPress / Elementor website of a California moving compan
 
 **Keywords:** WordPress, Elementor, website redesign, custom WordPress theme, Core Web Vitals, page speed optimization, Lighthouse, PageSpeed Insights, caching, CDN, Cloudflare, third-party script delay, GTM, GA4, Meta Pixel, Microsoft Clarity, lazy loading, video optimization, accessibility, WCAG, WP-CLI, Puppeteer, landing pages, lead generation, moving company website
 
-### Araks Inc — B2B wholesale ordering site (Drupal Commerce, QuickBooks integration)
+### Araks Inc — B2B wholesale ordering site (Drupal Commerce, QuickBooks integration, AI integration)
 
 - **Client:** Araks Inc (Los Angeles wholesale distributor of European food products to stores)
 - **Role:** Web Developer (freelance)
@@ -107,7 +130,7 @@ Full redesign of the WordPress / Elementor website of a California moving compan
 - **Last updated:** 2026-10-28
 
 **Summary**
-Development, maintenance and server administration of Araks' Drupal 7 / Drupal Commerce site, hosted on a DigitalOcean server that I set up and maintain, where store customers and sales reps place wholesale orders from a catalog of about 1,700 products. In 2026 the work centered on a QuickBooks integration, performance, technical SEO, lead generation and server reliability.
+Development, maintenance and server administration of Araks' Drupal 7 / Drupal Commerce site, hosted on a DigitalOcean server that I set up and maintain, where store customers and sales reps place wholesale orders from a catalog of about 1,700 products. In 2026 the work centered on a QuickBooks integration, AI integration (Google Gemini API), performance, technical SEO, lead generation and server reliability.
 
 **What I did**
 - Built a QuickBooks Desktop integration from scratch: a hand-written Web Connector SOAP/qbXML endpoint with a job queue, hourly product, price and stock sync for about 7,500 items, daily customer and vendor sync, and automatic export of web orders as Sales Orders (restocking orders as Purchase Orders), replacing manual CSV and XLSX exchange. Added a low-margin alert and a sales analytics dashboard on top of the synced data.
@@ -115,7 +138,7 @@ Development, maintenance and server administration of Araks' Drupal 7 / Drupal C
 - Improved Core Web Vitals on public pages: self-hosted fonts and jQuery, deferred scripts, WebP images with srcset, and lazy loading for the 1,700 catalog photos.
 - Led technical SEO: clean URLs with about 3,900 automatic 301 redirects, a complete XML sitemap, schema.org JSON-LD (Product, BreadcrumbList, WholesaleStore, FAQPage) and a brand and country-of-origin taxonomy. Connected the GA4, Search Console and PageSpeed Insights APIs for reporting.
 - Built the lead generation pipeline: an English/Russian wholesale landing page, a spam-protected lead form, approval with expiring one-time price-list links, follow-up and abandoned-cart emails, and GA4 key events.
-- Built an AI catalog module on the Google Gemini API that rewrote raw QuickBooks item names into clean product titles and descriptions for the whole catalog, with automated checks and a review and revert workflow.
+- Integrated AI into the catalog workflow: built a Drupal module on the Google Gemini API that rewrote raw QuickBooks item names into clean product titles and descriptions for the whole catalog, with automated checks and a review and revert workflow.
 - Set up and maintain the production server on a DigitalOcean droplet: a full LAMP stack on Ubuntu (Apache with event MPM, MariaDB / MySQL, PHP-FPM) behind Nginx, managed with HestiaCP, with Let's Encrypt SSL, HTTP/2 and TLS 1.3. Optimized it end to end (Nginx compression and static caching, PHP-FPM pools, MariaDB memory and I/O, swap) and migrated production from PHP 7.4 to 8.5 with scripted backup and rollback and 12 seconds of maintenance mode.
 - Kept the server reliable and secure: resolved site hangs from database lock pile-ups with slow-query logging and automatic incident snapshots, fixed silently failing nightly backups and added encrypted weekly off-site copies with a tested restore and alerts, removed publicly exposed debug logs and backups, and verified SPF, DKIM and DMARC.
 
@@ -127,7 +150,7 @@ Development, maintenance and server administration of Araks' Drupal 7 / Drupal C
 - Database: buffer-pool hit rate 98.1% → 99.8%; slowest admin report query 4.5 s → 0.1 s.
 - Google Search Console, the month after the URL, sitemap and SEO work vs the month before: impressions +98%, clicks +62%.
 
-**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, Drupal Views, Core Web Vitals, lazy loading, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI content generation, Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
+**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, Drupal Views, Core Web Vitals, lazy loading, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI integration, LLM integration, generative AI, AI content generation, Google Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
 
 ### Arthur Ray Law Offices — law firm websites (WordPress & technical SEO)
 
@@ -291,3 +314,5 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-28 — Updated FLS Transportation Services: WPBakery to Beaver Builder migration.
 - 2026-10-28 — Updated FLS Transportation Services: custom Beaver Builder modules.
 - 2026-10-28 — Updated FLS Transportation Services: the localization plugin is Roman's own work.
+- 2026-10-28 — Updated Araks Inc: AI integration (Google Gemini API) tagged in the title, summary and keywords; AI line added to Profile.
+- 2026-10-28 — Added iglin.dev: personal and portfolio sites, AI project estimator on Cloudflare Workers with Gemini / Workers AI fallback, bot protection and email leads; Profile title changed to Full Stack Developer, AI and DevOps skills extended.
