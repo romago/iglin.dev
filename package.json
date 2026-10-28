@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:portfolio": "vite --config vite.portfolio.config.js",
     "build": "vite build",
+    "build:portfolio": "vite build --config vite.portfolio.config.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
+    "deploy:portfolio": "npm run build:portfolio && gh-pages -d dist-portfolio --dotfiles -r git@github.com:romago/portfolio.git -m \"Deploy portfolio\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
