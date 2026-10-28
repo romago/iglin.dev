@@ -8,8 +8,9 @@ compatibility_flags = ["nodejs_compat"]
 [vars]
 # "gemini" (free tier) or "claude" (paid Claude API key, not a Claude Max subscription).
 AI_PROVIDER = "gemini"
-# Tried in order; the repeat gives the main model a second chance after a short pause.
-GEMINI_MODELS = "gemini-flash-latest,gemini-flash-lite-latest,gemini-flash-latest"
+# Tried in order (comma-separated). If all fail, the estimate comes from WORKERS_AI_MODEL.
+GEMINI_MODELS = "gemini-flash-latest"
+WORKERS_AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
 CLAUDE_MODEL = "claude-opus-5-5"
 # Used to turn the AI's hour ranges into a price.
 HOURLY_RATE = "50"
@@ -19,6 +20,9 @@ SMTP_HOST = "mail.privateemail.com"
 SMTP_PORT = "465"
 SMTP_USER = "roman@iglin.dev"
 ALLOWED_ORIGINS = "https://iglin.dev,https://www.iglin.dev"
+
+[ai]
+binding = "AI"
 
 # Per-IP limit on top of Turnstile: 3 requests a minute.
 [[ratelimits]]
