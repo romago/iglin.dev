@@ -1,3 +1,4 @@
+import HeroArt from './HeroArt'
 import './Hero.css'
 
 export default function Hero() {
@@ -6,6 +7,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero">
+      <HeroArt />
       <div className="hero__inner">
         <p className="hero__greeting">&bull; open to work</p>
         <h1 className="hero__name">Roman Iglin</h1>

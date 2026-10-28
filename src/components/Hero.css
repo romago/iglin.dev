@@ -115,3 +115,46 @@
   0%, 100% { transform: translateY(0); opacity: 1; }
   50% { transform: translateY(8px); opacity: 0.3; }
 }
+
+/* Decorative art on the right */
+.hero__inner { position: relative; z-index: 1; }
+
+.hero-art {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  width: min(46vw, 500px);
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.hero-art__svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+.hero-art__spin {
+  transform-origin: 250px 250px;
+  transform-box: view-box;
+  animation: hero-art-spin linear infinite;
+}
+
+@keyframes hero-art-spin { to { rotate: 360deg; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art *, .hero-art { animation: none !important; }
+}
+
+/* The orbit sticks out past the hero; clip it where that would scroll the page */
+@media (max-width: 1160px) {
+  .hero { overflow-x: clip; }
+}
+
+/* Phones and tablets: smaller and fainter, tucked into the top-right corner behind the text */
+@media (max-width: 900px) {
+  .hero-art {
+    top: 40px;
+    right: -150px;
+    width: 380px;
+    transform: none;
+    opacity: 0.5;
+  }
+}
