@@ -77,19 +77,19 @@ Roman's personal site and a separate portfolio site built from one React codebas
 - **Role:** Web Developer (subcontractor for TKG)
 - **Period:** Apr 2026
 - **Status:** completed
-- **Stack:** WordPress 6.9, block theme (Full Site Editing, theme.json), custom ACF blocks, PHP, JavaScript, CSS, @wordpress/scripts, slick carousel, Gravity Forms, reCAPTCHA, Yoast SEO, Redirection, Block Visibility, Adobe Fonts (Typekit), WP Engine
+- **Stack:** WordPress 6.9, block theme (Full Site Editing, theme.json), custom ACF blocks, PHP, JavaScript, CSS, @wordpress/scripts, slick carousel, Gravity Forms, reCAPTCHA, Yoast SEO, Redirection, Block Visibility, Adobe Fonts (Typekit), WP Engine, Figma
 - **Link:** https://cullman.emfellows.com
 - **Last updated:** 2026-10-30
 
 **Summary**
-Redesign of the website for USACS' emergency medicine fellowship program in Cullman, done for the agency TKG: the source files of the previous theme had been lost, so I rebuilt the theme from scratch as a new WordPress block theme in the USACS 2026 brand, made of custom ACF blocks.
+Redesign of the website for USACS' emergency medicine fellowship program in Cullman, done for the agency TKG: the source files of the previous theme had been lost, so I rebuilt the theme from scratch as a new WordPress block theme in the USACS 2026 brand, made of custom ACF blocks. The design was provided by the agency in Figma; I implemented it in code.
 
 **What I did**
-- Rebuilt the site's theme from scratch after the original theme's source files were lost, as a new WordPress block theme (Full Site Editing templates, theme.json) with the USACS 2026 brand palette and typography (Spectral and Inter).
+- Rebuilt the site's theme from scratch after the original theme's source files were lost, as a new WordPress block theme (Full Site Editing templates, theme.json), implementing the agency's Figma design with the USACS 2026 brand palette and typography (Spectral and Inter).
 - Developed custom ACF blocks (home hero, content and image, two-column cards, form), each with its own JavaScript and CSS, built with @wordpress/scripts, so editors assemble pages from branded components.
 - Built the site's pages (Home, Fellowship Information, How We Teach with courses, seminars and series, Current Fellows, Contact Us) and the application and contact forms with Gravity Forms and reCAPTCHA.
 
-**Keywords:** WordPress block theme, theme development from scratch, theme rebuild, Full Site Editing, FSE, theme.json, ACF blocks, custom Gutenberg blocks, @wordpress/scripts, Gravity Forms, redesign, healthcare website, medical education, agency work, white-label development, subcontractor, WP Engine
+**Keywords:** WordPress block theme, theme development from scratch, theme rebuild, Full Site Editing, FSE, theme.json, ACF blocks, custom Gutenberg blocks, @wordpress/scripts, Gravity Forms, Figma to WordPress, design implementation, responsive layout, redesign, healthcare website, medical education, agency work, white-label development, subcontractor, WP Engine
 
 ### The Karcher Group (TKG) — The Shift blog redesign for USACS (WordPress, Alpine.js header integration)
 
@@ -97,20 +97,20 @@ Redesign of the website for USACS' emergency medicine fellowship program in Cull
 - **Role:** Web Developer (subcontractor for TKG)
 - **Period:** Apr 2026
 - **Status:** completed
-- **Stack:** WordPress, PHP, custom theme, Foundation 6, Sass, JavaScript, jQuery, Alpine.js, MutationObserver, SVG, Material Symbols, Adobe Fonts (Typekit), WebP, Constant Contact
+- **Stack:** WordPress, PHP, custom theme, Foundation 6, Sass, JavaScript, jQuery, Alpine.js, MutationObserver, SVG, Material Symbols, Adobe Fonts (Typekit), WebP, Constant Contact, Figma
 - **Link:** https://theshift.usacs.com
 - **Last updated:** 2026-10-30
 
 **Summary**
-Redesign of The Shift, the USACS blog, done for the agency TKG: moved the WordPress blog to the new USACS 2026 brand and made it share the header and footer of the main usacs.com site.
+Redesign of The Shift, the USACS blog, done for the agency TKG: moved the WordPress blog to the new USACS 2026 brand and made it share the header and footer of the main usacs.com site. The design was provided by the agency in Figma; I implemented it in code.
 
 **What I did**
-- Rebranded the blog to the USACS 2026 identity: new color palette, Spectral and Inter typography replacing Lato, a new WebP hero and an SVG logo, reworking about 64 theme files.
+- Implemented the agency's Figma design and rebranded the blog to the USACS 2026 identity: new color palette, Spectral and Inter typography replacing Lato, a new WebP hero and an SVG logo, reworking about 64 theme files.
 - Integrated the header and footer imported from the new Alpine.js-based usacs.com: rewrote the theme's header script (about 500 lines) with Alpine components for the header, mega menu, mobile menu and search, used a MutationObserver to restore Alpine directives in the loaded markup, and repaired the broken mega-menu buttons in PHP.
 - Redesigned the blog UI: post cards and meta, sidebar categories, the Constant Contact signup form, search and search results, pagination and post navigation.
 - Removed Font Awesome (about 1,600 lines of SCSS plus font files) in favor of inline SVG icons and Material Symbols.
 
-**Keywords:** WordPress, theme redesign, rebranding, Alpine.js, JavaScript, MutationObserver, mega menu, Foundation, Sass, SCSS refactoring, Font Awesome removal, SVG icons, blog design, healthcare website, agency work, white-label development, subcontractor
+**Keywords:** WordPress, theme redesign, rebranding, Figma to WordPress, design implementation, Alpine.js, JavaScript, MutationObserver, mega menu, Foundation, Sass, SCSS refactoring, Font Awesome removal, SVG icons, blog design, healthcare website, agency work, white-label development, subcontractor
 
 ### FLS Transportation Services — corporate website (WordPress migration, WPBakery to Beaver Builder rebuild, French version, SEO)
 
@@ -362,3 +362,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-28 — Updated Signifyd: Signifyd Jobs plugin (Greenhouse Job Board API sync, filterable job board).
 - 2026-10-30 — Added The Karcher Group (TKG) agency work for USACS: The Shift blog redesign and the Cullman EM Fellows block theme; new Employment row.
 - 2026-10-30 — Updated Cullman EM Fellows: theme rebuilt from scratch by Roman after the original source was lost; period Apr 2026.
+- 2026-10-30 — Updated The Shift and Cullman EM Fellows: designs were provided by the agency in Figma and implemented by Roman.
