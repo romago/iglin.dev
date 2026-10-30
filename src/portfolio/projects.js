@@ -14,6 +14,8 @@ import signifydFull from './shots/signifyd-full.webp'
 import signifydMobile from './shots/signifyd-mobile.webp'
 import emeaImage from './shots/signifyd-emea.webp'
 import emeaVideo from './shots/signifyd-emea.mp4'
+import cullmanFull from './shots/cullman-full.webp'
+import shiftMobile from './shots/theshift-mobile.webp'
 
 export const projects = [
   {
@@ -135,6 +137,39 @@ export const projects = [
       layout: 'browser',
       browser: { src: memphisFull, alt: 'memphislaw.com homepage, full page', domain: 'memphislaw.com', scroll: true },
       phone: { src: memphisMobile, alt: 'memphislaw.com on a phone' },
+    },
+  },
+  {
+    id: 'usacs',
+    title: 'USACS: The Shift & Cullman EM Fellows',
+    tagline: 'Two healthcare websites moved to a new brand, as a subcontractor for a web agency',
+    client: 'Agency work via The Karcher Group (TKG)',
+    role: 'Figma to WordPress · Theme development',
+    period: '2026',
+    links: [
+      { label: 'Cullman EM Fellows', url: 'https://cullman.emfellows.com' },
+      { label: 'The Shift blog', url: 'https://theshift.usacs.com' },
+    ],
+    summary:
+      'For the web agency TKG I redesigned two WordPress sites of their client USACS, an emergency medicine physician group, in its new 2026 brand: the company blog The Shift and the site of its emergency medicine fellowship in Cullman, Alabama. The agency provided the designs in Figma; I implemented them in code.',
+    bullets: [
+      'Cullman EM Fellows: the previous theme’s source files had been lost, so I rebuilt the theme from scratch as a WordPress block theme (Full Site Editing, theme.json), implementing the agency’s Figma design in the new brand palette and typography.',
+      'Custom ACF blocks (home hero, content and image, two-column cards, form), each with its own JavaScript and CSS built with @wordpress/scripts, so editors assemble pages from branded components.',
+      'Built the fellowship pages and the application and contact forms with Gravity Forms and reCAPTCHA.',
+      'The Shift: implemented the agency’s Figma design and moved the blog to the new brand (Spectral and Inter type, new palette, WebP hero, SVG logo), with new post cards, categories, signup form, search and pagination.',
+      'Made the blog share the header and footer of the new Alpine.js-based usacs.com: Alpine components for the mega menu, mobile menu and search, and a MutationObserver that restores Alpine directives in the imported markup.',
+      'Replaced Font Awesome (about 1,600 lines of SCSS plus font files) with inline SVG icons and Material Symbols.',
+    ],
+    metrics: [
+      { value: '2 sites', label: 'Redesigned in the new 2026 brand' },
+      { value: '4', label: 'Custom ACF blocks in a new block theme' },
+      { value: '~500 lines', label: 'Alpine.js header integration for the blog' },
+    ],
+    stack: ['WordPress', 'Block theme (FSE)', 'ACF blocks', '@wordpress/scripts', 'PHP', 'JavaScript', 'Alpine.js', 'Sass', 'Foundation', 'Gravity Forms', 'WP Engine', 'Figma'],
+    visual: {
+      layout: 'browser',
+      browser: { src: cullmanFull, alt: 'cullman.emfellows.com homepage, full page', domain: 'cullman.emfellows.com', scroll: true },
+      phone: { src: shiftMobile, alt: 'theshift.usacs.com blog on a phone' },
     },
   },
   {

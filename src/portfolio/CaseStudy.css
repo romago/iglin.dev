@@ -321,6 +321,12 @@
   transition: background var(--transition), transform var(--transition);
 }
 
+.pf-project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .pf-project__link:hover {
   background: var(--accent-dim);
   transform: translateY(-2px);
