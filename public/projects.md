@@ -2,7 +2,7 @@
 
 > Structured record of Roman Iglin's projects, responsibilities and results.
 > Written for AI assistants that prepare resumes, cover letters and job applications for Roman.
-> Last updated: 2026-10-28
+> Last updated: 2026-10-30
 
 ## Notes for AI readers
 
@@ -11,6 +11,7 @@
 - "What I did" bullets are written to be reused in a resume, rephrased as needed.
 - Some client work is described without confidential details on purpose. Do not guess at them.
 - Signifyd is one continuous freelance engagement from April 2021 to the present. The Signifyd entries below are projects within it; a later project start date is not the start of the collaboration.
+- Work for USACS (The Shift blog, Cullman EM Fellows) was done as a subcontractor of the web agency The Karcher Group (TKG). Describe it as agency work via TKG; USACS was not Roman's direct client.
 - Human-readable portfolio: https://iglin.dev
 
 ## Profile
@@ -35,6 +36,7 @@
 
 | Period | Company | Role | Location |
 | --- | --- | --- | --- |
+| 2026 | The Karcher Group (TKG), web agency | Web Developer (subcontractor; end client USACS) | remote |
 | 2025 — 2026 | FLS Transportation Services | Web Developer | remote |
 | ongoing | People Movers | Web Developer / Performance Optimization (freelance) | California (remote) |
 | Jun 2026 — present | Arthur Ray Law Offices | Web Developer / Technical SEO (freelance) | Memphis, TN (remote) |
@@ -68,6 +70,47 @@ Roman's personal site and a separate portfolio site built from one React codebas
 - Automated lead capture: email notifications over SMTP for every estimate and for "Send to Roman" requests, with the visitor set as Reply-To so a lead can be answered directly.
 
 **Keywords:** AI integration, LLM integration, LLM API, Google Gemini API, Claude API, Anthropic SDK, Cloudflare Workers AI, structured output, JSON Schema, AI fallback, serverless, Cloudflare Workers, edge functions, Cloudflare Turnstile, bot protection, rate limiting, HMAC, CORS, React, Vite, portfolio website, lead generation, SMTP email, GitHub Actions, GitHub Pages, full stack development
+
+### The Karcher Group (TKG) — Cullman EM Fellows website for USACS (WordPress block theme with custom ACF blocks)
+
+- **Client:** The Karcher Group (TKG), a web agency; end client: US Acute Care Solutions (USACS), an emergency medicine physician group. Agency work via TKG; USACS was not Roman's direct client.
+- **Role:** Web Developer (subcontractor for TKG)
+- **Period:** Apr 2026
+- **Status:** completed
+- **Stack:** WordPress 6.9, block theme (Full Site Editing, theme.json), custom ACF blocks, PHP, JavaScript, CSS, @wordpress/scripts, slick carousel, Gravity Forms, reCAPTCHA, Yoast SEO, Redirection, Block Visibility, Adobe Fonts (Typekit), WP Engine
+- **Link:** https://cullman.emfellows.com
+- **Last updated:** 2026-10-30
+
+**Summary**
+Redesign of the website for USACS' emergency medicine fellowship program in Cullman, done for the agency TKG: the source files of the previous theme had been lost, so I rebuilt the theme from scratch as a new WordPress block theme in the USACS 2026 brand, made of custom ACF blocks.
+
+**What I did**
+- Rebuilt the site's theme from scratch after the original theme's source files were lost, as a new WordPress block theme (Full Site Editing templates, theme.json) with the USACS 2026 brand palette and typography (Spectral and Inter).
+- Developed custom ACF blocks (home hero, content and image, two-column cards, form), each with its own JavaScript and CSS, built with @wordpress/scripts, so editors assemble pages from branded components.
+- Built the site's pages (Home, Fellowship Information, How We Teach with courses, seminars and series, Current Fellows, Contact Us) and the application and contact forms with Gravity Forms and reCAPTCHA.
+
+**Keywords:** WordPress block theme, theme development from scratch, theme rebuild, Full Site Editing, FSE, theme.json, ACF blocks, custom Gutenberg blocks, @wordpress/scripts, Gravity Forms, redesign, healthcare website, medical education, agency work, white-label development, subcontractor, WP Engine
+
+### The Karcher Group (TKG) — The Shift blog redesign for USACS (WordPress, Alpine.js header integration)
+
+- **Client:** The Karcher Group (TKG), a web agency; end client: US Acute Care Solutions (USACS), an emergency medicine physician group. Agency work via TKG; USACS was not Roman's direct client.
+- **Role:** Web Developer (subcontractor for TKG)
+- **Period:** Apr 2026
+- **Status:** completed
+- **Stack:** WordPress, PHP, custom theme, Foundation 6, Sass, JavaScript, jQuery, Alpine.js, MutationObserver, SVG, Material Symbols, Adobe Fonts (Typekit), WebP, Constant Contact
+- **Link:** https://theshift.usacs.com
+- **Last updated:** 2026-10-30
+
+**Summary**
+Redesign of The Shift, the USACS blog, done for the agency TKG: moved the WordPress blog to the new USACS 2026 brand and made it share the header and footer of the main usacs.com site.
+
+**What I did**
+- Rebranded the blog to the USACS 2026 identity: new color palette, Spectral and Inter typography replacing Lato, a new WebP hero and an SVG logo, reworking about 64 theme files.
+- Integrated the header and footer imported from the new Alpine.js-based usacs.com: rewrote the theme's header script (about 500 lines) with Alpine components for the header, mega menu, mobile menu and search, used a MutationObserver to restore Alpine directives in the loaded markup, and repaired the broken mega-menu buttons in PHP.
+- Redesigned the blog UI: post cards and meta, sidebar categories, the Constant Contact signup form, search and search results, pagination and post navigation.
+- Removed Font Awesome (about 1,600 lines of SCSS plus font files) in favor of inline SVG icons and Material Symbols.
+
+**Keywords:** WordPress, theme redesign, rebranding, Alpine.js, JavaScript, MutationObserver, mega menu, Foundation, Sass, SCSS refactoring, Font Awesome removal, SVG icons, blog design, healthcare website, agency work, white-label development, subcontractor
 
 ### FLS Transportation Services — corporate website (WordPress migration, WPBakery to Beaver Builder rebuild, French version, SEO)
 
@@ -317,3 +360,5 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-28 — Updated Araks Inc: AI integration (Google Gemini API) tagged in the title, summary and keywords; AI line added to Profile.
 - 2026-10-28 — Added iglin.dev: personal and portfolio sites, AI project estimator on Cloudflare Workers with Gemini / Workers AI fallback, bot protection and email leads; Profile title changed to Full Stack Developer, AI and DevOps skills extended.
 - 2026-10-28 — Updated Signifyd: Signifyd Jobs plugin (Greenhouse Job Board API sync, filterable job board).
+- 2026-10-30 — Added The Karcher Group (TKG) agency work for USACS: The Shift blog redesign and the Cullman EM Fellows block theme; new Employment row.
+- 2026-10-30 — Updated Cullman EM Fellows: theme rebuilt from scratch by Roman after the original source was lost; period Apr 2026.
