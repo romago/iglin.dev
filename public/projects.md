@@ -24,8 +24,8 @@
 - **Email:** roman@iglin.dev
 - **LinkedIn:** https://www.linkedin.com/in/roman-iglin/
 - **GitHub:** https://github.com/romago
-- **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, SQL
-- **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify, Joomla
+- **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
+- **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify (Liquid), PathFactory, Joomla
 - **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare, Cloudflare Workers, Cloudflare Turnstile, GitHub Actions
 - **AI:** AI integration, LLM API integration (Google Gemini API, Claude API, Cloudflare Workers AI), structured JSON output, multi-provider fallback, AI-generated content with automated checks and human review
 - **Integrations:** REST API, JSON / XML, SOAP, Greenhouse Job Board API, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
@@ -230,7 +230,7 @@ Development, technical SEO and maintenance of two WordPress sites for a Memphis 
 - **Role:** Web Developer (freelance)
 - **Period:** Apr 2021 — present
 - **Status:** active
-- **Stack:** WordPress, PHP, JavaScript, React, Chart.js, HTML, CSS, Beaver Builder, WP Engine, WP-CLI, SSH, Docker, REST API, JSON / XML, Greenhouse Job Board API, WP-Cron, CMB2, jQuery, Marketo, GTM, GA4, Smartling, Figma, Sketch, Adobe Photoshop, Adobe Illustrator
+- **Stack:** WordPress, PHP, JavaScript, React, Chart.js, HTML, CSS, Beaver Builder, WP Engine, WP-CLI, SSH, Docker, REST API, JSON / XML, Greenhouse Job Board API, WP-Cron, CMB2, jQuery, PathFactory, Liquid, Tailwind CSS, Marketo, GTM, GA4, Smartling, Figma, Sketch, Adobe Photoshop, Adobe Illustrator
 - **Link:** https://www.signifyd.com
 - **Last updated:** 2026-10-28
 
@@ -239,18 +239,18 @@ Long-term freelance collaboration with Signifyd since April 2021: ongoing develo
 
 **What I did**
 - Developed custom WordPress plugins and site features with PHP, JavaScript, React and Chart.js, and built pages in Beaver Builder from Figma and Sketch designs with custom HTML, CSS and JavaScript.
+- Redesigned Signifyd's PathFactory resource center (resources.signifyd.com, the hub for the company's videos, PDFs and other content assets) several times (2023, 2025, 2026), developing the theme's Liquid section and page templates with Tailwind CSS.
 - Built the Signifyd Jobs WordPress plugin, which integrates the Greenhouse Job Board API with the careers site: openings and departments sync automatically twice a day (WP-Cron, plus a manual sync page), so new jobs appear on the site and closed ones are removed with no manual work. The public job board groups openings by team, with dependent team and location filters, live counts and shareable filter URLs; I also added per-office openings shortcodes, 301 redirects from job URLs and IDs to the Greenhouse posting, and an HR role that manages jobs without admin access (code: https://github.com/romago/jobs).
 - Integrated third-party data and marketing tools through REST APIs (G2 reviews, Marketo), and built Marketo forms and marketing HTML email templates.
 - Led Core Web Vitals performance optimization of the site.
-- Managed and configured Signifyd's WP Engine hosting across its installs (production, development and the EMEA, Mexico and Brazil sites): environments, SSH and WP-CLI access, deployments, and page and object caching for performance.
+- Managed and configured Signifyd's WP Engine hosting across its installs (production, development and the EMEA, Mexico and Brazil sites): environments, SSH and WP-CLI access, deployments, and page and object caching for performance; resolved complex site issues and maintained process documentation and technical articles.
 - Implemented analytics and consent: Google Tag Manager tags and triggers, GA4 tracking and Consent Mode v2.
 - Localized the websites through Smartling (Global Delivery Network / Connector).
-- Resolved complex website issues and maintained process documentation and technical articles.
 
 **Results**
 - Core Web Vitals performance score: ~30 → 90.
 
-**Keywords:** WordPress plugin development, React, Chart.js, Docker, Figma, WP Engine, managed WordPress hosting, WP-CLI, caching, REST API, Greenhouse API integration, ATS integration, job board, careers page, custom post types, custom taxonomies, WP-Cron, custom user roles, Core Web Vitals, performance optimization, GTM, GA4, Consent Mode v2, Marketo, Smartling, localization, email templates
+**Keywords:** WordPress plugin development, PathFactory, content experience platform, resource center, Liquid templates, Shopify Liquid, Tailwind CSS, React, Chart.js, Docker, Figma, WP Engine, managed WordPress hosting, WP-CLI, caching, REST API, Greenhouse API integration, ATS integration, job board, careers page, custom post types, custom taxonomies, WP-Cron, custom user roles, Core Web Vitals, performance optimization, GTM, GA4, Consent Mode v2, Marketo, Smartling, localization, email templates
 
 ### Signifyd Mexico & Brazil — localized websites built from scratch, translated and redesigned
 
@@ -363,3 +363,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-30 — Added The Karcher Group (TKG) agency work for USACS: The Shift blog redesign and the Cullman EM Fellows block theme; new Employment row.
 - 2026-10-30 — Updated Cullman EM Fellows: theme rebuilt from scratch by Roman after the original source was lost; period Apr 2026.
 - 2026-10-30 — Updated The Shift and Cullman EM Fellows: designs were provided by the agency in Figma and implemented by Roman.
+- 2026-10-30 — Updated Signifyd: PathFactory resource center redesigns with Liquid templates and Tailwind CSS; Liquid, Tailwind CSS and PathFactory added to Profile.
