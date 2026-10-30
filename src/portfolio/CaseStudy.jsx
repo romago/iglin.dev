@@ -96,11 +96,21 @@ export function CaseStudy({ project, index, onOpen }) {
         <div className="pf-project__text">
           <p className="pf-project__role">{project.role}</p>
           <p className="pf-project__summary">{project.summary}</p>
-          {project.url && (
-            <a href={project.url} className="pf-project__link" target="_blank" rel="noopener noreferrer">
-              Visit live site ↗
-            </a>
-          )}
+          {project.links
+            ? (
+                <div className="pf-project__links">
+                  {project.links.map((l) => (
+                    <a key={l.url} href={l.url} className="pf-project__link" target="_blank" rel="noopener noreferrer">
+                      {l.label} ↗
+                    </a>
+                  ))}
+                </div>
+              )
+            : project.url && (
+                <a href={project.url} className="pf-project__link" target="_blank" rel="noopener noreferrer">
+                  Visit live site ↗
+                </a>
+              )}
         </div>
         <div>
           <h4 className="pf-project__subtitle">What I did</h4>
