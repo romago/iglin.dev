@@ -122,6 +122,16 @@
 
 .est-field textarea { resize: vertical; }
 
+.est-count {
+  display: block;
+  margin-top: 8px;
+  color: #5a5a5a;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.est-count--over { color: var(--accent-2); }
+
 .est-field input::placeholder,
 .est-field textarea::placeholder { color: #5a5a5a; }
 

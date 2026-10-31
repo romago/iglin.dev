@@ -6,6 +6,8 @@ import Anthropic from '@anthropic-ai/sdk'
 import { WorkerMailer } from 'worker-mailer'
 
 const TICKET_TTL_MS = 2 * 60 * 60 * 1000
+// Long enough for a full scope document pasted from a PDF (~3,000 words).
+const MAX_DESCRIPTION = 20_000
 const PROJECT_TYPES = ['New website', 'Redesign', 'E-commerce', 'Web app', 'Speed & SEO', 'Integration / API', 'Support', 'Other']
 const TIMELINES = ['ASAP', '1–2 months', 'Flexible']
 
@@ -50,6 +52,7 @@ Estimate the hours Roman himself would need, honestly and realistically, the way
 - Design work: if the client has no design, include a design item (Roman designs in Figma himself).
 - Content writing, paid plugins, hosting and stock photos are not included unless asked; mention this in assumptions.
 - If the description is vague, assume the most common version of such a project and say so in assumptions.
+- If the client pasted a full scope document with several phases, estimate the whole scope and name the phases in the summary (no hour or price numbers in the summary).
 - Timeline assumes Roman works on it part-time alongside other clients, roughly 20 hours a week.
 - Never give prices or money amounts; the server converts hours to cost.
 Write every text field in the same language the client used. Return only JSON matching the schema.
@@ -101,7 +104,8 @@ async function handleEstimate(body, env, ctx, ip, request) {
   const input = {
     type: PROJECT_TYPES.includes(body.type) ? body.type : 'Other',
     timeline: TIMELINES.includes(body.timeline) ? body.timeline : 'Flexible',
-    description: String(body.description || '').trim().slice(0, 3000),
+    // Text pasted from PDFs often comes with runs of spaces and blank lines; squeeze them.
+    description: String(body.description || '').replace(/[ \t]+/g, ' ').replace(/\n\s*\n\s*/g, '\n\n').trim().slice(0, MAX_DESCRIPTION),
     website: String(body.website || '').trim().slice(0, 200),
   }
   if (input.description.length < 40) throw new UserError('Please describe the project in a bit more detail (at least 40 characters).')
