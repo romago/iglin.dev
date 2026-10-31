@@ -6,7 +6,8 @@ import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Estimate from './components/Estimate'
-import Education from './components/Education'
+// Education is hidden for now; restore the import, the <Education /> line and the menu link in Header.jsx to bring it back.
+// import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -21,7 +22,6 @@ export default function App() {
         <Experience />
         <Projects />
         <Estimate />
-        <Education />
         <Contact />
       </main>
       <Footer />
