@@ -5,6 +5,8 @@ import './Estimate.css'
 const types = ['New website', 'Redesign', 'E-commerce', 'Web app', 'Speed & SEO', 'Integration / API', 'Support', 'Other']
 const timelines = ['ASAP', '1–2 months', 'Flexible']
 const money = (v) => `$${v.toLocaleString('en-US')}`
+// Same limit as MAX_DESCRIPTION in estimate-api: room for a whole scope document.
+const MAX_DESCRIPTION = 20000
 
 function Result({ estimate: e, ticket, onRestart }) {
   const [step, setStep] = useState('idle') // idle | form | sending | sent
@@ -140,6 +142,7 @@ export default function Estimate() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [result, setResult] = useState(null)
+  const [length, setLength] = useState(0)
   const formRef = useRef(null)
 
   const submit = async (ev) => {
@@ -147,6 +150,10 @@ export default function Estimate() {
     const f = new FormData(ev.currentTarget)
     const description = String(f.get('description')).trim()
     const website = String(f.get('website')).trim()
+    if (description.length > MAX_DESCRIPTION) {
+      setError(`Please shorten the description to ${MAX_DESCRIPTION.toLocaleString('en-US')} characters. It is ${description.length.toLocaleString('en-US')} now.`)
+      return
+    }
 
     if (!enabled) {
       const body = `Project type: ${type}\nTimeline: ${timeline}\n${website ? `Website: ${website}\n` : ''}\n${description}`
@@ -208,9 +215,12 @@ export default function Estimate() {
               rows={6}
               required
               minLength={40}
-              maxLength={3000}
+              onChange={(ev) => setLength(ev.target.value.length)}
               placeholder="For example: a WordPress site for a moving company with 10 pages, a quote form that goes to our CRM, online booking and Spanish version. We have a logo but no design."
             />
+            <small className={`est-count${length > MAX_DESCRIPTION ? ' est-count--over' : ''}`}>
+              {length.toLocaleString('en-US')} / {MAX_DESCRIPTION.toLocaleString('en-US')} · you can paste a whole scope document
+            </small>
           </label>
 
           <div className="est-row">
