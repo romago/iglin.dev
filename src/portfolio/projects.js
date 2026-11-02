@@ -1,7 +1,7 @@
 // Case studies for portfolio.iglin.dev. Facts come from public/projects.md;
 // keep them in sync and never add contact details here.
 import pmHome from './shots/peoplemovers-home-mobile.webp'
-import pmSac from './shots/peoplemovers-sac-mobile.webp'
+import pmLongDistance from './shots/peoplemovers-ld-full.webp'
 import flsFull from './shots/fls-full.webp'
 import flsMobile from './shots/fls-mobile.webp'
 import araksHome from './shots/araks-home-full.webp'
@@ -43,11 +43,9 @@ export const projects = [
     ],
     stack: ['WordPress', 'Elementor Pro', 'PHP', 'JavaScript', 'WP-CLI', 'Cloudflare', 'Puppeteer', 'Lighthouse', 'GA4', 'GTM'],
     visual: {
-      layout: 'phones',
-      phones: [
-        { src: pmHome, alt: 'People Movers homepage on a phone' },
-        { src: pmSac, alt: 'Sacramento movers landing page on a phone' },
-      ],
+      layout: 'browser',
+      browser: { src: pmLongDistance, alt: 'Long-distance movers page, full page', domain: 'peoplemoverscalifornia.com', scroll: true },
+      phone: { src: pmHome, alt: 'People Movers homepage on a phone' },
     },
   },
   {
