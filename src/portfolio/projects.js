@@ -1,7 +1,7 @@
 // Case studies for portfolio.iglin.dev. Facts come from public/projects.md;
 // keep them in sync and never add contact details here.
 import pmHome from './shots/peoplemovers-home-mobile.webp'
-import pmLongDistance from './shots/peoplemovers-ld-full.webp'
+import pmWhiteGlove from './shots/peoplemovers-wg-full.webp'
 import flsFull from './shots/fls-full.webp'
 import flsMobile from './shots/fls-mobile.webp'
 import araksHome from './shots/araks-home-full.webp'
@@ -18,6 +18,35 @@ import cullmanFull from './shots/cullman-full.webp'
 import shiftMobile from './shots/theshift-mobile.webp'
 
 export const projects = [
+  {
+    id: 'signifyd',
+    title: 'Signifyd',
+    tagline: 'Corporate marketing website: plugins, integrations and speed',
+    client: 'E-commerce fraud protection company',
+    role: 'WordPress development',
+    period: '2021 — present',
+    url: 'https://www.signifyd.com',
+    summary:
+      'Long-term freelance collaboration since April 2021: ongoing development of the company’s WordPress marketing site, custom plugins, third-party data integrations, hosting, analytics, performance and localization.',
+    bullets: [
+      'Custom WordPress plugins and features with PHP, JavaScript, React and Chart.js; pages in Beaver Builder built from Figma and Sketch designs.',
+      'REST API integrations with G2, Greenhouse and Marketo.',
+      'Core Web Vitals optimization of the whole site.',
+      'Manage WP Engine hosting for all installs (production, development, EMEA, Mexico and Brazil): environments, SSH and WP-CLI, deployments, page and object caching.',
+      'Google Tag Manager, GA4 and Consent Mode v2.',
+      'Localization through Smartling; Marketo forms and HTML email templates.',
+    ],
+    metrics: [
+      { value: '30 → 90', label: 'Core Web Vitals performance score' },
+      { value: '5+ years', label: 'Continuous engagement since April 2021' },
+    ],
+    stack: ['WordPress', 'PHP', 'JavaScript', 'React', 'Chart.js', 'Beaver Builder', 'WP Engine', 'WP-CLI', 'REST API', 'Marketo', 'GTM', 'GA4', 'Smartling', 'Figma'],
+    visual: {
+      layout: 'browser',
+      browser: { src: signifydFull, alt: 'signifyd.com homepage, full page', domain: 'signifyd.com', scroll: true },
+      phone: { src: signifydMobile, alt: 'signifyd.com on a phone' },
+    },
+  },
   {
     id: 'people-movers',
     title: 'People Movers',
@@ -44,7 +73,7 @@ export const projects = [
     stack: ['WordPress', 'Elementor Pro', 'PHP', 'JavaScript', 'WP-CLI', 'Cloudflare', 'Puppeteer', 'Lighthouse', 'GA4', 'GTM'],
     visual: {
       layout: 'browser',
-      browser: { src: pmLongDistance, alt: 'Long-distance movers page, full page', domain: 'peoplemoverscalifornia.com', scroll: true },
+      browser: { src: pmWhiteGlove, alt: 'White glove moving page, full page', domain: 'peoplemoverscalifornia.com', scroll: true },
       phone: { src: pmHome, alt: 'People Movers homepage on a phone' },
     },
   },
@@ -198,35 +227,6 @@ export const projects = [
       layout: 'browser',
       browser: { src: mxFull, alt: 'mx.signifyd.com homepage, full page', domain: 'mx.signifyd.com', scroll: true },
       phone: { src: brMobile, alt: 'br.signifyd.com on a phone' },
-    },
-  },
-  {
-    id: 'signifyd',
-    title: 'Signifyd',
-    tagline: 'Corporate marketing website: plugins, integrations and speed',
-    client: 'E-commerce fraud protection company',
-    role: 'WordPress development',
-    period: '2021 — present',
-    url: 'https://www.signifyd.com',
-    summary:
-      'Long-term freelance collaboration since April 2021: ongoing development of the company’s WordPress marketing site, custom plugins, third-party data integrations, hosting, analytics, performance and localization.',
-    bullets: [
-      'Custom WordPress plugins and features with PHP, JavaScript, React and Chart.js; pages in Beaver Builder built from Figma and Sketch designs.',
-      'REST API integrations with G2, Greenhouse and Marketo.',
-      'Core Web Vitals optimization of the whole site.',
-      'Manage WP Engine hosting for all installs (production, development, EMEA, Mexico and Brazil): environments, SSH and WP-CLI, deployments, page and object caching.',
-      'Google Tag Manager, GA4 and Consent Mode v2.',
-      'Localization through Smartling; Marketo forms and HTML email templates.',
-    ],
-    metrics: [
-      { value: '30 → 90', label: 'Core Web Vitals performance score' },
-      { value: '5+ years', label: 'Continuous engagement since April 2021' },
-    ],
-    stack: ['WordPress', 'PHP', 'JavaScript', 'React', 'Chart.js', 'Beaver Builder', 'WP Engine', 'WP-CLI', 'REST API', 'Marketo', 'GTM', 'GA4', 'Smartling', 'Figma'],
-    visual: {
-      layout: 'browser',
-      browser: { src: signifydFull, alt: 'signifyd.com homepage, full page', domain: 'signifyd.com', scroll: true },
-      phone: { src: signifydMobile, alt: 'signifyd.com on a phone' },
     },
   },
   {

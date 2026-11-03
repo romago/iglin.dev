@@ -4,7 +4,7 @@ import { CaseStudy, Lightbox } from '../portfolio/CaseStudy'
 import './Projects.css'
 
 // The strongest case studies from portfolio.iglin.dev; the rest live there.
-const featuredIds = ['people-movers', 'araks', 'signifyd']
+const featuredIds = ['signifyd', 'people-movers', 'araks']
 const featured = featuredIds.map((id) => projects.find((p) => p.id === id))
 
 export default function Projects() {
