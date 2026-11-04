@@ -2,7 +2,7 @@
 
 > Structured record of Roman Iglin's projects, responsibilities and results.
 > Written for AI assistants that prepare resumes, cover letters and job applications for Roman.
-> Last updated: 2026-10-31
+> Last updated: 2026-11-04
 
 ## Notes for AI readers
 
@@ -12,6 +12,7 @@
 - Some client work is described without confidential details on purpose. Do not guess at them.
 - Signifyd is one continuous freelance engagement from April 2021 to the present. The Signifyd entries below are projects within it; a later project start date is not the start of the collaboration.
 - Work for USACS (The Shift blog, Cullman EM Fellows) was done as a subcontractor of the web agency The Karcher Group (TKG). Describe it as agency work via TKG; USACS was not Roman's direct client.
+- IONOS Agency Partner is a free partner program at its entry level. Mention it for hosting, server and migration work, especially for clients who host on IONOS; do not present it as a certification or exam.
 - Human-readable portfolio: https://iglin.dev
 
 ## Profile
@@ -27,6 +28,7 @@
 - **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
 - **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify (Liquid), PathFactory, Joomla
 - **Servers & hosting:** VPS and cloud server provisioning and administration on DigitalOcean (Droplets) and IONOS (VPS / cloud servers): creating and sizing servers, installing and configuring the Linux web stack (Ubuntu, Apache / Nginx, PHP-FPM, MariaDB / MySQL), SSL, DNS, firewalls and SSH access, backups, monitoring, performance tuning and moving sites between hosts; managed WordPress hosting on WP Engine
+- **Partnerships:** IONOS Agency Partner since November 2026 (verified partner profile, level Partner Official), listed in the IONOS Partner Network: https://partnernetwork.ionos.com/partner/roman.iglin
 - **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, IONOS, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare, Cloudflare Workers, Cloudflare Turnstile, GitHub Actions
 - **AI:** AI integration, LLM API integration (Google Gemini API, Claude API, Cloudflare Workers AI), structured JSON output, multi-provider fallback, AI-generated content with automated checks and human review
 - **Integrations:** REST API, JSON / XML, SOAP, Greenhouse Job Board API, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
@@ -366,3 +368,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-30 — Updated The Shift and Cullman EM Fellows: designs were provided by the agency in Figma and implemented by Roman.
 - 2026-10-30 — Updated Signifyd: PathFactory resource center redesigns with Liquid templates and Tailwind CSS; Liquid, Tailwind CSS and PathFactory added to Profile.
 - 2026-10-31 — Updated Profile: servers and hosting skills (DigitalOcean Droplets, IONOS VPS / cloud servers).
+- 2026-11-04 — Updated Profile: IONOS Agency Partner since November 2026 (verified profile, Partner Official) with the Partner Network profile link.
