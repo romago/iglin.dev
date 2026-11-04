@@ -65,6 +65,7 @@
 
 .contact__copy-hint {
   margin-left: auto;
+  white-space: nowrap;
   color: var(--accent);
   font-size: 0.8rem;
   font-weight: 600;

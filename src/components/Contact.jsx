@@ -152,6 +152,16 @@ export default function Contact() {
               </a>
             ))}
             <CopyEmail />
+            <a className="contact__link" href="https://partnernetwork.ionos.com/partner/roman.iglin?origin=PartnerBadge" target="_blank" rel="nofollow noopener noreferrer">
+              <span className="contact__link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
+                  <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/>
+                  <polyline points="8.5,12 11,14.5 15.5,9.5"/>
+                </svg>
+              </span>
+              <span>IONOS Agency Partner</span>
+              <span className="contact__copy-hint">Profile ↗</span>
+            </a>
           </div>
         </div>
       </div>

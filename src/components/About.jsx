@@ -41,6 +41,12 @@ export default function About() {
               <li>
                 <span>→</span> GTM, GA4, Smartling localization
               </li>
+              <li>
+                <span>→</span>
+                <a className="about__partner" href="https://partnernetwork.ionos.com/partner/roman.iglin?origin=PartnerBadge" rel="nofollow noopener" target="_blank">
+                  Official IONOS Agency Partner
+                </a>
+              </li>
             </ul>
           </div>
         </div>

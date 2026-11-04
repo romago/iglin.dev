@@ -66,3 +66,10 @@
     padding-right: 24px; 
   }
 }
+
+.about__partner {
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(168, 255, 62, 0.35);
+  transition: color var(--transition), border-color var(--transition);
+}
+.about__partner:hover { color: var(--text-primary); border-color: var(--accent); opacity: 1; }
