@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { apiEnabled, post, useTurnstile } from '../lib/api'
+import { track } from '../lib/analytics'
 import './Estimate.css'
 
 const types = ['New website', 'Redesign', 'E-commerce', 'Web app', 'Speed & SEO', 'Integration / API', 'Support', 'Other']
@@ -20,6 +21,7 @@ function Result({ estimate: e, ticket, onRestart }) {
     try {
       await post('/send', { ticket, name: f.get('name'), email: f.get('email'), message: f.get('message'), company: f.get('company') })
       setStep('sent')
+      track('generate_lead', { method: 'estimate_sent_to_roman' })
     } catch (err) {
       setError(err.message)
       setStep('form')
@@ -170,6 +172,7 @@ export default function Estimate() {
     try {
       const out = await post('/estimate', { type, timeline, description, website, company: f.get('company'), turnstileToken: turnstile.token })
       setResult(out)
+      track('generate_lead', { method: 'quick_estimate', project_type: type })
     } catch (err) {
       setError(err.message)
     } finally {

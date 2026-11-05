@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { apiEnabled, post, useTurnstile } from '../lib/api'
+import { track } from '../lib/analytics'
 import './Estimate.css'
 import './Contact.css'
 
@@ -49,6 +50,7 @@ function CopyEmail() {
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(EMAIL)
+      track('copy_email')
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
@@ -81,6 +83,7 @@ function ContactForm() {
     try {
       await post('/contact', { name: f.get('name'), email: f.get('email'), message: f.get('message'), company: f.get('company'), turnstileToken: turnstile.token })
       setState('sent')
+      track('generate_lead', { method: 'contact_form' })
     } catch (err) {
       setError(err.message)
       setState('idle')

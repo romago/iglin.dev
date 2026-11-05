@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Logo from '../components/Logo'
 import HeroArt from '../components/HeroArt'
+import { track } from '../lib/analytics'
 import { projects, earlier } from './projects'
 import { CaseStudy, Lightbox } from './CaseStudy'
 import '../components/Header.css'
@@ -42,6 +43,25 @@ export default function Portfolio() {
   const [openShot, setOpenShot] = useState(null)
   const yearsExperience = Math.max(0, new Date().getFullYear() - 2010)
 
+  // Which case studies a visitor actually scrolled to, once per page view.
+  useEffect(() => {
+    const seen = new Set()
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting || seen.has(target.id)) return
+        seen.add(target.id)
+        track('view_case_study', { case_study: target.id })
+      })
+    }, { threshold: 0.4 })
+    document.querySelectorAll('.pf-project').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
+  const openScreenshot = (shot) => {
+    setOpenShot(shot)
+    track('open_screenshot', { screenshot: shot.alt })
+  }
+
   return (
     <>
       <Header />
@@ -78,7 +98,7 @@ export default function Portfolio() {
           </nav>
           <div className="pf-projects">
             {projects.map((p, i) => (
-              <CaseStudy key={p.id} project={p} index={i} onOpen={setOpenShot} />
+              <CaseStudy key={p.id} project={p} index={i} onOpen={openScreenshot} />
             ))}
           </div>
         </section>
