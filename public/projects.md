@@ -25,7 +25,7 @@
 - **Email:** roman@iglin.dev
 - **LinkedIn:** https://www.linkedin.com/in/roman-iglin/
 - **GitHub:** https://github.com/romago
-- **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
+- **Core stack:** PHP, JavaScript, React, Node.js / Express, MongoDB, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
 - **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify (Liquid), PathFactory, Joomla
 - **Servers & hosting:** VPS and cloud server provisioning and administration on DigitalOcean (Droplets) and IONOS (VPS / cloud servers): creating and sizing servers, installing and configuring the Linux web stack (Ubuntu, Apache / Nginx, PHP-FPM, MariaDB / MySQL), SSL, DNS, firewalls and SSH access, backups, monitoring, performance tuning and moving sites between hosts; managed WordPress hosting on WP Engine
 - **Partnerships:** IONOS Agency Partner since November 2026 (verified partner profile, level Partner Official), listed in the IONOS Partner Network: https://partnernetwork.ionos.com/partner/roman.iglin
@@ -51,6 +51,28 @@
 ---
 
 ## Projects
+
+### Tickdown — full-stack notes app with self-sorting checklists (React, Node.js, MongoDB, Docker)
+
+- **Client:** Personal project (Roman's own product, built for daily use)
+- **Role:** Full Stack Developer (product, front end, back end, deployment)
+- **Period:** Apr 2026 — present
+- **Status:** active
+- **Stack:** React 18, Vite, Tailwind CSS, TipTap (ProseMirror), Zustand, Node.js, Express, MongoDB, Mongoose, JWT, bcrypt, Docker Compose, Nginx, Let's Encrypt, Ubuntu VPS
+- **Link:** https://tickdown.iglin.dev (live demo), https://github.com/romago/tickdown (source)
+- **Last updated:** 2026-11-05
+
+**Summary**
+A self-hosted notes app, an alternative to Apple Notes that works the same on desktop and phone: when a task is ticked it drops below the open ones by itself. Roman designed, built and deployed the whole stack.
+
+**What I did**
+- Built the React front end with a TipTap / ProseMirror rich text editor, Zustand state, debounced autosave, folders with colors, pinned notes and live search, in a mobile-first layout with bottom navigation and sliding panels.
+- Wrote a custom ProseMirror plugin that moves checked items below open ones, plus touch handling so checkboxes work reliably on phones; fixed a bug where checklist-first notes lost their titles.
+- Built the Node.js / Express REST API on MongoDB (Mongoose) with JWT authentication, bcrypt-hashed passwords and per-user data scoping.
+- Deployed with Docker Compose behind Nginx on an Ubuntu VPS with Let's Encrypt: isolated Docker network, localhost-only ports, secrets in environment files and memory limits.
+- Launched a public demo with one-click demo sign-in, closed sign-up, a locked demo account and a nightly cron reset, plus a README with screenshots, API reference and setup guide.
+
+**Keywords:** full stack development, React, Node.js, Express, MongoDB, Mongoose, REST API, JWT authentication, TipTap, ProseMirror, rich text editor, Tailwind CSS, Zustand, Vite, Docker, Docker Compose, Nginx reverse proxy, Let's Encrypt, VPS deployment, mobile-first UI, single-page application
 
 ### iglin.dev — personal site, portfolio and AI project estimator (React, Cloudflare Workers, LLM integration)
 
@@ -371,3 +393,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-31 — Updated Profile: servers and hosting skills (DigitalOcean Droplets, IONOS VPS / cloud servers).
 - 2026-11-04 — Updated Profile: IONOS Agency Partner since November 2026 (verified profile, Partner Official) with the Partner Network profile link.
 - 2026-11-05 — Updated Araks Inc: homepage mobile PageSpeed 93–99, faster catalog search, incremental refactoring of the ordering script.
+- 2026-11-05 — Added Tickdown: full-stack notes app (React, Node.js, MongoDB, Docker) with a public demo.

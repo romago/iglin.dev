@@ -74,8 +74,8 @@ export default function Portfolio() {
           </h1>
           <p className="pf-hero__desc">
             Hi, I&rsquo;m Roman, a web developer with {yearsExperience}+ years of experience. Every project
-            on this page is my own work for real clients: WordPress and Drupal development, redesigns,
-            integrations, performance and technical SEO, with the measured results.
+            on this page is my own work: WordPress and Drupal development for real clients, redesigns,
+            integrations, performance and technical SEO with the measured results, plus a full-stack app of my own.
           </p>
           <ul className="pf-hero__stats">
             <li><strong>{yearsExperience}+</strong><span>years in web development</span></li>
