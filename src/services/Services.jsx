@@ -143,9 +143,9 @@ export default function Services() {
     track('select_service', { service: s.id })
   }
 
-  const pickPackage = (p) => {
-    setChoice({ serviceId: service.id, packageId: p.id })
-    track('select_package', { service: service.id, package: p.id })
+  const pickPackage = (sv, p) => {
+    setChoice({ serviceId: sv.id, packageId: p.id })
+    track('select_package', { service: sv.id, package: p.id })
     // On phones the cards stack, so bring the order form into view.
     if (window.matchMedia('(max-width: 900px)').matches) {
       document.getElementById('order')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -176,6 +176,7 @@ export default function Services() {
                 type="button"
                 role="tab"
                 aria-selected={s.id === service.id}
+                aria-controls={`panel-${s.id}`}
                 className={`svc-tab${s.id === service.id ? ' svc-tab--active' : ''}`}
                 onClick={() => pickService(s)}
               >
@@ -185,43 +186,48 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="svc-intro">
-            <h2 className="svc-intro__title">{service.title}</h2>
-            <p className="svc-intro__pitch">{service.pitch}</p>
-            <p className="svc-intro__proof"><span className="est-badge">Recent work</span> {service.proof}</p>
-          </div>
+          {/* Every service is in the HTML as a tab panel, so all packages are crawlable; only the active one shows. */}
+          {services.map((sv) => (
+            <div key={sv.id} id={`panel-${sv.id}`} role="tabpanel" aria-label={sv.title} hidden={sv.id !== service.id}>
+              <div className="svc-intro">
+                <h2 className="svc-intro__title">{sv.title}</h2>
+                <p className="svc-intro__pitch">{sv.pitch}</p>
+                <p className="svc-intro__proof"><span className="est-badge">Recent work</span> {sv.proof}</p>
+              </div>
 
-          <div className="svc-packages" role="radiogroup" aria-label="Packages">
-            {service.packages.map((p) => {
-              const active = p.id === pkg.id
-              return (
-                <button
-                  key={p.id}
-                  type="button"
-                  role="radio"
-                  aria-checked={active}
-                  className={`svc-pkg${active ? ' svc-pkg--active' : ''}`}
-                  onClick={() => pickPackage(p)}
-                >
-                  <span className="svc-pkg__head">
-                    <span className="svc-pkg__tier">{p.tier}</span>
-                    {p.id === 'standard' && <span className="svc-pkg__popular">Most popular</span>}
-                  </span>
-                  <span className="svc-pkg__name">{p.name}</span>
-                  <span className="svc-pkg__price">{money(p.price)}</span>
-                  <span className="svc-pkg__summary">{p.summary}</span>
-                  <span className="svc-pkg__terms">
-                    <span>⏱ {days(p.days)} delivery</span>
-                    <span>↺ {revisions(p.revisions)}</span>
-                  </span>
-                  <ul className="svc-pkg__features">
-                    {p.features.map((f) => <li key={f}>{f}</li>)}
-                  </ul>
-                  <span className="svc-pkg__select">{active ? 'Selected ✓' : `Choose ${p.tier}`}</span>
-                </button>
-              )
-            })}
-          </div>
+              <div className="svc-packages" role="radiogroup" aria-label={`${sv.short} packages`}>
+                {sv.packages.map((p) => {
+                  const active = sv.id === service.id && p.id === pkg.id
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      className={`svc-pkg${active ? ' svc-pkg--active' : ''}`}
+                      onClick={() => pickPackage(sv, p)}
+                    >
+                      <span className="svc-pkg__head">
+                        <span className="svc-pkg__tier">{p.tier}</span>
+                        {p.id === 'standard' && <span className="svc-pkg__popular">Most popular</span>}
+                      </span>
+                      <span className="svc-pkg__name">{p.name}</span>
+                      <span className="svc-pkg__price">{money(p.price)}</span>
+                      <span className="svc-pkg__summary">{p.summary}</span>
+                      <span className="svc-pkg__terms">
+                        <span>⏱ {days(p.days)} delivery</span>
+                        <span>↺ {revisions(p.revisions)}</span>
+                      </span>
+                      <ul className="svc-pkg__features">
+                        {p.features.map((f) => <li key={f}>{f}</li>)}
+                      </ul>
+                      <span className="svc-pkg__select">{active ? 'Selected ✓' : `Choose ${p.tier}`}</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
 
           <div className="svc-order" id="order">
             <div className="svc-order__summary">

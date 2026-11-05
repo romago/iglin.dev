@@ -182,7 +182,7 @@ export function nicheGraph(page, found) {
       '@type': 'FAQPage',
       '@id': `${pageUrl}#faq`,
       url: pageUrl,
-      mainEntity: page.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      mainEntity: page.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') } })),
     },
   ])
 }

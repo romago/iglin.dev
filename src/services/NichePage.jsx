@@ -15,6 +15,15 @@ import './NichePage.css'
 
 const money = (v) => `$${v.toLocaleString('en-US')}`
 
+// Turns [label](url) in page copy into links.
+function rich(text) {
+  const parts = text.split(/\[([^\]]+)\]\(([^)]+)\)/)
+  return parts.map((part, i) => {
+    if (i % 3 === 1) return <a key={i} href={parts[i + 1]}>{part}</a>
+    return i % 3 === 2 ? null : part
+  })
+}
+
 function Offer({ offer }) {
   if (offer.kind === 'package') {
     const { service, pkg } = findPackage(offer.service, offer.package)
@@ -138,7 +147,7 @@ export default function NichePage({ slug }) {
             {page.faq.map((f) => (
               <details key={f.q}>
                 <summary>{f.q}</summary>
-                <p>{f.a}</p>
+                <p>{rich(f.a)}</p>
               </details>
             ))}
           </div>

@@ -214,3 +214,5 @@
 
 /* One case study per page, so its list number is not needed */
 #case .pf-project__number { display: none; }
+#case .pf-project__head { grid-template-columns: 1fr; }
+.np-faq p a { color: var(--accent); font-weight: 600; }
