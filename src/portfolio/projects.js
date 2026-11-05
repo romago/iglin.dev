@@ -202,7 +202,7 @@ export const projects = [
     id: 'usacs',
     title: 'USACS: The Shift & Cullman EM Fellows',
     tagline: 'Two healthcare websites moved to a new brand, as a subcontractor for a web agency',
-    client: 'Agency work via The Karcher Group (TKG)',
+    client: 'White-label work for a web agency',
     role: 'Figma to WordPress · Theme development',
     period: '2026',
     links: [
@@ -210,7 +210,7 @@ export const projects = [
       { label: 'The Shift blog', url: 'https://theshift.usacs.com' },
     ],
     summary:
-      'For the web agency TKG I redesigned two WordPress sites of their client USACS, an emergency medicine physician group, in its new 2026 brand: the company blog The Shift and the site of its emergency medicine fellowship in Cullman, Alabama. The agency provided the designs in Figma; I implemented them in code.',
+      'For a web agency I redesigned two WordPress sites of their client USACS, an emergency medicine physician group, in its new 2026 brand: the company blog The Shift and the site of its emergency medicine fellowship in Cullman, Alabama. The agency provided the designs in Figma; I implemented them in code.',
     bullets: [
       'Cullman EM Fellows: the previous theme’s source files had been lost, so I rebuilt the theme from scratch as a WordPress block theme (Full Site Editing, theme.json), implementing the agency’s Figma design in the new brand palette and typography.',
       'Custom ACF blocks (home hero, content and image, two-column cards, form), each with its own JavaScript and CSS built with @wordpress/scripts, so editors assemble pages from branded components.',
