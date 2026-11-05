@@ -9,10 +9,12 @@ const navLinks = [
   { href: '#reviews', label: 'Reviews' },
   { href: '#projects', label: 'Projects' },
   { href: '#estimate', label: 'Estimate' },
+  { href: '/services/', label: 'Services', page: true },
   { href: '#contact', label: 'Contact' },
 ]
 
-export default function Header() {
+// `home` is '/' on pages other than the home page, so the section links lead back to it.
+export default function Header({ home = '' }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -27,18 +29,18 @@ export default function Header() {
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <div className="header__inner">
-        <a href="#hero" className="header__logo">
+        <a href={`${home}#hero`} className="header__logo">
           <Logo />
         </a>
 
         <nav className={`header__nav${menuOpen ? ' header__nav--open' : ''}`}>
-          {navLinks.map(({ href, label }) => (
-            <a key={href} href={href} className="header__link" onClick={handleNav}>
+          {navLinks.map(({ href, label, page }) => (
+            <a key={href} href={page ? href : `${home}${href}`} className="header__link" onClick={handleNav}>
               {label}
             </a>
           ))}
           <a
-            href="#contact"
+            href={`${home}#contact`}
             className="header__btn"
             onClick={handleNav}
           >
