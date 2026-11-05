@@ -3,6 +3,7 @@ import './Reviews.css'
 
 const UPWORK_PROFILE = 'https://www.upwork.com/freelancers/~01804b6061bf805cfd'
 const LINKEDIN_RECOMMENDATIONS = 'https://www.linkedin.com/in/roman-iglin/details/recommendations/'
+const IONOS_PROFILE = 'https://partnernetwork.ionos.com/partner/roman.iglin#ratings'
 
 // Copied word for word from the sources; Upwork does not show client names publicly, so the job title stands in.
 const recommendation = {
@@ -18,6 +19,15 @@ const recommendation = {
     'Above all, Roman is dependable and workmanlike. He truly lives to program and consistently delivers high-quality work on time. Projects like implementing APIs for Looker data visualizations, integrating G2 customer reviews into the website, and designing a signature tool highlight the depth and breadth of his capabilities.',
     'You get exceptional value with Roman—I couldn’t recommend him more strongly as a web developer. Anyone seeking a skilled, reliable, and innovative professional would be fortunate to have him on their team.',
   ],
+}
+
+// Verified client review on the IONOS Partner Network profile.
+const ionosReview = {
+  author: 'Aram Arutyunyan',
+  role: 'Araks Inc (wholesale food distributor)',
+  relation: 'Client since 2017',
+  date: 'Nov 2026',
+  text: 'Roman has been our web developer since 2017. He built and maintains our wholesale ordering site and the server it runs on. He connected the site to QuickBooks, so products, prices, stock and orders now sync automatically instead of by hand. Checkout went from 7–13 seconds to about half a second. He is responsive, explains things clearly, and keeps the site secure and backed up.',
 }
 
 const upworkReviews = [
@@ -52,6 +62,12 @@ const linkedinIcon = (
 const upworkIcon = (
   <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
     <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
+  </svg>
+)
+
+const partnerIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16" aria-hidden="true">
+    <path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 6.9L12 17.5 5.8 21l1.4-6.9L2 9.3l7-.8z" />
   </svg>
 )
 
@@ -99,6 +115,18 @@ export default function Reviews() {
               <span>{recommendation.role} · {recommendation.relation} · {recommendation.date}</span>
             </span>
             <Source href={LINKEDIN_RECOMMENDATIONS} icon={linkedinIcon} label="LinkedIn" />
+          </figcaption>
+        </figure>
+
+        <figure className="rev__card rev__card--featured">
+          <Stars />
+          <blockquote className="rev__quote"><p>{ionosReview.text}</p></blockquote>
+          <figcaption className="rev__meta">
+            <span className="rev__author">
+              <strong>{ionosReview.author}</strong>
+              <span>{ionosReview.role} · {ionosReview.relation} · {ionosReview.date}</span>
+            </span>
+            <Source href={IONOS_PROFILE} icon={partnerIcon} label="IONOS" />
           </figcaption>
         </figure>
 

@@ -61,6 +61,7 @@
 .rev__quote p + p { margin-top: 14px; }
 
 .rev__card--featured .rev__quote { padding-left: 48px; }
+.rev__card--featured .rev__stars { padding-left: 48px; }
 
 .rev__card--featured .rev__quote::before {
   content: '“';
@@ -138,6 +139,7 @@
   .rev__grid { grid-template-columns: 1fr; }
   .rev__card, .rev__card--featured { padding: 24px 20px; }
   .rev__card--featured .rev__quote { padding-left: 0; padding-top: 28px; }
+  .rev__card--featured .rev__stars { padding-left: 0; }
   .rev__card--featured .rev__quote::before { top: -14px; font-size: 3.5rem; }
   .rev__more { margin-left: 0; }
 }

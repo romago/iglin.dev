@@ -1,2 +1,5 @@
+# portfolio.iglin.dev is open to search engines and AI assistants.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://portfolio.iglin.dev/sitemap.xml
