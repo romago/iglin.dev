@@ -4,6 +4,8 @@
 // POST /contact   Turnstile-checked contact form -> emails Roman the message.
 import Anthropic from '@anthropic-ai/sdk'
 import { WorkerMailer } from 'worker-mailer'
+// Shared with the /services page, so prices in order emails come from the same list.
+import { findPackage } from '../../src/services/packages.js'
 
 const TICKET_TTL_MS = 2 * 60 * 60 * 1000
 // Long enough for a full scope document pasted from a PDF (~3,000 words).
@@ -71,7 +73,7 @@ export default {
 
     const json = (data, status = 200) => Response.json(data, { status, headers: cors })
     const { pathname } = new URL(request.url)
-    if (request.method !== 'POST' || !['/estimate', '/send', '/contact'].includes(pathname)) return json({ error: 'Not found' }, 404)
+    if (request.method !== 'POST' || !['/estimate', '/send', '/contact', '/order'].includes(pathname)) return json({ error: 'Not found' }, 404)
 
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown'
     const { success } = await env.LIMITER.limit({ key: `${pathname}:${ip}` })
@@ -89,6 +91,7 @@ export default {
     try {
       if (pathname === '/estimate') return json(await handleEstimate(body, env, ctx, ip, request))
       if (pathname === '/contact') return json(await handleContact(body, env, ip))
+      if (pathname === '/order') return json(await handleOrder(body, env, ip))
       return json(await handleSend(body, env))
     } catch (err) {
       if (err instanceof UserError) return json({ error: err.message }, 400)
@@ -167,6 +170,37 @@ async function handleContact(body, env, ip) {
 <p style="color:#555">${esc(name)} wrote through the contact form on iglin.dev. Reply to this email to answer them.</p>
 <p><b>${esc(name)}</b> &lt;<a href="mailto:${esc(email)}">${esc(email)}</a>&gt;</p>
 <p style="white-space:pre-wrap">${esc(message)}</p>
+</div>`,
+  })
+  return { ok: true }
+}
+
+// POST /order  A fixed-price package from iglin.dev/services; emails Roman with the client's details.
+async function handleOrder(body, env, ip) {
+  const found = findPackage(body.service, body.package)
+  if (!found) throw new UserError('Please choose a package.')
+  const { service, pkg } = found
+  const name = String(body.name || '').trim().slice(0, 100)
+  const email = String(body.email || '').trim().slice(0, 200)
+  const website = String(body.website || '').trim().slice(0, 200)
+  const details = String(body.details || '').trim().slice(0, 5000)
+  if (name.length < 2) throw new UserError('Please enter your name.')
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) throw new UserError('Please enter a valid email.')
+  if (details.length < 20) throw new UserError('Please tell me a bit more about the project (at least 20 characters).')
+
+  const human = await verifyTurnstile(body.turnstileToken, ip, env)
+  if (!human) throw new UserError('Bot check failed. Please reload the page and try again.')
+
+  await sendMail(env, {
+    subject: `Package order: ${pkg.name} (${formatMoney(pkg.price)}) from ${name}`,
+    replyTo: email,
+    html: `<div style="font-family:system-ui,sans-serif;font-size:15px;line-height:1.5;color:#111">
+<p style="color:#555">${esc(name)} chose a package on iglin.dev/services. Reply to this email to answer them.</p>
+<h2 style="margin:0 0 4px">${esc(pkg.name)} · ${formatMoney(pkg.price)}</h2>
+<p style="margin:0 0 12px;color:#555">${esc(service.title)} · ${esc(pkg.tier)} · ${pkg.days} day(s) delivery · ${pkg.revisions} revision(s)</p>
+<p style="margin:0 0 12px">${esc(pkg.summary)}</p>
+<p><b>${esc(name)}</b> &lt;<a href="mailto:${esc(email)}">${esc(email)}</a>&gt;${website ? `<br>Website: ${esc(website)}` : ''}</p>
+<p style="white-space:pre-wrap;background:#f4f4f4;padding:12px;border-radius:6px">${esc(details)}</p>
 </div>`,
   })
   return { ok: true }
