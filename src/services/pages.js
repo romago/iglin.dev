@@ -5,7 +5,7 @@
 export const nichePages = [
   {
     slug: 'quickbooks-website-integration',
-    draft: true,
+    draft: false,
     metaTitle: 'QuickBooks Desktop Website Integration Developer | Roman Iglin',
     metaDescription:
       'I connect your website or online store to QuickBooks Desktop through the Web Connector: products, prices, stock, customers and orders sync on a schedule. Real case: about 7,500 items synced every hour.',
@@ -60,7 +60,7 @@ export const nichePages = [
   },
   {
     slug: 'landing-page-speed-optimization',
-    draft: true,
+    draft: false,
     metaTitle: 'WordPress Landing Page Speed Optimization for Google Ads | Roman Iglin',
     metaDescription:
       'Slow WordPress or Elementor landing page wasting ad spend? I make it load fast on phones without breaking GA4, Google Ads or Meta Pixel tracking. Real case: Lighthouse mobile 33 → 98, 17.7 MB → 0.9 MB.',
@@ -103,7 +103,7 @@ export const nichePages = [
   },
   {
     slug: 'wpbakery-to-beaver-builder-migration',
-    draft: true,
+    draft: false,
     metaTitle: 'WPBakery to Beaver Builder Migration | Roman Iglin',
     metaDescription:
       'Move your WordPress site off WPBakery Page Builder to Beaver Builder: pages rebuilt cleanly, custom modules your team can edit, no shortcodes left behind. Real case: a logistics company site with a French version.',
@@ -150,7 +150,7 @@ export const nichePages = [
   },
   {
     slug: 'white-label-wordpress-developer',
-    draft: true,
+    draft: false,
     metaTitle: 'White-Label WordPress Developer for Agencies | Roman Iglin',
     metaDescription:
       'A senior WordPress developer your agency can bring in when the team is full: Figma to WordPress block themes and custom ACF blocks, page speed, migrations and VPS servers, delivered under your brand.',
