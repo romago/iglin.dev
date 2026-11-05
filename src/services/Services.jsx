@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import HeroArt from '../components/HeroArt'
@@ -13,13 +13,16 @@ const money = (v) => `$${v.toLocaleString('en-US')}`
 const days = (n) => `${n} day${n === 1 ? '' : 's'}`
 const revisions = (n) => (n ? `${n} revision${n === 1 ? '' : 's'}` : 'No revisions')
 
+const defaultChoice = { serviceId: services[0].id, packageId: 'standard' }
+const noSubscribe = () => () => {}
+
 // ?service=speed&package=standard opens a package directly, so it can be linked from emails.
-function initialChoice() {
-  const q = new URLSearchParams(window.location.search)
+function choiceFromSearch(search) {
+  const q = new URLSearchParams(search)
   const found = findPackage(q.get('service'), q.get('package'))
   if (found) return { serviceId: found.service.id, packageId: found.pkg.id }
-  const service = services.find((s) => s.id === q.get('service')) || services[0]
-  return { serviceId: service.id, packageId: 'standard' }
+  const service = services.find((s) => s.id === q.get('service'))
+  return service ? { serviceId: service.id, packageId: 'standard' } : defaultChoice
 }
 
 function OrderForm({ service, pkg }) {
@@ -117,16 +120,22 @@ function OrderForm({ service, pkg }) {
 }
 
 export default function Services() {
-  const [choice, setChoice] = useState(initialChoice)
+  // The prerendered HTML shows the default package (empty search on the server);
+  // after hydration the URL's package shows until the visitor picks another one.
+  const search = useSyncExternalStore(noSubscribe, () => window.location.search, () => '')
+  const [picked, setChoice] = useState(null)
+  const choice = picked ?? choiceFromSearch(search)
   const service = services.find((s) => s.id === choice.serviceId)
   const pkg = service.packages.find((p) => p.id === choice.packageId)
 
+  // Keep the visitor's pick in the URL so it can be shared.
   useEffect(() => {
+    if (!picked) return
     const url = new URL(window.location.href)
     url.searchParams.set('service', service.id)
     url.searchParams.set('package', pkg.id)
     window.history.replaceState(null, '', url)
-  }, [service.id, pkg.id])
+  }, [picked, service.id, pkg.id])
 
   const pickService = (s) => {
     setChoice({ serviceId: s.id, packageId: 'standard' })

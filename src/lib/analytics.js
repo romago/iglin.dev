@@ -2,7 +2,8 @@
 // Visits from the agency outreach emails carry utm_source=<agency>, so GA4 shows them per agency
 // under Reports → Acquisition → Traffic acquisition (Session source / medium).
 const GA_ID = import.meta.env.VITE_GA_ID
-const enabled = Boolean(GA_ID) && import.meta.env.PROD
+// Off during prerendering (no window) and in dev.
+const enabled = Boolean(GA_ID) && import.meta.env.PROD && typeof window !== 'undefined'
 
 if (enabled) {
   window.dataLayer = window.dataLayer || []
