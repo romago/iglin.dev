@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Logo from '../components/Logo'
 import HeroArt from '../components/HeroArt'
 import { track } from '../lib/analytics'
+import { portfolioGraph, toJsonLd } from '../seo/schema'
 import { projects, earlier } from './projects'
 import { CaseStudy, Lightbox } from './CaseStudy'
 import '../components/Header.css'
@@ -64,6 +65,10 @@ export default function Portfolio() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(portfolioGraph(projects, (src) => new URL(src, window.location.href).href)) }}
+      />
       <Header />
       <main id="top">
         <section className="pf-hero">

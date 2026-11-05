@@ -1,4 +1,5 @@
+# iglin.dev is open to search engines and AI assistants.
 User-agent: *
-Allow: /llms.txt
-Allow: /projects.md
-Disallow: /
+Allow: /
+
+Sitemap: https://iglin.dev/sitemap.xml
