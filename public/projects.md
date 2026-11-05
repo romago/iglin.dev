@@ -202,7 +202,7 @@ Development, maintenance and server administration of Araks' Drupal 7 / Drupal C
 
 **What I did**
 - Built a QuickBooks Desktop integration from scratch: a hand-written Web Connector SOAP/qbXML endpoint with a job queue, hourly product, price and stock sync for about 7,500 items, daily customer and vendor sync, and automatic export of web orders as Sales Orders (restocking orders as Purchase Orders), replacing manual CSV and XLSX exchange. Added a low-margin alert and a sales analytics dashboard on top of the synced data.
-- Optimized the signed-in B2B ordering flow: a custom Drupal Views cache plugin keys per-customer price lists by a pricing fingerprint and rebuilds them in the background, and a rebuilt index-based catalog search also matches item codes. Refactored the legacy jQuery ordering script in small, separately shipped steps, and fixed order data-integrity bugs (unlinked bottle-deposit line items, carts wiped by stale checkout pages).
+- Optimized the B2B ordering flow and the product catalog: a custom Drupal Views cache plugin keys per-customer price lists by a pricing fingerprint, serves the public catalog stale-while-revalidate with a render lock, and rebuilds both in the background; a rebuilt index-based catalog search also matches item codes. Refactored the legacy jQuery ordering script in small, separately shipped steps, and fixed order data-integrity bugs (unlinked bottle-deposit line items, carts wiped by stale checkout pages).
 - Improved Core Web Vitals on public pages: self-hosted fonts and jQuery, deferred scripts, WebP images with srcset, and lazy loading for the 1,700 catalog photos. On the homepage, traced unstable mobile PageSpeed scores to the analytics tag with A/B test pages, deferred it until user interaction, and server-rendered the mobile brand carousel so the largest image paints with the page.
 - Led technical SEO: clean URLs with about 3,900 automatic 301 redirects, a complete XML sitemap, schema.org JSON-LD (Product, BreadcrumbList, WholesaleStore, FAQPage) and a brand and country-of-origin taxonomy. Connected the GA4, Search Console and PageSpeed Insights APIs for reporting.
 - Built the lead generation pipeline: an English/Russian wholesale landing page, a spam-protected lead form, approval with expiring one-time price-list links, follow-up and abandoned-cart emails, and GA4 key events.
@@ -213,13 +213,14 @@ Development, maintenance and server administration of Araks' Drupal 7 / Drupal C
 **Results**
 - Signed-in checkout page: server response 7–13 s → about 0.5 s.
 - Catalog page with 1,700 products on a phone over 4G: full load 16.8 s → 2.1 s; data downloaded before load 13.6 MB → 0.1 MB.
+- Catalog page server response after product syncs: 3–15 page loads a day that waited 6–20 s for a rebuild → a steady 0.6–0.8 s.
 - PHP 7.4 → 8.5: uncached product page throughput +38% (7.9 → 10.9 requests/s).
 - Homepage on mobile (PageSpeed lab data): LCP 12.2 s → 2.0–2.4 s, performance score 60 → 93–99 (desktop 97–100).
 - Catalog search over about 1,700 products: 547 ms → 41 ms per search (2.1 s → 0.11 s with the CPU slowed 4×).
 - Database: buffer-pool hit rate 98.1% → 99.8%; slowest admin report query 4.5 s → 0.1 s.
 - Google Search Console, the month after the URL, sitemap and SEO work vs the month before: impressions +98%, clicks +62%.
 
-**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, Drupal Views, Core Web Vitals, LCP, PageSpeed Insights, Lighthouse, lazy loading, JavaScript refactoring, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI integration, LLM integration, generative AI, AI content generation, Google Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
+**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, stale-while-revalidate, Drupal Views, Core Web Vitals, LCP, PageSpeed Insights, Lighthouse, lazy loading, JavaScript refactoring, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI integration, LLM integration, generative AI, AI content generation, Google Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
 
 ### Arthur Ray Law Offices — law firm websites (WordPress & technical SEO)
 
@@ -394,3 +395,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-11-04 — Updated Profile: IONOS Agency Partner since November 2026 (verified profile, Partner Official) with the Partner Network profile link.
 - 2026-11-05 — Updated Araks Inc: homepage mobile PageSpeed 93–99, faster catalog search, incremental refactoring of the ordering script.
 - 2026-11-05 — Added Tickdown: full-stack notes app (React, Node.js, MongoDB, Docker) with a public demo.
+- 2026-11-05 — Updated Araks Inc: stale-while-revalidate cache for the public catalog (no more 6–20 s rebuilds after product syncs).
