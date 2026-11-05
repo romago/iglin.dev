@@ -1,0 +1,216 @@
+/* Niche service pages (/services/<slug>/). Hero and pricing reuse Services.css. */
+
+.np-hero { padding-bottom: 56px; }
+.np-hero__title { max-width: 860px; }
+
+.np-crumbs {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.np-crumbs a { color: var(--text-secondary); }
+.np-crumbs a:hover { color: var(--accent); opacity: 1; }
+.np-crumbs span { margin: 0 6px; opacity: 0.5; }
+
+.np-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0 40px;
+}
+
+.np-stats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 820px;
+}
+
+.np-stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.np-stats strong {
+  color: var(--accent);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.np-stats span { color: var(--text-secondary); font-size: 0.88rem; }
+
+.np-section { padding-top: 72px; padding-bottom: 72px; }
+.np-section--tight { padding-top: 24px; }
+.np-band { background: var(--bg-secondary); }
+
+.np-intro {
+  max-width: 760px;
+  margin: -24px 0 40px;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* Problems */
+.np-problems {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.np-problems li {
+  position: relative;
+  padding: 22px 24px 22px 56px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.np-problems li::before {
+  content: '×';
+  position: absolute;
+  left: 22px;
+  top: 18px;
+  color: var(--accent-2);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Steps */
+.np-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  counter-reset: none;
+}
+
+.np-steps li {
+  padding: 26px 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-card);
+}
+
+.np-steps__num {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.np-steps h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.np-steps p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65; }
+
+/* Pricing */
+.np-offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  padding: 40px;
+  border: 1px solid rgba(168, 255, 62, 0.35);
+  border-radius: 20px;
+  background:
+    radial-gradient(110% 80% at 100% 0%, rgba(168, 255, 62, 0.08), transparent 60%),
+    var(--bg-card);
+}
+
+.np-offer__text { color: var(--text-secondary); line-height: 1.7; margin-top: 12px; }
+
+.np-offer__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.np-offer__cta .svc-order__price { margin: 0; }
+.np-offer__alt { color: var(--text-secondary); font-size: 0.9rem; }
+.np-offer__alt:hover { color: var(--accent); opacity: 1; }
+
+/* FAQ */
+.np-faq { display: flex; flex-direction: column; gap: 12px; max-width: 860px; }
+
+.np-faq details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: border-color var(--transition);
+}
+
+.np-faq details[open] { border-color: rgba(168, 255, 62, 0.3); }
+
+.np-faq summary {
+  position: relative;
+  padding: 18px 52px 18px 22px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+
+.np-faq summary::-webkit-details-marker { display: none; }
+
+.np-faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 22px;
+  top: 14px;
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.np-faq details[open] summary::after { content: '−'; }
+.np-faq p { padding: 0 22px 20px; color: var(--text-secondary); line-height: 1.7; }
+
+/* More services */
+.np-more__title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.np-more { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+
+.np-more a {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.np-more a:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
+
+@media (max-width: 900px) {
+  .np-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .np-offer { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 600px) {
+  .np-stats, .np-problems, .np-steps { grid-template-columns: 1fr; }
+  .np-offer { padding: 24px 20px; }
+  .np-section { padding-top: 56px; padding-bottom: 56px; }
+}
+
+/* One case study per page, so its list number is not needed */
+#case .pf-project__number { display: none; }

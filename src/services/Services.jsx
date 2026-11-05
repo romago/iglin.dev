@@ -5,6 +5,7 @@ import HeroArt from '../components/HeroArt'
 import { apiEnabled, post, useTurnstile } from '../lib/api'
 import { track } from '../lib/analytics'
 import { findPackage, services } from './packages'
+import { nichePages } from './pages'
 import '../components/Hero.css'
 import '../components/Estimate.css'
 import './Services.css'
@@ -236,6 +237,17 @@ export default function Services() {
             </div>
             <OrderForm service={service} pkg={pkg} />
           </div>
+
+          {nichePages.some((p) => !p.draft) && (
+            <nav className="svc-niche" aria-label="Specialized services">
+              <h2 className="svc-niche__title">Specialized services</h2>
+              <ul>
+                {nichePages.filter((p) => !p.draft).map((p) => (
+                  <li key={p.slug}><a href={`/services/${p.slug}/`}>{p.service} →</a></li>
+                ))}
+              </ul>
+            </nav>
+          )}
 
           <p className="svc-other">
             Need something that is not on the list? <a href="/#estimate">Get a quick AI estimate</a> or{' '}
