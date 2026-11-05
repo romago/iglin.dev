@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev:portfolio": "vite --config vite.portfolio.config.js",
-    "build": "vite build",
-    "build:portfolio": "vite build --config vite.portfolio.config.js",
+    "build": "vite build && node scripts/prerender.mjs site",
+    "build:portfolio": "vite build --config vite.portfolio.config.js && node scripts/prerender.mjs portfolio",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "deploy:portfolio": "npm run build:portfolio && gh-pages -d dist-portfolio --dotfiles -r git@github.com:romago/portfolio.git -m \"Deploy portfolio\"",

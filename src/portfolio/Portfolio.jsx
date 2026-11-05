@@ -67,7 +67,7 @@ export default function Portfolio() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(portfolioGraph(projects, (src) => new URL(src, window.location.href).href)) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(portfolioGraph(projects, (src) => new URL(src, 'https://portfolio.iglin.dev/').href)) }}
       />
       <Header />
       <main id="top">

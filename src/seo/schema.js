@@ -131,6 +131,62 @@ export function servicesGraph(services) {
   ])
 }
 
+// A niche service page: the service with its price (a fixed package or a custom quote), breadcrumbs and FAQ.
+// `found` is findPackage() for package offers.
+export function nicheGraph(page, found) {
+  const pageUrl = `${SITE}services/${page.slug}/`
+  return graph([
+    person,
+    website,
+    business,
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#page`,
+      url: pageUrl,
+      name: page.metaTitle,
+      description: page.metaDescription,
+      isPartOf: { '@id': WEBSITE_ID },
+      breadcrumb: {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+          { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE}services/` },
+          { '@type': 'ListItem', position: 3, name: page.eyebrow, item: pageUrl },
+        ],
+      },
+      mainEntity: { '@id': `${pageUrl}#service` },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'Service',
+      '@id': `${pageUrl}#service`,
+      name: page.service,
+      description: page.lead,
+      url: pageUrl,
+      provider: { '@id': BUSINESS_ID },
+      areaServed: 'Worldwide (remote)',
+      offers: found
+        ? {
+            '@type': 'Offer',
+            name: `${found.pkg.tier}: ${found.pkg.name}`,
+            description: found.pkg.summary,
+            price: found.pkg.price,
+            priceCurrency: 'USD',
+            url: `${SITE}services/?service=${found.service.id}&package=${found.pkg.id}`,
+            availability: 'https://schema.org/InStock',
+            seller: { '@id': BUSINESS_ID },
+          }
+        : { '@type': 'Offer', description: 'Custom quote after reviewing the project', priceCurrency: 'USD', seller: { '@id': BUSINESS_ID } },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      url: pageUrl,
+      mainEntity: page.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') } })),
+    },
+  ])
+}
+
 // The main screenshot of a case study: the desktop shot, or the first phone shot.
 const shotOf = (p) => (p.visual.browser || p.visual.phones?.[0] || p.visual.phone)?.src
 

@@ -269,6 +269,30 @@
 .svc-sent strong { display: block; color: var(--accent); font-size: 1.1rem; margin-bottom: 6px; }
 .svc-sent p { color: var(--text-primary); }
 
+.svc-niche { margin-top: 48px; }
+
+.svc-niche__title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.svc-niche ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+
+.svc-niche a {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.svc-niche a:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
+
 .svc-other {
   margin-top: 32px;
   color: var(--text-secondary);

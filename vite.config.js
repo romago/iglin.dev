@@ -8,6 +8,8 @@ import { homeGraph, servicesGraph, toJsonLd } from './src/seo/schema.js'
 const jsonLd = {
   name: 'json-ld',
   transformIndexHtml(html, ctx) {
+    // Niche pages get their JSON-LD per page in scripts/prerender.mjs.
+    if (ctx.filename.endsWith('services/page/index.html')) return html
     const data = ctx.filename.endsWith('services/index.html') ? servicesGraph(services) : homeGraph()
     return html.replace('</head>', `    <script type="application/ld+json">${toJsonLd(data)}</script>\n  </head>`)
   },
@@ -17,12 +19,13 @@ const jsonLd = {
 export default defineConfig({
   base: './',
   plugins: [react(), jsonLd],
-  // Two pages: the home page and the fixed-price packages at /services/.
+  // The home page, the packages at /services/ and the template for the niche pages at /services/<slug>/.
   build: {
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         services: resolve(import.meta.dirname, 'services/index.html'),
+        niche: resolve(import.meta.dirname, 'services/page/index.html'),
       },
     },
   },

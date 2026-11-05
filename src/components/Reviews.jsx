@@ -6,20 +6,35 @@ const LINKEDIN_RECOMMENDATIONS = 'https://www.linkedin.com/in/roman-iglin/detail
 const IONOS_PROFILE = 'https://partnernetwork.ionos.com/partner/roman.iglin#ratings'
 
 // Copied word for word from the sources; Upwork does not show client names publicly, so the job title stands in.
-const recommendation = {
-  author: 'Kevin T. Boyd',
-  role: 'Web Development Manager, Signifyd',
-  relation: 'Managed Roman directly',
-  date: 'Nov 2024',
-  paragraphs: [
-    'I’ve had the pleasure of working with Roman Iglin since 2021, when I hired him as a freelance web developer for Signifyd, a B2B startup in the finance space. Since then, Roman has been an integral part of our projects, working near full time as a freelancer.',
-    'Roman is a highly skilled engineer with deep expertise in WordPress, PHP, HTML, CSS, and JavaScript. His technical abilities go far beyond the basics—he has consistently demonstrated an ability to tackle complex frameworks and solve challenges with creativity and precision.',
-    'One of Roman’s standout qualities is his versatility. He isn’t just a coder; he’s a problem-solver who brings thoughtful solutions to technical hurdles. He excels at faithfully interpreting design concepts while remaining flexible enough to enhance them with refined interactions and animations.',
-    'Roman’s communication skills are another strength. He writes clear, concise reports and explains technical concepts in a way that’s easy for anyone to understand, making him an asset in cross-functional collaboration.',
-    'Above all, Roman is dependable and workmanlike. He truly lives to program and consistently delivers high-quality work on time. Projects like implementing APIs for Looker data visualizations, integrating G2 customer reviews into the website, and designing a signature tool highlight the depth and breadth of his capabilities.',
-    'You get exceptional value with Roman—I couldn’t recommend him more strongly as a web developer. Anyone seeking a skilled, reliable, and innovative professional would be fortunate to have him on their team.',
-  ],
-}
+const recommendations = [
+  {
+    author: 'Kevin T. Boyd',
+    role: 'Web Development Manager, Signifyd',
+    relation: 'Managed Roman directly',
+    date: 'Nov 2024',
+    paragraphs: [
+      'I’ve had the pleasure of working with Roman Iglin since 2021, when I hired him as a freelance web developer for Signifyd, a B2B startup in the finance space. Since then, Roman has been an integral part of our projects, working near full time as a freelancer.',
+      'Roman is a highly skilled engineer with deep expertise in WordPress, PHP, HTML, CSS, and JavaScript. His technical abilities go far beyond the basics—he has consistently demonstrated an ability to tackle complex frameworks and solve challenges with creativity and precision.',
+      'One of Roman’s standout qualities is his versatility. He isn’t just a coder; he’s a problem-solver who brings thoughtful solutions to technical hurdles. He excels at faithfully interpreting design concepts while remaining flexible enough to enhance them with refined interactions and animations.',
+      'Roman’s communication skills are another strength. He writes clear, concise reports and explains technical concepts in a way that’s easy for anyone to understand, making him an asset in cross-functional collaboration.',
+      'Above all, Roman is dependable and workmanlike. He truly lives to program and consistently delivers high-quality work on time. Projects like implementing APIs for Looker data visualizations, integrating G2 customer reviews into the website, and designing a signature tool highlight the depth and breadth of his capabilities.',
+      'You get exceptional value with Roman—I couldn’t recommend him more strongly as a web developer. Anyone seeking a skilled, reliable, and innovative professional would be fortunate to have him on their team.',
+    ],
+  },
+  {
+    author: 'Grigory Timofeev',
+    role: 'Product Manager on a web-based CRM project (now VP Product Manager at JPMorgan Chase)',
+    relation: 'Managed Roman directly',
+    date: 'Nov 2026',
+    paragraphs: [
+      'I had the pleasure of managing Roman Iglin while we worked together on the development of a web-based CRM system.',
+      'Roman demonstrated exceptional technical expertise, strategic vision, and a strong understanding of user experience. He completely redesigned the system’s user interface, significantly improved its usability, and established an effective balance between frontend and backend logic and processes.',
+      'What particularly impressed me was Roman’s ability to keep the user experience at the center of every technical decision while consistently aligning his work with the company’s business objectives. He understands how to transform complex technical challenges into intuitive, efficient, and business-driven solutions.',
+      'Beyond his technical abilities, Roman is a great team player with natural leadership skills, a collaborative mindset, and an outstanding personality. His strategic thinking, professionalism, and ability to see the bigger picture make him a valuable asset to any development team.',
+      'I highly recommend Roman to any organization looking for a talented web developer who combines technical excellence, user-centered thinking, strategic vision, and leadership potential.',
+    ],
+  },
+]
 
 // Verified client review on the IONOS Partner Network profile.
 const ionosReview = {
@@ -71,6 +86,28 @@ const partnerIcon = (
   </svg>
 )
 
+function Recommendation({ rec }) {
+  const [expanded, setExpanded] = useState(false)
+  const shown = expanded ? rec.paragraphs : rec.paragraphs.slice(0, 2)
+  return (
+    <figure className="rev__card rev__card--featured">
+      <blockquote className="rev__quote">
+        {shown.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}
+      </blockquote>
+      <button type="button" className="rev__more" onClick={() => setExpanded(!expanded)} aria-expanded={expanded}>
+        {expanded ? 'Show less' : 'Read the full recommendation'}
+      </button>
+      <figcaption className="rev__meta">
+        <span className="rev__author">
+          <strong>{rec.author}</strong>
+          <span>{rec.role} · {rec.relation} · {rec.date}</span>
+        </span>
+        <Source href={LINKEDIN_RECOMMENDATIONS} icon={linkedinIcon} label="LinkedIn" />
+      </figcaption>
+    </figure>
+  )
+}
+
 function Stars() {
   return <span className="rev__stars" aria-label="Rated 5.0 out of 5">★★★★★</span>
 }
@@ -85,8 +122,6 @@ function Source({ href, icon, label }) {
 }
 
 export default function Reviews() {
-  const [expanded, setExpanded] = useState(false)
-  const shown = expanded ? recommendation.paragraphs : recommendation.paragraphs.slice(0, 2)
 
   return (
     <section id="reviews" className="rev">
@@ -102,21 +137,7 @@ export default function Reviews() {
           <li><strong>Top Rated</strong><span>Upwork badge</span></li>
         </ul>
 
-        <figure className="rev__card rev__card--featured">
-          <blockquote className="rev__quote">
-            {shown.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}
-          </blockquote>
-          <button type="button" className="rev__more" onClick={() => setExpanded(!expanded)} aria-expanded={expanded}>
-            {expanded ? 'Show less' : 'Read the full recommendation'}
-          </button>
-          <figcaption className="rev__meta">
-            <span className="rev__author">
-              <strong>{recommendation.author}</strong>
-              <span>{recommendation.role} · {recommendation.relation} · {recommendation.date}</span>
-            </span>
-            <Source href={LINKEDIN_RECOMMENDATIONS} icon={linkedinIcon} label="LinkedIn" />
-          </figcaption>
-        </figure>
+        {recommendations.map((rec) => <Recommendation key={rec.author} rec={rec} />)}
 
         <figure className="rev__card rev__card--featured">
           <Stars />
