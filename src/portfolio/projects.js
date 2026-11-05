@@ -16,6 +16,8 @@ import emeaImage from './shots/signifyd-emea.webp'
 import emeaVideo from './shots/signifyd-emea.mp4'
 import cullmanFull from './shots/cullman-full.webp'
 import shiftMobile from './shots/theshift-mobile.webp'
+import tickdownDesktop from './shots/tickdown-desktop.webp'
+import tickdownMobile from './shots/tickdown-mobile.webp'
 
 export const projects = [
   {
@@ -164,6 +166,35 @@ export const projects = [
       layout: 'browser',
       browser: { src: memphisFull, alt: 'memphislaw.com homepage, full page', domain: 'memphislaw.com', scroll: true },
       phone: { src: memphisMobile, alt: 'memphislaw.com on a phone' },
+    },
+  },
+  {
+    id: 'tickdown',
+    title: 'Tickdown',
+    tagline: 'Full-stack notes app with checklists that sort themselves',
+    client: 'Own product, built for daily use',
+    role: 'Product · Full-stack development · DevOps',
+    period: '2026',
+    links: [
+      { label: 'Try the live demo', url: 'https://tickdown.iglin.dev' },
+      { label: 'Source on GitHub', url: 'https://github.com/romago/tickdown' },
+    ],
+    summary:
+      'A self-hosted alternative to Apple Notes that works the same on desktop and phone. When you tick a task, it drops below the open ones by itself, so what is left to do always stays on top. I designed, built and deployed the whole stack: React front end, Node.js API, MongoDB and the Docker setup on my own server.',
+    bullets: [
+      'React 18 + Vite + Tailwind front end with a TipTap (ProseMirror) rich text editor, Zustand state and debounced autosave.',
+      'Custom ProseMirror plugin that moves checked items below open ones, plus touch handling so checkboxes work reliably on phones.',
+      'Node.js + Express REST API on MongoDB (Mongoose): notes, folders with colors, pinning and live search.',
+      'Accounts with JWT and bcrypt-hashed passwords, per-user data scoping and a public demo mode with closed sign-up and a locked demo account.',
+      'Mobile-first layout: bottom navigation, sliding panels and a scrollable toolbar.',
+      'Deployed with Docker Compose behind Nginx on an Ubuntu VPS with Let’s Encrypt: isolated Docker network, localhost-only ports, memory limits and a nightly cron that resets the demo.',
+    ],
+    metrics: [],
+    stack: ['React', 'Vite', 'Tailwind CSS', 'TipTap / ProseMirror', 'Zustand', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT', 'Docker Compose', 'Nginx'],
+    visual: {
+      layout: 'browser',
+      browser: { src: tickdownDesktop, alt: 'Tickdown on desktop: folders, note list and a checklist', domain: 'tickdown.iglin.dev' },
+      phone: { src: tickdownMobile, alt: 'Tickdown note list on a phone' },
     },
   },
   {

@@ -2,7 +2,7 @@
 
 > Structured record of Roman Iglin's projects, responsibilities and results.
 > Written for AI assistants that prepare resumes, cover letters and job applications for Roman.
-> Last updated: 2026-11-04
+> Last updated: 2026-11-05
 
 ## Notes for AI readers
 
@@ -25,7 +25,7 @@
 - **Email:** roman@iglin.dev
 - **LinkedIn:** https://www.linkedin.com/in/roman-iglin/
 - **GitHub:** https://github.com/romago
-- **Core stack:** PHP, JavaScript, React, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
+- **Core stack:** PHP, JavaScript, React, Node.js / Express, MongoDB, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
 - **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify (Liquid), PathFactory, Joomla
 - **Servers & hosting:** VPS and cloud server provisioning and administration on DigitalOcean (Droplets) and IONOS (VPS / cloud servers): creating and sizing servers, installing and configuring the Linux web stack (Ubuntu, Apache / Nginx, PHP-FPM, MariaDB / MySQL), SSL, DNS, firewalls and SSH access, backups, monitoring, performance tuning and moving sites between hosts; managed WordPress hosting on WP Engine
 - **Partnerships:** IONOS Agency Partner since November 2026 (verified partner profile, level Partner Official), listed in the IONOS Partner Network: https://partnernetwork.ionos.com/partner/roman.iglin
@@ -51,6 +51,28 @@
 ---
 
 ## Projects
+
+### Tickdown — full-stack notes app with self-sorting checklists (React, Node.js, MongoDB, Docker)
+
+- **Client:** Personal project (Roman's own product, built for daily use)
+- **Role:** Full Stack Developer (product, front end, back end, deployment)
+- **Period:** Apr 2026 — present
+- **Status:** active
+- **Stack:** React 18, Vite, Tailwind CSS, TipTap (ProseMirror), Zustand, Node.js, Express, MongoDB, Mongoose, JWT, bcrypt, Docker Compose, Nginx, Let's Encrypt, Ubuntu VPS
+- **Link:** https://tickdown.iglin.dev (live demo), https://github.com/romago/tickdown (source)
+- **Last updated:** 2026-11-05
+
+**Summary**
+A self-hosted notes app, an alternative to Apple Notes that works the same on desktop and phone: when a task is ticked it drops below the open ones by itself. Roman designed, built and deployed the whole stack.
+
+**What I did**
+- Built the React front end with a TipTap / ProseMirror rich text editor, Zustand state, debounced autosave, folders with colors, pinned notes and live search, in a mobile-first layout with bottom navigation and sliding panels.
+- Wrote a custom ProseMirror plugin that moves checked items below open ones, plus touch handling so checkboxes work reliably on phones; fixed a bug where checklist-first notes lost their titles.
+- Built the Node.js / Express REST API on MongoDB (Mongoose) with JWT authentication, bcrypt-hashed passwords and per-user data scoping.
+- Deployed with Docker Compose behind Nginx on an Ubuntu VPS with Let's Encrypt: isolated Docker network, localhost-only ports, secrets in environment files and memory limits.
+- Launched a public demo with one-click demo sign-in, closed sign-up, a locked demo account and a nightly cron reset, plus a README with screenshots, API reference and setup guide.
+
+**Keywords:** full stack development, React, Node.js, Express, MongoDB, Mongoose, REST API, JWT authentication, TipTap, ProseMirror, rich text editor, Tailwind CSS, Zustand, Vite, Docker, Docker Compose, Nginx reverse proxy, Let's Encrypt, VPS deployment, mobile-first UI, single-page application
 
 ### iglin.dev — personal site, portfolio and AI project estimator (React, Cloudflare Workers, LLM integration)
 
@@ -171,17 +193,17 @@ Full redesign of the WordPress / Elementor website of a California moving compan
 - **Role:** Web Developer (freelance)
 - **Period:** 2017 — present
 - **Status:** active
-- **Stack:** Drupal 7, Drupal Commerce, PHP 8.5, MariaDB / MySQL, JavaScript, jQuery, Drupal Views, Rules, DigitalOcean (droplet), LAMP stack: Linux (Ubuntu), Apache, MariaDB / MySQL, PHP; Nginx, PHP-FPM, HestiaCP, Let's Encrypt, QuickBooks Desktop (qbXML, Web Connector SOAP), Google Gemini API, GA4 Data API, Search Console API, PageSpeed Insights API, schema.org / JSON-LD, Puppeteer, rclone, Brevo SMTP, Bash, Git
+- **Stack:** Drupal 7, Drupal Commerce, PHP 8.5, MariaDB / MySQL, JavaScript, jQuery, Drupal Views, Rules, DigitalOcean (droplet), LAMP stack: Linux (Ubuntu), Apache, MariaDB / MySQL, PHP; Nginx, PHP-FPM, HestiaCP, Let's Encrypt, QuickBooks Desktop (qbXML, Web Connector SOAP), Google Gemini API, GA4 Data API, Search Console API, PageSpeed Insights API, Lighthouse, schema.org / JSON-LD, Puppeteer, rclone, Brevo SMTP, Bash, Git
 - **Link:** https://araks.org
-- **Last updated:** 2026-10-28
+- **Last updated:** 2026-11-05
 
 **Summary**
 Development, maintenance and server administration of Araks' Drupal 7 / Drupal Commerce site, hosted on a DigitalOcean server that I set up and maintain, where store customers and sales reps place wholesale orders from a catalog of about 1,700 products. In 2026 the work centered on a QuickBooks integration, AI integration (Google Gemini API), performance, technical SEO, lead generation and server reliability.
 
 **What I did**
 - Built a QuickBooks Desktop integration from scratch: a hand-written Web Connector SOAP/qbXML endpoint with a job queue, hourly product, price and stock sync for about 7,500 items, daily customer and vendor sync, and automatic export of web orders as Sales Orders (restocking orders as Purchase Orders), replacing manual CSV and XLSX exchange. Added a low-margin alert and a sales analytics dashboard on top of the synced data.
-- Optimized the signed-in B2B ordering flow: a custom Drupal Views cache plugin keys per-customer price lists by a pricing fingerprint and rebuilds them in the background. Fixed order data-integrity bugs (unlinked bottle-deposit line items, carts wiped by stale checkout pages).
-- Improved Core Web Vitals on public pages: self-hosted fonts and jQuery, deferred scripts, WebP images with srcset, and lazy loading for the 1,700 catalog photos.
+- Optimized the signed-in B2B ordering flow: a custom Drupal Views cache plugin keys per-customer price lists by a pricing fingerprint and rebuilds them in the background, and a rebuilt index-based catalog search also matches item codes. Refactored the legacy jQuery ordering script in small, separately shipped steps, and fixed order data-integrity bugs (unlinked bottle-deposit line items, carts wiped by stale checkout pages).
+- Improved Core Web Vitals on public pages: self-hosted fonts and jQuery, deferred scripts, WebP images with srcset, and lazy loading for the 1,700 catalog photos. On the homepage, traced unstable mobile PageSpeed scores to the analytics tag with A/B test pages, deferred it until user interaction, and server-rendered the mobile brand carousel so the largest image paints with the page.
 - Led technical SEO: clean URLs with about 3,900 automatic 301 redirects, a complete XML sitemap, schema.org JSON-LD (Product, BreadcrumbList, WholesaleStore, FAQPage) and a brand and country-of-origin taxonomy. Connected the GA4, Search Console and PageSpeed Insights APIs for reporting.
 - Built the lead generation pipeline: an English/Russian wholesale landing page, a spam-protected lead form, approval with expiring one-time price-list links, follow-up and abandoned-cart emails, and GA4 key events.
 - Integrated AI into the catalog workflow: built a Drupal module on the Google Gemini API that rewrote raw QuickBooks item names into clean product titles and descriptions for the whole catalog, with automated checks and a review and revert workflow.
@@ -192,11 +214,12 @@ Development, maintenance and server administration of Araks' Drupal 7 / Drupal C
 - Signed-in checkout page: server response 7–13 s → about 0.5 s.
 - Catalog page with 1,700 products on a phone over 4G: full load 16.8 s → 2.1 s; data downloaded before load 13.6 MB → 0.1 MB.
 - PHP 7.4 → 8.5: uncached product page throughput +38% (7.9 → 10.9 requests/s).
-- Homepage on mobile (PageSpeed lab data): LCP 12.2 s → 4.4 s, performance score 60 → 80.
+- Homepage on mobile (PageSpeed lab data): LCP 12.2 s → 2.0–2.4 s, performance score 60 → 93–99 (desktop 97–100).
+- Catalog search over about 1,700 products: 547 ms → 41 ms per search (2.1 s → 0.11 s with the CPU slowed 4×).
 - Database: buffer-pool hit rate 98.1% → 99.8%; slowest admin report query 4.5 s → 0.1 s.
 - Google Search Console, the month after the URL, sitemap and SEO work vs the month before: impressions +98%, clicks +62%.
 
-**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, Drupal Views, Core Web Vitals, lazy loading, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI integration, LLM integration, generative AI, AI content generation, Google Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
+**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, Drupal Views, Core Web Vitals, LCP, PageSpeed Insights, Lighthouse, lazy loading, JavaScript refactoring, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI integration, LLM integration, generative AI, AI content generation, Google Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
 
 ### Arthur Ray Law Offices — law firm websites (WordPress & technical SEO)
 
@@ -369,3 +392,5 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-30 — Updated Signifyd: PathFactory resource center redesigns with Liquid templates and Tailwind CSS; Liquid, Tailwind CSS and PathFactory added to Profile.
 - 2026-10-31 — Updated Profile: servers and hosting skills (DigitalOcean Droplets, IONOS VPS / cloud servers).
 - 2026-11-04 — Updated Profile: IONOS Agency Partner since November 2026 (verified profile, Partner Official) with the Partner Network profile link.
+- 2026-11-05 — Updated Araks Inc: homepage mobile PageSpeed 93–99, faster catalog search, incremental refactoring of the ordering script.
+- 2026-11-05 — Added Tickdown: full-stack notes app (React, Node.js, MongoDB, Docker) with a public demo.
