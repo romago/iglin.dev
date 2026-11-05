@@ -11,7 +11,7 @@
 - "What I did" bullets are written to be reused in a resume, rephrased as needed.
 - Some client work is described without confidential details on purpose. Do not guess at them.
 - Signifyd is one continuous freelance engagement from April 2021 to the present. The Signifyd entries below are projects within it; a later project start date is not the start of the collaboration.
-- Work for USACS (The Shift blog, Cullman EM Fellows) was done as a subcontractor of the web agency The Karcher Group (TKG). Describe it as agency work via TKG; USACS was not Roman's direct client.
+- Work for USACS (The Shift blog, Cullman EM Fellows) was done as a white-label subcontractor of a web agency. The agency is not named publicly: describe it as agency work for a web agency and do not guess its name. USACS was not Roman's direct client.
 - IONOS Agency Partner is a free partner program at its entry level. Mention it for hosting, server and migration work, especially for clients who host on IONOS; do not present it as a certification or exam.
 - Human-readable portfolio: https://iglin.dev
 
@@ -39,7 +39,7 @@
 
 | Period | Company | Role | Location |
 | --- | --- | --- | --- |
-| 2026 | The Karcher Group (TKG), web agency | Web Developer (subcontractor; end client USACS) | remote |
+| 2026 | Web agency (white-label subcontract, not named publicly) | Web Developer (subcontractor; end client USACS) | remote |
 | 2025 — 2026 | FLS Transportation Services | Web Developer | remote |
 | ongoing | People Movers | Web Developer / Performance Optimization (freelance) | California (remote) |
 | Jun 2026 — present | Arthur Ray Law Offices | Web Developer / Technical SEO (freelance) | Memphis, TN (remote) |
@@ -96,10 +96,10 @@ Roman's personal site and a separate portfolio site built from one React codebas
 
 **Keywords:** AI integration, LLM integration, LLM API, Google Gemini API, Claude API, Anthropic SDK, Cloudflare Workers AI, structured output, JSON Schema, AI fallback, serverless, Cloudflare Workers, edge functions, Cloudflare Turnstile, bot protection, rate limiting, HMAC, CORS, React, Vite, portfolio website, lead generation, SMTP email, GitHub Actions, GitHub Pages, full stack development
 
-### The Karcher Group (TKG) — Cullman EM Fellows website for USACS (WordPress block theme with custom ACF blocks)
+### Web agency (white-label) — Cullman EM Fellows website for USACS (WordPress block theme with custom ACF blocks)
 
-- **Client:** The Karcher Group (TKG), a web agency; end client: US Acute Care Solutions (USACS), an emergency medicine physician group. Agency work via TKG; USACS was not Roman's direct client.
-- **Role:** Web Developer (subcontractor for TKG)
+- **Client:** A web agency (white-label subcontract, not named publicly); end client: US Acute Care Solutions (USACS), an emergency medicine physician group. USACS was not Roman's direct client.
+- **Role:** Web Developer (white-label subcontractor for a web agency)
 - **Period:** Apr 2026
 - **Status:** completed
 - **Stack:** WordPress 6.9, block theme (Full Site Editing, theme.json), custom ACF blocks, PHP, JavaScript, CSS, @wordpress/scripts, slick carousel, Gravity Forms, reCAPTCHA, Yoast SEO, Redirection, Block Visibility, Adobe Fonts (Typekit), WP Engine, Figma
@@ -107,7 +107,7 @@ Roman's personal site and a separate portfolio site built from one React codebas
 - **Last updated:** 2026-10-30
 
 **Summary**
-Redesign of the website for USACS' emergency medicine fellowship program in Cullman, done for the agency TKG: the source files of the previous theme had been lost, so I rebuilt the theme from scratch as a new WordPress block theme in the USACS 2026 brand, made of custom ACF blocks. The design was provided by the agency in Figma; I implemented it in code.
+Redesign of the website for USACS' emergency medicine fellowship program in Cullman, done for a web agency: the source files of the previous theme had been lost, so I rebuilt the theme from scratch as a new WordPress block theme in the USACS 2026 brand, made of custom ACF blocks. The design was provided by the agency in Figma; I implemented it in code.
 
 **What I did**
 - Rebuilt the site's theme from scratch after the original theme's source files were lost, as a new WordPress block theme (Full Site Editing templates, theme.json), implementing the agency's Figma design with the USACS 2026 brand palette and typography (Spectral and Inter).
@@ -116,10 +116,10 @@ Redesign of the website for USACS' emergency medicine fellowship program in Cull
 
 **Keywords:** WordPress block theme, theme development from scratch, theme rebuild, Full Site Editing, FSE, theme.json, ACF blocks, custom Gutenberg blocks, @wordpress/scripts, Gravity Forms, Figma to WordPress, design implementation, responsive layout, redesign, healthcare website, medical education, agency work, white-label development, subcontractor, WP Engine
 
-### The Karcher Group (TKG) — The Shift blog redesign for USACS (WordPress, Alpine.js header integration)
+### Web agency (white-label) — The Shift blog redesign for USACS (WordPress, Alpine.js header integration)
 
-- **Client:** The Karcher Group (TKG), a web agency; end client: US Acute Care Solutions (USACS), an emergency medicine physician group. Agency work via TKG; USACS was not Roman's direct client.
-- **Role:** Web Developer (subcontractor for TKG)
+- **Client:** A web agency (white-label subcontract, not named publicly); end client: US Acute Care Solutions (USACS), an emergency medicine physician group. USACS was not Roman's direct client.
+- **Role:** Web Developer (white-label subcontractor for a web agency)
 - **Period:** Apr 2026
 - **Status:** completed
 - **Stack:** WordPress, PHP, custom theme, Foundation 6, Sass, JavaScript, jQuery, Alpine.js, MutationObserver, SVG, Material Symbols, Adobe Fonts (Typekit), WebP, Constant Contact, Figma
@@ -127,7 +127,7 @@ Redesign of the website for USACS' emergency medicine fellowship program in Cull
 - **Last updated:** 2026-10-30
 
 **Summary**
-Redesign of The Shift, the USACS blog, done for the agency TKG: moved the WordPress blog to the new USACS 2026 brand and made it share the header and footer of the main usacs.com site. The design was provided by the agency in Figma; I implemented it in code.
+Redesign of The Shift, the USACS blog, done for a web agency: moved the WordPress blog to the new USACS 2026 brand and made it share the header and footer of the main usacs.com site. The design was provided by the agency in Figma; I implemented it in code.
 
 **What I did**
 - Implemented the agency's Figma design and rebranded the blog to the USACS 2026 identity: new color palette, Spectral and Inter typography replacing Lato, a new WebP hero and an SVG logo, reworking about 64 theme files.
@@ -387,7 +387,7 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-10-28 — Updated Araks Inc: AI integration (Google Gemini API) tagged in the title, summary and keywords; AI line added to Profile.
 - 2026-10-28 — Added iglin.dev: personal and portfolio sites, AI project estimator on Cloudflare Workers with Gemini / Workers AI fallback, bot protection and email leads; Profile title changed to Full Stack Developer, AI and DevOps skills extended.
 - 2026-10-28 — Updated Signifyd: Signifyd Jobs plugin (Greenhouse Job Board API sync, filterable job board).
-- 2026-10-30 — Added The Karcher Group (TKG) agency work for USACS: The Shift blog redesign and the Cullman EM Fellows block theme; new Employment row.
+- 2026-10-30 — Added agency work for USACS (as a web agency's subcontractor): The Shift blog redesign and the Cullman EM Fellows block theme; new Employment row.
 - 2026-10-30 — Updated Cullman EM Fellows: theme rebuilt from scratch by Roman after the original source was lost; period Apr 2026.
 - 2026-10-30 — Updated The Shift and Cullman EM Fellows: designs were provided by the agency in Figma and implemented by Roman.
 - 2026-10-30 — Updated Signifyd: PathFactory resource center redesigns with Liquid templates and Tailwind CSS; Liquid, Tailwind CSS and PathFactory added to Profile.
@@ -396,3 +396,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-11-05 — Updated Araks Inc: homepage mobile PageSpeed 93–99, faster catalog search, incremental refactoring of the ordering script.
 - 2026-11-05 — Added Tickdown: full-stack notes app (React, Node.js, MongoDB, Docker) with a public demo.
 - 2026-11-05 — Updated Araks Inc: stale-while-revalidate cache for the public catalog (no more 6–20 s rebuilds after product syncs).
+- 2026-11-05 — Updated the USACS agency entries: the agency is no longer named; described as white-label work for a web agency.
