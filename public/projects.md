@@ -26,12 +26,12 @@
 - **LinkedIn:** https://www.linkedin.com/in/roman-iglin/
 - **GitHub:** https://github.com/romago
 - **Core stack:** PHP, JavaScript, Python, React, Node.js / Express, MongoDB, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
-- **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify (Liquid), PathFactory, Joomla
+- **CMS & platforms:** WordPress, WooCommerce, WP Job Manager, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify (Liquid), PathFactory, Joomla
 - **Servers & hosting:** VPS and cloud server provisioning and administration on DigitalOcean (Droplets) and IONOS (VPS / cloud servers): creating and sizing servers, installing and configuring the Linux web stack (Ubuntu, Apache / Nginx, PHP-FPM, MariaDB / MySQL), SSL, DNS, firewalls and SSH access, backups, monitoring, performance tuning and moving sites between hosts; managed WordPress hosting on WP Engine
 - **Partnerships:** IONOS Agency Partner since November 2026 (verified partner profile, level Partner Official), listed in the IONOS Partner Network: https://partnernetwork.ionos.com/partner/roman.iglin
 - **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, IONOS, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare, Cloudflare Workers, Cloudflare Turnstile, GitHub Actions, uv, pytest, mypy, PyPI publishing
 - **AI:** AI integration, LLM API integration (Google Gemini API, Claude API, Cloudflare Workers AI), structured JSON output, multi-provider fallback, AI-generated content with automated checks and human review
-- **Integrations:** REST API, JSON / XML, SOAP, Greenhouse Job Board API, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
+- **Integrations:** REST API, JSON / XML, SOAP, Stripe, Google Maps Geocoding API, Greenhouse Job Board API, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
 - **Design:** Figma, Sketch, Adobe Photoshop, Adobe Illustrator, UI/UX mockups
 
@@ -39,6 +39,7 @@
 
 | Period | Company | Role | Location |
 | --- | --- | --- | --- |
+| Oct 2026 — present | 4CornersWork | WordPress Developer (freelance, Upwork) | New Mexico (remote) |
 | 2026 | Web agency (white-label subcontract, not named publicly) | Web Developer (subcontractor; end client USACS) | remote |
 | 2025 — 2026 | FLS Transportation Services | Web Developer | remote |
 | ongoing | People Movers | Web Developer / Performance Optimization (freelance) | California (remote) |
@@ -51,6 +52,34 @@
 ---
 
 ## Projects
+
+### 4CornersWork — local job board for the Four Corners region (WordPress, WP Job Manager, WooCommerce, Stripe)
+
+- **Client:** 4CornersWork (job board for oilfield, electrical, construction and other trades jobs in the Four Corners area of New Mexico, Colorado, Arizona and Utah)
+- **Role:** WordPress Developer (freelance, Upwork)
+- **Period:** Oct 2026 — present
+- **Status:** active
+- **Stack:** WordPress, PHP, JavaScript, CSS, WP Job Manager, WP Job Manager Resume Manager, WC Paid Listings, WooCommerce, Stripe, JobHunt theme (custom child theme), WP-CLI, Bash, rsync, Python, SVG, Google Maps Geocoding API, schema.org JobPosting (Google for Jobs), GoDaddy Managed WordPress, Git
+- **Link:** https://4cornerswork.com
+- **Last updated:** 2026-11-06
+
+**Summary**
+A local job board for trades and oilfield work in the Four Corners region, rebuilt from a stock job board theme into a custom job site. Roman audited the existing site, moved it to a new theme and built the job search, job pages, application flow, employer dashboard, paid job posting, emails and content pages in a custom child theme.
+
+**What I did**
+- Audited and cleaned up the existing WordPress job board (unused themes, page builder, demo importers), moved it to the JobHunt theme with a custom child theme, and deployed changes over SSH with WP-CLI and rsync.
+- Designed the brand and UI: a logo and a Four Corners states icon generated as SVG with Python, a steel and safety-orange palette, and an Indeed / Monster-style homepage with one search bar, trade cards and latest jobs, plus a custom header, footer and mobile menu.
+- Built the job search: a jobs page header with live job count and search, sidebar filters (trade, town with live counts, job type, date posted) with a mobile filter panel, job cards with pay and New tags, pagination and a no-results screen.
+- Built the job page and application flow: a header with labeled job facts, similar jobs, SEO titles and Google for Jobs (JobPosting) pay data, and a custom Quick Apply form that needs no account and emails the resume to the employer, with spam protection.
+- Built the employer side: a card-based employer dashboard (status, views, edit, mark filled, duplicate, renew), a simpler job posting form, and town validation with geocoding limited to the four states and a map on the job page.
+- Set up paid job posting: job packages in WooCommerce with WC Paid Listings, Stripe checkout tested end to end with a real order, and a custom order page and order emails.
+- Reworked all site emails (new job for approval, job approved, job ending soon with a renew link, account emails) in one branded template, tested by rendering them without sending.
+- Wrote and built the About, Employers (prices pulled from the store) and Contact pages with a spam-protected contact form, and a News section with topics, a related news sidebar and a Latest News block on the homepage.
+
+**Results**
+- Job posting form cut from 32 to 12 fields.
+
+**Keywords:** WordPress, job board, WP Job Manager, Resume Manager, WC Paid Listings, WooCommerce, Stripe, payment integration, paid listings, custom child theme, theme customization, PHP, JavaScript, CSS, responsive design, mobile UX, job search filters, employer dashboard, application form, transactional emails, email templates, Google Maps Geocoding API, Google for Jobs, JobPosting schema, schema.org, technical SEO, contact form, spam protection, WP-CLI, rsync, GoDaddy Managed WordPress, logo design, SVG, UI/UX, local business website
 
 ### siteaudit — open-source SEO and technical site audit CLI (Python, async crawler, PyPI package)
 
@@ -425,3 +454,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-11-05 — Updated Araks Inc: stale-while-revalidate cache for the public catalog (no more 6–20 s rebuilds after product syncs).
 - 2026-11-05 — Updated the USACS agency entries: the agency is no longer named; described as white-label work for a web agency.
 - 2026-11-06 — Added siteaudit: open-source Python CLI for SEO and technical site audits, published on PyPI as site-audit; Python, uv, pytest, mypy and PyPI added to Profile.
+- 2026-11-06 — Added 4CornersWork: WordPress job board on WP Job Manager with job search and filters, Quick Apply, employer dashboard, paid job posting with Stripe, emails and content pages; new Employment row, WooCommerce, WP Job Manager and Stripe added to Profile.
