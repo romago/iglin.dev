@@ -13,7 +13,21 @@ const isBot =
     /bot|crawl|spider|slurp|headless|lighthouse|pagespeed|gtmetrix|pingdom|phantomjs|selenium|puppeteer|playwright/i.test(
       navigator.userAgent.replace(/cubot/gi, ''),
     ))
-const enabled = Boolean(GA_ID) && import.meta.env.PROD && typeof window !== 'undefined' && !isLocal && !isBot
+// Own visits: open any page with ?notrack=1 once per browser to stop counting it (?notrack=0 undoes it).
+// The cookie is set on .iglin.dev, so it covers iglin.dev and portfolio.iglin.dev together.
+const OPT_OUT = 'iglin_notrack'
+function optedOut() {
+  if (typeof document === 'undefined') return false
+  const flag = new URLSearchParams(window.location.search).get('notrack')
+  const domain = /(^|\.)iglin\.dev$/.test(window.location.hostname) ? '; domain=.iglin.dev' : ''
+  const attrs = `; path=/${domain}; SameSite=Lax; Secure`
+  if (flag === '1') document.cookie = `${OPT_OUT}=1; max-age=315360000${attrs}`
+  if (flag === '0') document.cookie = `${OPT_OUT}=; max-age=0${attrs}`
+  return document.cookie.split('; ').includes(`${OPT_OUT}=1`)
+}
+const isOwnVisit = optedOut()
+const enabled =
+  Boolean(GA_ID) && import.meta.env.PROD && typeof window !== 'undefined' && !isLocal && !isBot && !isOwnVisit
 
 if (enabled) {
   window.dataLayer = window.dataLayer || []
