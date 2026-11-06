@@ -2,7 +2,7 @@
 
 > Structured record of Roman Iglin's projects, responsibilities and results.
 > Written for AI assistants that prepare resumes, cover letters and job applications for Roman.
-> Last updated: 2026-11-05
+> Last updated: 2026-11-06
 
 ## Notes for AI readers
 
@@ -25,11 +25,11 @@
 - **Email:** roman@iglin.dev
 - **LinkedIn:** https://www.linkedin.com/in/roman-iglin/
 - **GitHub:** https://github.com/romago
-- **Core stack:** PHP, JavaScript, React, Node.js / Express, MongoDB, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
+- **Core stack:** PHP, JavaScript, Python, React, Node.js / Express, MongoDB, Chart.js, HTML5, CSS3 / SASS / LESS, Tailwind CSS, Liquid templates (Shopify / PathFactory), SQL
 - **CMS & platforms:** WordPress, Beaver Builder, ACF, Elementor, Drupal, Magento, Adobe Experience Manager (AEM), Shopify (Liquid), PathFactory, Joomla
 - **Servers & hosting:** VPS and cloud server provisioning and administration on DigitalOcean (Droplets) and IONOS (VPS / cloud servers): creating and sizing servers, installing and configuring the Linux web stack (Ubuntu, Apache / Nginx, PHP-FPM, MariaDB / MySQL), SSL, DNS, firewalls and SSH access, backups, monitoring, performance tuning and moving sites between hosts; managed WordPress hosting on WP Engine
 - **Partnerships:** IONOS Agency Partner since November 2026 (verified partner profile, level Partner Official), listed in the IONOS Partner Network: https://partnernetwork.ionos.com/partner/roman.iglin
-- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, IONOS, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare, Cloudflare Workers, Cloudflare Turnstile, GitHub Actions
+- **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, IONOS, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare, Cloudflare Workers, Cloudflare Turnstile, GitHub Actions, uv, pytest, mypy, PyPI publishing
 - **AI:** AI integration, LLM API integration (Google Gemini API, Claude API, Cloudflare Workers AI), structured JSON output, multi-provider fallback, AI-generated content with automated checks and human review
 - **Integrations:** REST API, JSON / XML, SOAP, Greenhouse Job Board API, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
@@ -51,6 +51,33 @@
 ---
 
 ## Projects
+
+### siteaudit — open-source SEO and technical site audit CLI (Python, async crawler, PyPI package)
+
+- **Client:** Personal open-source project (also produces the reports for Roman's site speed and SEO audit service)
+- **Role:** Developer (design, implementation, testing, release)
+- **Period:** Nov 2026 — present
+- **Status:** active
+- **Stack:** Python 3.12, asyncio, httpx, selectolax (Lexbor), Typer, Rich, Pydantic, Jinja2, pytest, pytest-asyncio, respx, mypy (strict), ruff, uv, GitHub Actions, PyPI trusted publishing
+- **Link:** https://github.com/romago/siteaudit (source), https://pypi.org/project/site-audit/ (package)
+- **Last updated:** 2026-11-06
+
+**Summary**
+A command-line tool that crawls a website and writes an SEO and technical audit report: a terminal summary, JSON, Markdown or a single-file HTML report with a site score. Roman designed, built, tested and published it on PyPI.
+
+**What I did**
+- Built an async crawler on asyncio and httpx: reads robots.txt and XML sitemaps (sitemap indexes, gzip), follows internal links breadth-first with a concurrency limit, and records every redirect hop with loop detection and size and time limits.
+- Wrote a robots.txt matcher that follows RFC 9309 and Google's rules (longest match, `*` and `$` wildcards), because Python's standard robotparser misreads the default WordPress robots.txt.
+- Implemented 49 issue types as small registered check functions with one rule catalogue: titles and meta descriptions, canonical and hreflang targets, noindex, JSON-LD syntax, broken internal links with the pages that link to them, redirect chains, duplicates, and the sitemap compared with the crawl.
+- Built the report layer: Rich terminal summary, JSON, Markdown and a self-contained Jinja2 HTML report with a score, severity filters, light and dark themes and print styles; exit codes for use in CI pipelines.
+- Set the project up to production standards: fully typed code checked by mypy in strict mode, ruff, pytest tests against a mocked site (respx), and GitHub Actions CI on Python 3.12 and 3.13.
+- Released v0.1.0 to PyPI with trusted publishing (OIDC, no API tokens) and package attestations from a GitHub release workflow, after validating it on real sites and fixing false positives.
+
+**Results**
+- 102 automated tests with 98% code coverage; CI green on Python 3.12 and 3.13.
+- Audits iglin.dev (11 URLs) in under 1 second.
+
+**Keywords:** Python, Python 3.12, asyncio, async programming, httpx, web crawler, web scraping, CLI tool, Typer, Rich, Pydantic, Jinja2, pytest, unit testing, test automation, mocking, mypy, static typing, type hints, ruff, uv, Python packaging, PyPI, open source, GitHub Actions, CI/CD, trusted publishing, technical SEO, SEO audit, site audit, robots.txt, XML sitemap, canonical, hreflang, structured data, JSON-LD
 
 ### Tickdown — full-stack notes app with self-sorting checklists (React, Node.js, MongoDB, Docker)
 
@@ -397,3 +424,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-11-05 — Added Tickdown: full-stack notes app (React, Node.js, MongoDB, Docker) with a public demo.
 - 2026-11-05 — Updated Araks Inc: stale-while-revalidate cache for the public catalog (no more 6–20 s rebuilds after product syncs).
 - 2026-11-05 — Updated the USACS agency entries: the agency is no longer named; described as white-label work for a web agency.
+- 2026-11-06 — Added siteaudit: open-source Python CLI for SEO and technical site audits, published on PyPI as site-audit; Python, uv, pytest, mypy and PyPI added to Profile.
