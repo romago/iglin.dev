@@ -19,3 +19,30 @@
 .footer__copy {
   opacity: 0.5;
 }
+
+/* Visits today: a quiet number in the accent color, no label. */
+.footer__visits {
+  align-self: center;
+  margin-top: 10px;
+  padding: 4px 12px;
+  border: 1px solid rgba(168, 255, 62, 0.18);
+  border-radius: 999px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px rgba(168, 255, 62, 0.45);
+  opacity: 0.45;
+  transition: opacity var(--transition);
+  animation: footer-visits-in 0.6s ease backwards;
+}
+
+.footer__visits:hover {
+  opacity: 0.85;
+}
+
+@keyframes footer-visits-in {
+  from { opacity: 0; transform: translateY(4px); }
+}

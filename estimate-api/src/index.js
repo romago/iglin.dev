@@ -65,7 +65,7 @@ export default {
     const origin = request.headers.get('Origin') || ''
     const allowed = env.ALLOWED_ORIGINS.split(',').map((o) => o.trim())
     const cors = allowed.includes(origin)
-      ? { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '86400', Vary: 'Origin' }
+      ? { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '86400', Vary: 'Origin' }
       : null
 
     if (!cors) return new Response('Forbidden', { status: 403 })
@@ -73,6 +73,14 @@ export default {
 
     const json = (data, status = 200) => Response.json(data, { status, headers: cors })
     const { pathname } = new URL(request.url)
+    if (pathname === '/visits' && ['GET', 'POST'].includes(request.method)) {
+      try {
+        return json(await handleVisits(request, env, ctx))
+      } catch (err) {
+        console.error(err)
+        return json({ error: 'Unavailable' }, 503)
+      }
+    }
     if (request.method !== 'POST' || !['/estimate', '/send', '/contact', '/order'].includes(pathname)) return json({ error: 'Not found' }, 404)
 
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown'
@@ -102,6 +110,37 @@ export default {
 }
 
 class UserError extends Error {}
+
+// Footer visit counter: visits to iglin.dev since midnight in VISITS_TIMEZONE.
+// POST counts a visit (the site sends it once per browser session, never for bots, localhost or
+// the owner's ?notrack=1 browsers); GET only reads. One IP counts at most once per 30 minutes.
+async function handleVisits(request, env, ctx) {
+  const now = Math.floor(Date.now() / 1000)
+  if (request.method === 'POST') {
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown'
+    const { success } = await env.LIMITER.limit({ key: `/visits:${ip}` })
+    if (success) {
+      const day = new Date().toISOString().slice(0, 10)
+      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`${ip}|${day}`))
+      const hash = [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('')
+      const recent = await env.DB.prepare('SELECT 1 FROM visits WHERE ip = ? AND ts > ?').bind(hash, now - 1800).first()
+      if (!recent) await env.DB.prepare('INSERT INTO visits (ts, ip) VALUES (?, ?)').bind(now, hash).run()
+      ctx.waitUntil(env.DB.prepare('DELETE FROM visits WHERE ts < ?').bind(now - 2 * 86400).run())
+    }
+  }
+  const row = await env.DB.prepare('SELECT COUNT(*) AS n FROM visits WHERE ts >= ?').bind(startOfDay(now, env.VISITS_TIMEZONE)).first()
+  return { count: row?.n ?? 0 }
+}
+
+// Unix time of the last midnight in the given IANA time zone.
+function startOfDay(now, timeZone) {
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat('en-US', { timeZone, hourCycle: 'h23', hour: '2-digit', minute: '2-digit', second: '2-digit' })
+      .formatToParts(new Date(now * 1000))
+      .map((p) => [p.type, Number(p.value)]),
+  )
+  return now - (parts.hour * 3600 + parts.minute * 60 + parts.second)
+}
 
 async function handleEstimate(body, env, ctx, ip, request) {
   const input = {

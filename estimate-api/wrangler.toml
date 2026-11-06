@@ -20,6 +20,8 @@ SMTP_HOST = "mail.privateemail.com"
 SMTP_PORT = "465"
 SMTP_USER = "roman@iglin.dev"
 ALLOWED_ORIGINS = "https://iglin.dev,https://www.iglin.dev"
+# The footer visit counter resets at midnight in this time zone.
+VISITS_TIMEZONE = "America/New_York"
 
 [ai]
 binding = "AI"
@@ -29,6 +31,12 @@ binding = "AI"
 name = "LIMITER"
 namespace_id = "1001"
 simple = { limit = 3, period = 60 }
+
+# Visit counter for the iglin.dev footer (GET/POST /visits). Schema: migrations/.
+[[d1_databases]]
+binding = "DB"
+database_name = "iglin-visits"
+database_id = "f4d5f564-14e2-4071-b0b6-b72f8bff40d5"
 
 [observability]
 enabled = true

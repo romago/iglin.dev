@@ -26,8 +26,9 @@ function optedOut() {
   return document.cookie.split('; ').includes(`${OPT_OUT}=1`)
 }
 const isOwnVisit = optedOut()
-const enabled =
-  Boolean(GA_ID) && import.meta.env.PROD && typeof window !== 'undefined' && !isLocal && !isBot && !isOwnVisit
+// A real visitor's browser: also used by the footer visit counter.
+export const countable = typeof window !== 'undefined' && !isLocal && !isBot && !isOwnVisit
+const enabled = Boolean(GA_ID) && import.meta.env.PROD && countable
 
 if (enabled) {
   window.dataLayer = window.dataLayer || []
