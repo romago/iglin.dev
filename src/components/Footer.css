@@ -27,13 +27,15 @@
 
 .footer__visits {
   position: absolute;
-  right: 24px;
+  right: 28px;
   top: 50%;
   transform: translateY(-50%);
+  font-family: 'Doto', 'Inter', monospace;
   color: var(--accent);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
   opacity: 0.45;
   transition: opacity var(--transition);
@@ -44,12 +46,16 @@
   opacity: 0.85;
 }
 
-/* On phones the centered text spans the full width, so the number gets its own line, still on the right. */
+/* On phones the text moves left so the number keeps its place on the right without overlapping it. */
 @media (max-width: 600px) {
+  .footer {
+    text-align: left;
+    padding-right: 96px;
+  }
+
   .footer__visits {
-    position: static;
-    transform: none;
-    align-self: flex-end;
+    right: 24px;
+    font-size: 2.2rem;
   }
 }
 

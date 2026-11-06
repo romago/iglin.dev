@@ -61,7 +61,7 @@ export default function Footer({ home = '' }) {
       </p>
       {visits != null && (
         <span className="footer__visits" aria-hidden="true">
-          {String(shown).padStart(3, '0')}
+          {String(shown).padStart(2, '0')}
         </span>
       )}
     </footer>
