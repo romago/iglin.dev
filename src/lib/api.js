@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 // Quick Estimate worker (estimate-api/). Without these (see .env.*) the forms fall back to email.
-const API = import.meta.env.VITE_ESTIMATE_API
+export const API = import.meta.env.VITE_ESTIMATE_API
 const SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY
 export const apiEnabled = Boolean(API && SITE_KEY)
 
