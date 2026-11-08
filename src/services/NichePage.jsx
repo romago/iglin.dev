@@ -5,7 +5,7 @@ import HeroArt from '../components/HeroArt'
 import { CaseStudy, Lightbox } from '../portfolio/CaseStudy'
 import { projects } from '../portfolio/projects'
 import { track } from '../lib/analytics'
-import { findPackage } from './packages'
+import { findPackage, formatPrice } from './packages'
 import { findNichePage, nichePages } from './pages'
 import '../components/Hero.css'
 import '../components/Estimate.css'
@@ -13,7 +13,7 @@ import '../components/Reviews.css'
 import './Services.css'
 import './NichePage.css'
 
-const money = (v) => `$${v.toLocaleString('en-US')}`
+const money = formatPrice
 
 // Turns [label](url) in page copy into links.
 function rich(text) {

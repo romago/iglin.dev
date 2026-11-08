@@ -1,6 +1,9 @@
 // Fixed-price packages for iglin.dev/services. The same four services and prices as Roman's Upwork
-// Project Catalog. The estimate worker imports this file too, so the price in the order email
+// Project Catalog, except the speed audit, which is free here (price 0 shows as "Free"). The estimate worker imports this file too, so the price in the order email
 // always comes from here, not from the browser.
+
+// A package price for display: 0 is a free package.
+export const formatPrice = (v) => (v === 0 ? 'Free' : `$${v.toLocaleString('en-US')}`)
 
 export const services = [
   {
@@ -12,9 +15,9 @@ export const services = [
     proof: 'An ad landing page for a California moving company went from Lighthouse mobile 33 to 98 and from 17.7 MB to 0.9 MB, with GA4, Google Ads and Meta Pixel tracking unchanged.',
     packages: [
       {
-        id: 'starter', tier: 'Starter', name: 'Speed audit', price: 150, days: 1, revisions: 0,
-        summary: 'Audit of the whole site, written report and a prioritized fix list.',
-        features: ['Whole site audited', 'Written report', 'Prioritized fix list'],
+        id: 'starter', tier: 'Starter', name: 'Speed audit', price: 0, days: 1, revisions: 0,
+        summary: 'Free audit of the whole site, written report and a prioritized fix list. No obligation.',
+        features: ['Whole site audited', 'Written report', 'Prioritized fix list', 'No obligation'],
       },
       {
         id: 'standard', tier: 'Standard', name: 'One key page fixed', price: 450, days: 3, revisions: 1,
