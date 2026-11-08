@@ -4,13 +4,13 @@ import Footer from '../components/Footer'
 import HeroArt from '../components/HeroArt'
 import { apiEnabled, post, useTurnstile } from '../lib/api'
 import { track } from '../lib/analytics'
-import { findPackage, services } from './packages'
+import { findPackage, formatPrice, services } from './packages'
 import { nichePages } from './pages'
 import '../components/Hero.css'
 import '../components/Estimate.css'
 import './Services.css'
 
-const money = (v) => `$${v.toLocaleString('en-US')}`
+const money = formatPrice
 const days = (n) => `${n} day${n === 1 ? '' : 's'}`
 const revisions = (n) => (n ? `${n} revision${n === 1 ? '' : 's'}` : 'No revisions')
 
@@ -181,7 +181,9 @@ export default function Services() {
                 onClick={() => pickService(s)}
               >
                 <span className="svc-tab__name">{s.short}</span>
-                <span className="svc-tab__from">from {money(s.packages[0].price)}</span>
+                <span className="svc-tab__from">
+                  {s.packages[0].price === 0 ? `free ${s.packages[0].name.toLowerCase()}` : `from ${money(s.packages[0].price)}`}
+                </span>
               </button>
             ))}
           </div>

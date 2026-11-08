@@ -97,7 +97,7 @@ export const nichePages = [
       { q: 'Do I need a new theme or a full rebuild to get a fast landing page?', a: 'Usually not. The People Movers page kept its Elementor design; the speed came from caching, lighter media and loading third-party tags later.' },
       { q: 'How fast can a WordPress landing page load on a phone?', a: 'The landing page in the case study went to 96–98 for Lighthouse mobile performance and about 0.9 MB, with desktop at 98–99.' },
       { q: 'How much does landing page speed optimization cost?', a: 'Fixing one key page, like your homepage or an ad landing page, is a fixed-price package for $450 with before and after numbers. [See the speed packages](/services/?service=speed&package=standard). The whole site is $900.' },
-      { q: 'Can you audit my site first?', a: 'Yes. An audit of the whole site with a written report and a prioritized fix list is $150. [Order the audit](/services/?service=speed&package=starter).' },
+      { q: 'Can you audit my site first?', a: 'Yes, for free. You get an audit of the whole site with a written report and a prioritized fix list, with no obligation to order the fixes. [Order the free audit](/services/?service=speed&package=starter).' },
     ],
     related: ['white-label-wordpress-developer', 'wpbakery-to-beaver-builder-migration', 'quickbooks-website-integration'],
   },

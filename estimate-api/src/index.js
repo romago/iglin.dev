@@ -5,7 +5,7 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { WorkerMailer } from 'worker-mailer'
 // Shared with the /services page, so prices in order emails come from the same list.
-import { findPackage } from '../../src/services/packages.js'
+import { findPackage, formatPrice } from '../../src/services/packages.js'
 
 const TICKET_TTL_MS = 2 * 60 * 60 * 1000
 // Long enough for a full scope document pasted from a PDF (~3,000 words).
@@ -231,11 +231,11 @@ async function handleOrder(body, env, ip) {
   if (!human) throw new UserError('Bot check failed. Please reload the page and try again.')
 
   await sendMail(env, {
-    subject: `Package order: ${pkg.name} (${formatMoney(pkg.price)}) from ${name}`,
+    subject: `Package order: ${pkg.name} (${formatPrice(pkg.price)}) from ${name}`,
     replyTo: email,
     html: `<div style="font-family:system-ui,sans-serif;font-size:15px;line-height:1.5;color:#111">
 <p style="color:#555">${esc(name)} chose a package on iglin.dev/services. Reply to this email to answer them.</p>
-<h2 style="margin:0 0 4px">${esc(pkg.name)} · ${formatMoney(pkg.price)}</h2>
+<h2 style="margin:0 0 4px">${esc(pkg.name)} · ${formatPrice(pkg.price)}</h2>
 <p style="margin:0 0 12px;color:#555">${esc(service.title)} · ${esc(pkg.tier)} · ${pkg.days} day(s) delivery · ${pkg.revisions} revision(s)</p>
 <p style="margin:0 0 12px">${esc(pkg.summary)}</p>
 <p><b>${esc(name)}</b> &lt;<a href="mailto:${esc(email)}">${esc(email)}</a>&gt;${website ? `<br>Website: ${esc(website)}` : ''}</p>

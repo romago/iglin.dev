@@ -56,7 +56,7 @@ const business = {
   founder: personRef,
   address: { '@type': 'PostalAddress', addressLocality: 'Woodstock', addressRegion: 'GA', addressCountry: 'US' },
   areaServed: [{ '@type': 'Country', name: 'United States' }, 'Worldwide (remote)'],
-  priceRange: '$120–$3,000',
+  priceRange: '$0–$3,000',
   hasOfferCatalog: { '@id': `${SITE}services/#catalog` },
 }
 
