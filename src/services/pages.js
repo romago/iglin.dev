@@ -197,6 +197,61 @@ export const nichePages = [
     ],
     related: ['wpbakery-to-beaver-builder-migration', 'landing-page-speed-optimization', 'quickbooks-website-integration'],
   },
+  {
+    slug: 'drupal-7-migration',
+    draft: false,
+    metaTitle: 'Drupal 7 to Drupal 10 / 11 Migration Service | Roman Iglin',
+    metaDescription:
+      'Drupal 7 lost official support in January 2025. I move Drupal 7 sites to Drupal 11 with content, users, files and URLs intact, or keep your D7 site secure on modern PHP while you plan the move.',
+    service: 'Drupal 7 to Drupal 11 migration',
+    eyebrow: 'Drupal 7 end of life',
+    h1: 'Drupal 7 to Drupal 11 migration',
+    lead:
+      'Drupal 7 stopped getting official security updates in January 2025. I move your site to Drupal 11 with its content, users, files and URLs, or keep it safe on modern PHP until you are ready.',
+    highlights: [
+      { value: 'Since 2017', label: 'running a Drupal 7 Commerce site' },
+      { value: 'PHP 7.4 → 8.5', label: 'on Drupal 7, 12 s of downtime' },
+      { value: '~3,900', label: '301 redirects, no lost URLs' },
+    ],
+    problems: [
+      'Your site still runs Drupal 7, and official security updates ended on January 5, 2025.',
+      'Your host is dropping old PHP versions, and the site may not survive the switch.',
+      'Custom modules or contributed modules have no Drupal 11 version, and nobody knows what they do.',
+      'You fear losing content, users, search rankings or order history in the move.',
+    ],
+    steps: [
+      { title: 'Audit the Drupal 7 site', text: 'I list content types, fields, views, users, files and every contributed and custom module, and note which have a Drupal 11 equivalent, which need custom code and which can go.' },
+      { title: 'Pick the path', text: 'Usually Drupal 11 with the core Migrate API. If the site is mostly pages and a blog, WordPress can be cheaper to run. If you need time, I first make Drupal 7 safe on a supported PHP version.' },
+      { title: 'Migrate and rebuild', text: 'Content, taxonomy, users, files and redirects come over with repeatable migrations, so the final run uses fresh data. The theme is rebuilt for Drupal 11 and custom modules are rewritten.' },
+      { title: 'Launch without losing traffic', text: 'Old URLs keep working through 301 redirects, the XML sitemap and metadata are carried over, and I compare old and new pages before the switch and watch Search Console after it.' },
+    ],
+    caseStudy: {
+      projectId: 'araks',
+      intro: 'A Los Angeles wholesale food distributor runs its ordering site on Drupal 7 and Drupal Commerce. I have maintained it since 2017: custom modules, a move from PHP 7.4 to 8.5, a URL cleanup with about 3,900 automatic 301 redirects, and the server it runs on.',
+    },
+    review: {
+      text: 'Roman has been our web developer since 2017. He built and maintains our wholesale ordering site and the server it runs on. He connected the site to QuickBooks, so products, prices, stock and orders now sync automatically instead of by hand. Checkout went from 7–13 seconds to about half a second. He is responsive, explains things clearly, and keeps the site secure and backed up.',
+      author: 'Aram Arutyunyan',
+      role: 'Araks Inc (wholesale food distributor)',
+      source: { label: 'IONOS', url: 'https://partnernetwork.ionos.com/partner/roman.iglin#ratings' },
+    },
+    offer: {
+      kind: 'estimate',
+      title: 'Priced by what your site has',
+      text: 'The cost depends on the number of content types, custom modules and pages with their own layout, and on whether there is a store. Describe your site and get a ballpark price in about 20 seconds, or write to me and I will reply by email.',
+    },
+    faq: [
+      { q: 'Is Drupal 7 still supported?', a: 'No. Official Drupal 7 support, including security updates, ended on January 5, 2025. Paid extended support exists from a few vendors, but your site gets no new core security releases from the Drupal project.' },
+      { q: 'Should I migrate from Drupal 7 to Drupal 10 or Drupal 11?', a: 'Drupal 11. Drupal 10 reaches end of life on December 9, 2026, so a move to 10 now would need another upgrade almost at once. Drupal 11 is supported until about 2028, and moving on to Drupal 12 later is a regular upgrade, not a rebuild.' },
+      { q: 'Can I upgrade Drupal 7 to Drupal 11 in place?', a: 'No. Drupal 8 and later are a different codebase, so there is no in-place upgrade. Content, users and files are moved into a new Drupal 11 site with the core Migrate API, and the theme and custom modules are rebuilt.' },
+      { q: 'Will I lose my SEO when I migrate from Drupal 7?', a: 'Not if every old URL keeps working. I map old paths to new ones with 301 redirects and carry over titles and metadata. On the [Drupal site above](#case) about 3,900 old URLs redirect automatically.' },
+      { q: 'How long does a Drupal 7 to Drupal 11 migration take?', a: 'A brochure site with a few content types takes a few weeks. Sites with many custom modules, a store or a lot of user data take longer. The audit in the first step gives you a timeline before the main work starts.' },
+      { q: 'Can I keep Drupal 7 a bit longer?', a: 'For a limited time, if it is kept patched and on a supported PHP version. I moved the [Drupal 7 site above](#case) from PHP 7.4 to 8.5 with backups, a rollback plan and 12 seconds of maintenance mode. It buys time; it does not replace the migration.' },
+      { q: 'Should I move from Drupal 7 to WordPress instead?', a: 'If the site is mostly pages, news and forms, WordPress is often cheaper to run and easier for editors. For complex data, permissions or custom workflows, Drupal 11 is the better fit. The audit tells which one suits your site. [See my WordPress migration packages](/services/?service=migration).' },
+      { q: 'How much does a Drupal 7 migration cost?', a: 'It depends on content types, custom modules and the number of unique page layouts. [Get a quick estimate](/#estimate) in about 20 seconds, then I confirm an exact quote by email.' },
+    ],
+    related: ['wpbakery-to-beaver-builder-migration', 'quickbooks-website-integration', 'white-label-wordpress-developer'],
+  },
 ]
 
 export const findNichePage = (slug) => nichePages.find((p) => p.slug === slug)
