@@ -130,7 +130,8 @@ export default function Portfolio() {
         </section>
       </main>
 
-      <footer className="footer">
+      {/* No links on the portfolio: it only gets the bottom row's look, not the site's link footer. */}
+      <footer className="footer__bottom">
         <p>All projects shown are my own work. Screenshots of the live sites, {new Date().getFullYear()}.</p>
         <p className="footer__copy">© {new Date().getFullYear()} Web Developer Portfolio</p>
       </footer>

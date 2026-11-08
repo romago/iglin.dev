@@ -6,6 +6,7 @@ import Services from './services/Services.jsx'
 import Portfolio from './portfolio/Portfolio.jsx'
 import NichePage from './services/NichePage.jsx'
 export { nichePages } from './services/pages.js'
+export { nicheNav } from './services/nav.js'
 export { nicheGraph, toJsonLd } from './seo/schema.js'
 
 const render = (page) => renderToString(<StrictMode>{page}</StrictMode>)

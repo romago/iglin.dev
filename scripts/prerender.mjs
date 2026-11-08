@@ -50,6 +50,13 @@ if (target === 'portfolio') {
 
   // Niche pages: one built template, copied per page with its own head, JSON-LD and content.
   // Drafts are published with noindex and left out of the sitemap until Roman approves them.
+  // The footer links come from src/services/nav.js; it must list exactly the published pages.
+  const published = ssr.nichePages.filter((p) => !p.draft).map((p) => p.slug).sort().join(',')
+  const inFooter = ssr.nicheNav.map((p) => p.slug).sort().join(',')
+  if (published !== inFooter) {
+    throw new Error(`src/services/nav.js does not match the published niche pages.\n  published: ${published}\n  footer:    ${inFooter}`)
+  }
+
   const templateFile = resolve(root, 'dist/services/page/index.html')
   const template = await readFile(templateFile, 'utf8')
   for (const page of ssr.nichePages) {

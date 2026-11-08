@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { API } from '../lib/api'
 import { countable } from '../lib/analytics'
+import { nicheNav } from '../services/nav'
 import './Footer.css'
 
 // Visits to iglin.dev since midnight (New York time), from the estimate-api worker.
@@ -47,23 +48,56 @@ function useCountUp(target, ms = 900) {
   return value
 }
 
+// Service tags for the footer marquee. The free audit and "all packages" are highlighted.
+const tags = [
+  { href: '/services/?service=speed&package=starter', label: 'Free speed audit', hot: true },
+  ...nicheNav.map((p) => ({ href: `/services/${p.slug}/`, label: p.label })),
+  { href: '/services/', label: 'All packages →', hot: true },
+]
+
+// One set of tags. Copies (hidden) only fill the loop: screen readers and the Tab key see the first set.
+function TagSet({ copy = false }) {
+  return (
+    <ul className="footer__tagset" aria-hidden={copy || undefined}>
+      {tags.map((t) => (
+        <li key={t.href}>
+          <a href={t.href} className={`footer__tag${t.hot ? ' footer__tag--hot' : ''}`} tabIndex={copy ? -1 : undefined}>
+            {t.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 export default function Footer({ home = '' }) {
   const visits = useVisitsToday()
   const shown = useCountUp(visits)
   return (
     <footer className="footer">
-      <p>
-        Designed & Built by{' '}
-        <a href={`${home}#contact`}>Roman Iglin</a>
-      </p>
-      <p className="footer__copy">
-        © {new Date().getFullYear()} iglin.dev — All rights reserved.
-      </p>
-      {visits != null && (
-        <span className="footer__visits" aria-hidden="true">
-          {String(shown).padStart(2, '0')}
-        </span>
-      )}
+      {/* Services as a slow, endless line of tags; it stops on hover and sits still with reduced motion. */}
+      <nav className="footer__tags" aria-label="Services">
+        <div className="footer__track">
+          <TagSet />
+          <TagSet copy />
+          <TagSet copy />
+        </div>
+      </nav>
+
+      <div className="footer__bottom">
+        <p>
+          Designed & Built by{' '}
+          <a href={`${home}#contact`}>Roman Iglin</a>
+        </p>
+        <p className="footer__copy">
+          © {new Date().getFullYear()} iglin.dev — All rights reserved.
+        </p>
+        {visits != null && (
+          <span className="footer__visits" aria-hidden="true">
+            {String(shown).padStart(2, '0')}
+          </span>
+        )}
+      </div>
     </footer>
   )
 }

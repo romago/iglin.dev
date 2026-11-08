@@ -1,0 +1,10 @@
+// Short labels for the published niche pages, used by the site-wide footer.
+// Kept apart from pages.js so the home page bundle does not carry every page's copy.
+// The build (scripts/prerender.mjs) fails if this list and the published pages in pages.js differ.
+export const nicheNav = [
+  { slug: 'landing-page-speed-optimization', label: 'Landing page speed' },
+  { slug: 'quickbooks-website-integration', label: 'QuickBooks integration' },
+  { slug: 'drupal-7-migration', label: 'Drupal 7 migration' },
+  { slug: 'wpbakery-to-beaver-builder-migration', label: 'WPBakery → Beaver Builder' },
+  { slug: 'white-label-wordpress-developer', label: 'White-label for agencies' },
+]
