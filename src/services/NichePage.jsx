@@ -81,15 +81,10 @@ export default function NichePage({ slug }) {
             <a className="est-btn" href="#pricing">See pricing</a>
             <a className="est-btn est-btn--ghost" href="#case">See the real project ↓</a>
           </div>
-          <ul className="np-stats">
-            {page.highlights.map((h) => (
-              <li key={h.label}><strong>{h.value}</strong><span>{h.label}</span></li>
-            ))}
-          </ul>
         </section>
 
         <section className="section np-section">
-          <h2 className="section-title">Sound familiar?</h2>
+          <h2 className="section-title">{page.headings.problems}</h2>
           <ul className="np-problems">
             {page.problems.map((p) => <li key={p}>{p}</li>)}
           </ul>
@@ -97,7 +92,7 @@ export default function NichePage({ slug }) {
 
         <section className="np-band">
           <div className="section np-section">
-            <h2 className="section-title">How I do it</h2>
+            <h2 className="section-title">{page.headings.steps}</h2>
             <ol className="np-steps">
               {page.steps.map((s, i) => (
                 <li key={s.title}>
@@ -111,7 +106,7 @@ export default function NichePage({ slug }) {
         </section>
 
         <section id="case" className="section np-section">
-          <h2 className="section-title">A real project</h2>
+          <h2 className="section-title">{page.headings.case}</h2>
           <p className="np-intro">{page.caseStudy.intro}</p>
           {project && <CaseStudy project={project} index={0} onOpen={setOpenShot} />}
         </section>
@@ -136,13 +131,13 @@ export default function NichePage({ slug }) {
 
         <section id="pricing" className="np-band">
           <div className="section np-section">
-            <h2 className="section-title">Pricing</h2>
+            <h2 className="section-title">{page.headings.pricing}</h2>
             <Offer offer={page.offer} />
           </div>
         </section>
 
         <section className="section np-section">
-          <h2 className="section-title">Questions</h2>
+          <h2 className="section-title">{page.headings.faq}</h2>
           <div className="np-faq">
             {page.faq.map((f) => (
               <details key={f.q}>
@@ -154,7 +149,7 @@ export default function NichePage({ slug }) {
         </section>
 
         <section className="section np-section np-section--tight">
-          <h2 className="np-more__title">More services</h2>
+          <h2 className="np-more__title">Related services</h2>
           <ul className="np-more">
             {others.map((p) => (
               <li key={p.slug}><a href={`/services/${p.slug}/`}>{p.service} →</a></li>

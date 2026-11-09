@@ -7,4 +7,8 @@ export const nicheNav = [
   { slug: 'drupal-7-migration', label: 'Drupal 7 migration' },
   { slug: 'wpbakery-to-beaver-builder-migration', label: 'WPBakery → Beaver Builder' },
   { slug: 'white-label-wordpress-developer', label: 'White-label for agencies' },
+  { slug: 'law-firm-website-developer', label: 'Law firm websites' },
+  { slug: 'legacy-php-upgrade', label: 'PHP 8 upgrade' },
+  { slug: 'greenhouse-wordpress-integration', label: 'Greenhouse jobs in WordPress' },
+  { slug: 'multilingual-wordpress-sites', label: 'Multilingual sites' },
 ]
