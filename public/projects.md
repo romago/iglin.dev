@@ -2,7 +2,7 @@
 
 > Structured record of Roman Iglin's projects, responsibilities and results.
 > Written for AI assistants that prepare resumes, cover letters and job applications for Roman.
-> Last updated: 2026-11-06
+> Last updated: 2026-11-09
 
 ## Notes for AI readers
 
@@ -32,6 +32,7 @@
 - **Tools & DevOps:** Git, Docker, Webpack, Node.js, SSH, Linux / Apache / Nginx (LAMP), DigitalOcean, IONOS, WP Engine, PHP-FPM, MariaDB tuning, HestiaCP, Puppeteer, Lighthouse, ffmpeg, Cloudflare, Cloudflare Workers, Cloudflare Turnstile, GitHub Actions, uv, pytest, mypy, PyPI publishing
 - **AI:** AI integration, LLM API integration (Google Gemini API, Claude API, Cloudflare Workers AI), structured JSON output, multi-provider fallback, AI-generated content with automated checks and human review
 - **Integrations:** REST API, JSON / XML, SOAP, Stripe, Google Maps Geocoding API, Greenhouse Job Board API, Marketo, GTM / GA4, Smartling, Google Places API, QuickBooks Desktop (qbXML / Web Connector), Google Gemini API, Meta Pixel, Microsoft Clarity
+- **Business systems:** custom CRM and B2B ordering portals (customer price levels, sales reps ordering for their customers, vendors, lead pipelines with approval, customer emails, sales dashboards) connected to accounting (QuickBooks Desktop)
 - **SEO:** technical SEO, Core Web Vitals, schema.org / JSON-LD, Google Search Console
 - **Design:** Figma, Sketch, Adobe Photoshop, Adobe Illustrator, UI/UX mockups
 
@@ -243,7 +244,7 @@ Full redesign of the WordPress / Elementor website of a California moving compan
 
 **Keywords:** WordPress, Elementor, website redesign, custom WordPress theme, Core Web Vitals, page speed optimization, Lighthouse, PageSpeed Insights, caching, CDN, Cloudflare, third-party script delay, GTM, GA4, Meta Pixel, Microsoft Clarity, lazy loading, video optimization, accessibility, WCAG, WP-CLI, Puppeteer, landing pages, lead generation, moving company website
 
-### Araks Inc — B2B wholesale ordering site (Drupal Commerce, QuickBooks integration, AI integration)
+### Araks Inc — B2B wholesale ordering platform and CRM (Drupal Commerce, QuickBooks integration, AI integration)
 
 - **Client:** Araks Inc (Los Angeles wholesale distributor of European food products to stores)
 - **Role:** Web Developer (freelance)
@@ -251,17 +252,17 @@ Full redesign of the WordPress / Elementor website of a California moving compan
 - **Status:** active
 - **Stack:** Drupal 7, Drupal Commerce, PHP 8.5, MariaDB / MySQL, JavaScript, jQuery, Drupal Views, Rules, DigitalOcean (droplet), LAMP stack: Linux (Ubuntu), Apache, MariaDB / MySQL, PHP; Nginx, PHP-FPM, HestiaCP, Let's Encrypt, QuickBooks Desktop (qbXML, Web Connector SOAP), Google Gemini API, GA4 Data API, Search Console API, PageSpeed Insights API, Lighthouse, schema.org / JSON-LD, Puppeteer, rclone, Brevo SMTP, Bash, Git
 - **Link:** https://araks.org
-- **Last updated:** 2026-11-05
+- **Last updated:** 2026-11-09
 
 **Summary**
-Development, maintenance and server administration of Araks' Drupal 7 / Drupal Commerce site, hosted on a DigitalOcean server that I set up and maintain, where store customers and sales reps place wholesale orders from a catalog of about 1,700 products. In 2026 the work centered on a QuickBooks integration, AI integration (Google Gemini API), performance, technical SEO, lead generation and server reliability.
+Development, maintenance and server administration of Araks' B2B wholesale ordering platform with a built-in CRM on Drupal 7 / Drupal Commerce, hosted on a DigitalOcean server that I set up and maintain. Store customers order from a catalog of about 1,700 products at their own price levels, sales reps place orders for their stores, and staff manage leads, customers, vendors, orders and sales reports in the same system, synced with QuickBooks Desktop. In 2026 the work centered on the QuickBooks integration, the CRM, AI integration (Google Gemini API), performance, technical SEO and server reliability.
 
 **What I did**
 - Built a QuickBooks Desktop integration from scratch: a hand-written Web Connector SOAP/qbXML endpoint with a job queue, hourly product, price and stock sync for about 7,500 items, daily customer and vendor sync, and automatic export of web orders as Sales Orders (restocking orders as Purchase Orders), replacing manual CSV and XLSX exchange. Added a low-margin alert and a sales analytics dashboard on top of the synced data.
 - Optimized the B2B ordering flow and the product catalog: a custom Drupal Views cache plugin keys per-customer price lists by a pricing fingerprint, serves the public catalog stale-while-revalidate with a render lock, and rebuilds both in the background; a rebuilt index-based catalog search also matches item codes. Refactored the legacy jQuery ordering script in small, separately shipped steps, and fixed order data-integrity bugs (unlinked bottle-deposit line items, carts wiped by stale checkout pages).
 - Improved Core Web Vitals on public pages: self-hosted fonts and jQuery, deferred scripts, WebP images with srcset, and lazy loading for the 1,700 catalog photos. On the homepage, traced unstable mobile PageSpeed scores to the analytics tag with A/B test pages, deferred it until user interaction, and server-rendered the mobile brand carousel so the largest image paints with the page.
 - Led technical SEO: clean URLs with about 3,900 automatic 301 redirects, a complete XML sitemap, schema.org JSON-LD (Product, BreadcrumbList, WholesaleStore, FAQPage) and a brand and country-of-origin taxonomy. Connected the GA4, Search Console and PageSpeed Insights APIs for reporting.
-- Built the lead generation pipeline: an English/Russian wholesale landing page, a spam-protected lead form, approval with expiring one-time price-list links, follow-up and abandoned-cart emails, and GA4 key events.
+- Built and run the CRM side of the platform: customer accounts with their own price levels, sales reps ordering on behalf of their stores, vendor accounts for restocking orders, a lead pipeline (English/Russian wholesale landing page, spam-protected lead form, approval with expiring one-time price-list links, GA4 key events), branded customer emails with a send log and unsent-order reminders, a live panel of signed-in customers with their open cart totals, and a sales dashboard (sales by year, top customers, sales by rep).
 - Integrated AI into the catalog workflow: built a Drupal module on the Google Gemini API that rewrote raw QuickBooks item names into clean product titles and descriptions for the whole catalog, with automated checks and a review and revert workflow.
 - Set up and maintain the production server on a DigitalOcean droplet: a full LAMP stack on Ubuntu (Apache with event MPM, MariaDB / MySQL, PHP-FPM) behind Nginx, managed with HestiaCP, with Let's Encrypt SSL, HTTP/2 and TLS 1.3. Optimized it end to end (Nginx compression and static caching, PHP-FPM pools, MariaDB memory and I/O, swap) and migrated production from PHP 7.4 to 8.5 with scripted backup and rollback and 12 seconds of maintenance mode.
 - Kept the server reliable and secure: resolved site hangs from database lock pile-ups with slow-query logging and automatic incident snapshots, fixed silently failing nightly backups and added encrypted weekly off-site copies with a tested restore and alerts, removed publicly exposed debug logs and backups, and verified SPF, DKIM and DMARC.
@@ -276,7 +277,7 @@ Development, maintenance and server administration of Araks' Drupal 7 / Drupal C
 - Database: buffer-pool hit rate 98.1% → 99.8%; slowest admin report query 4.5 s → 0.1 s.
 - Google Search Console, the month after the URL, sitemap and SEO work vs the month before: impressions +98%, clicks +62%.
 
-**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, stale-while-revalidate, Drupal Views, Core Web Vitals, LCP, PageSpeed Insights, Lighthouse, lazy loading, JavaScript refactoring, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI integration, LLM integration, generative AI, AI content generation, Google Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
+**Keywords:** Drupal 7, Drupal Commerce, B2B e-commerce, wholesale ordering, B2B ordering portal, CRM, custom CRM development, customer management, lead management, sales rep ordering, customer-specific pricing, sales dashboard, QuickBooks integration, qbXML, QuickBooks Web Connector, ERP integration, SOAP, PHP 8 migration, performance optimization, caching, stale-while-revalidate, Drupal Views, Core Web Vitals, LCP, PageSpeed Insights, Lighthouse, lazy loading, JavaScript refactoring, technical SEO, JSON-LD, XML sitemap, 301 redirects, lead generation, GA4, Google Search Console, AI integration, LLM integration, generative AI, AI content generation, Google Gemini API, DigitalOcean, LAMP, server provisioning, DevOps, Linux server administration, Apache, MariaDB tuning, Nginx, PHP-FPM, HestiaCP, backups, disaster recovery, website security, email deliverability, debugging, data integrity
 
 ### Arthur Ray Law Offices — law firm websites (WordPress & technical SEO)
 
@@ -455,3 +456,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-11-05 — Updated the USACS agency entries: the agency is no longer named; described as white-label work for a web agency.
 - 2026-11-06 — Added siteaudit: open-source Python CLI for SEO and technical site audits, published on PyPI as site-audit; Python, uv, pytest, mypy and PyPI added to Profile.
 - 2026-11-06 — Added 4CornersWork: WordPress job board on WP Job Manager with job search and filters, Quick Apply, employer dashboard, paid job posting with Stripe, emails and content pages; new Employment row, WooCommerce, WP Job Manager and Stripe added to Profile.
+- 2026-11-09 — Updated Araks Inc: described as a B2B ordering platform with a built-in CRM (customers, price levels, sales reps, vendors, leads, customer emails, sales dashboard); Business systems added to Profile.
