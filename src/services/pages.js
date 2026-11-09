@@ -36,7 +36,7 @@ export const nichePages = [
     ],
     caseStudy: {
       projectId: 'araks',
-      intro: 'A Los Angeles wholesale food distributor took store orders on its website but moved prices, stock and orders to and from QuickBooks Desktop with CSV and Excel files. I built the integration from scratch.',
+      intro: 'A Los Angeles wholesale food distributor took store orders on its B2B ordering platform and CRM but moved prices, stock and orders to and from QuickBooks Desktop with CSV and Excel files. I built the integration from scratch.',
     },
     review: {
       text: 'Roman has been our web developer since 2017. He built and maintains our wholesale ordering site and the server it runs on. He connected the site to QuickBooks, so products, prices, stock and orders now sync automatically instead of by hand. Checkout went from 7–13 seconds to about half a second. He is responsive, explains things clearly, and keeps the site secure and backed up.',
@@ -242,7 +242,7 @@ export const nichePages = [
     ],
     caseStudy: {
       projectId: 'araks',
-      intro: 'A Los Angeles wholesale food distributor runs its ordering site on Drupal 7 and Drupal Commerce. I have maintained it since 2017: custom modules, a move from PHP 7.4 to 8.5, a URL cleanup with about 3,900 automatic 301 redirects, and the server it runs on.',
+      intro: 'A Los Angeles wholesale food distributor runs its B2B ordering platform and CRM on Drupal 7 and Drupal Commerce. I have maintained it since 2017: custom modules, a move from PHP 7.4 to 8.5, a URL cleanup with about 3,900 automatic 301 redirects, and the server it runs on.',
     },
     review: {
       text: 'Roman has been our web developer since 2017. He built and maintains our wholesale ordering site and the server it runs on. He connected the site to QuickBooks, so products, prices, stock and orders now sync automatically instead of by hand. Checkout went from 7–13 seconds to about half a second. He is responsive, explains things clearly, and keeps the site secure and backed up.',
@@ -351,7 +351,7 @@ export const nichePages = [
     ],
     caseStudy: {
       projectId: 'araks',
-      intro: 'A wholesale food distributor takes store orders on a Drupal 7 Commerce site that ran on PHP 7.4, which no longer gets security fixes. I moved production to PHP 8.5 with a scripted backup, a rollback plan and 12 seconds of maintenance mode.',
+      intro: 'A wholesale food distributor runs its B2B ordering platform and CRM on Drupal 7 Commerce, which ran on PHP 7.4, which no longer gets security fixes. I moved production to PHP 8.5 with a scripted backup, a rollback plan and 12 seconds of maintenance mode.',
     },
     review: {
       text: 'Roman was so helpful, insightful, and knowledgeable. My website hasn’t been overseen by someone with his level of hands on experience in a while. I am so grateful to have found him. Highly recommend.',

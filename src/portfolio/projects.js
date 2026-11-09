@@ -82,18 +82,18 @@ export const projects = [
   {
     id: 'araks',
     title: 'Araks Inc',
-    tagline: 'B2B wholesale ordering site with a QuickBooks integration',
+    tagline: 'B2B ordering platform and CRM with a QuickBooks integration',
     client: 'Los Angeles food wholesale distributor',
-    role: 'Development · Integration · DevOps',
+    role: 'Development · CRM · Integration · DevOps',
     period: '2017 — present',
     url: 'https://araks.org',
     summary:
-      'Drupal Commerce site where store owners and sales reps order from a catalog of about 1,700 products, running on a DigitalOcean server I set up and maintain. I built a QuickBooks Desktop integration from scratch and made the homepage, the catalog, the signed-in ordering flow and the server fast and reliable.',
+      'A B2B ordering platform with a built-in CRM on Drupal Commerce: stores order from a catalog of about 1,700 products at their own prices, sales reps order for their stores, and staff manage leads, customers, vendors and sales in one system. It runs on a DigitalOcean server I set up and maintain. I built the QuickBooks Desktop integration from scratch and made the catalog, the ordering flow and the server fast and reliable.',
     bullets: [
       'Hand-written QuickBooks Web Connector (SOAP / qbXML) endpoint: hourly price and stock sync for ~7,500 items, customer sync and automatic export of web orders, replacing manual CSV exchange.',
-      'Homepage: traced unstable mobile PageSpeed scores to the analytics tag with A/B test pages, deferred it until user interaction and server-rendered the mobile brand carousel so the largest image paints with the page.',
+      'CRM for the sales team: customer accounts with their own price levels, sales reps ordering for their stores, vendor accounts for restocking orders, wholesale leads with approval and one-time price-list links, branded customer emails with a send log, a live panel of signed-in customers with open cart totals, and a sales dashboard (sales by year, top customers, sales by rep).',
       'Catalog: custom Drupal Views cache for per-customer price lists, a stale-while-revalidate public catalog rebuilt in the background with a render lock, and an index-based search that also matches item codes.',
-      'Core Web Vitals work: self-hosted fonts and jQuery, deferred scripts, WebP with srcset and lazy loading for 1,700 catalog photos.',
+      'Core Web Vitals: deferred the analytics tag until interaction, server-rendered the mobile brand carousel, self-hosted fonts and jQuery, WebP with srcset and lazy loading for 1,700 catalog photos.',
       'Technical SEO: clean URLs with ~3,900 automatic 301 redirects, XML sitemap and schema.org JSON-LD; Google Search impressions +98% the month after.',
       'AI catalog module on the Gemini API that rewrote raw item names into clean product titles and descriptions.',
       'Set up and run the production server on a DigitalOcean droplet: LAMP on Ubuntu behind Nginx, HestiaCP, Let’s Encrypt, HTTP/2 and TLS 1.3, tuned PHP-FPM and MariaDB.',
