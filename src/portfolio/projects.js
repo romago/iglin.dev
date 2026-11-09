@@ -45,8 +45,8 @@ export const projects = [
     stack: ['WordPress', 'PHP', 'JavaScript', 'React', 'Chart.js', 'Beaver Builder', 'WP Engine', 'WP-CLI', 'REST API', 'Marketo', 'GTM', 'GA4', 'Smartling', 'Figma'],
     visual: {
       layout: 'browser',
-      browser: { src: signifydFull, alt: 'signifyd.com homepage, full page', domain: 'signifyd.com', scroll: true },
-      phone: { src: signifydMobile, alt: 'signifyd.com on a phone' },
+      browser: { src: signifydFull, width: 1200, height: 5000, alt: 'signifyd.com homepage, full page', domain: 'signifyd.com', scroll: true },
+      phone: { src: signifydMobile, width: 600, height: 5231, alt: 'signifyd.com on a phone' },
     },
   },
   {
@@ -75,8 +75,8 @@ export const projects = [
     stack: ['WordPress', 'Elementor Pro', 'PHP', 'JavaScript', 'WP-CLI', 'Cloudflare', 'Puppeteer', 'Lighthouse', 'GA4', 'GTM'],
     visual: {
       layout: 'browser',
-      browser: { src: pmWhiteGlove, alt: 'White glove moving page, full page', domain: 'peoplemoverscalifornia.com', scroll: true },
-      phone: { src: pmHome, alt: 'People Movers homepage on a phone' },
+      browser: { src: pmWhiteGlove, width: 792, height: 3500, alt: 'White glove moving page, full page', domain: 'peoplemoverscalifornia.com', scroll: true },
+      phone: { src: pmHome, width: 600, height: 5231, alt: 'People Movers homepage on a phone' },
     },
   },
   {
@@ -108,8 +108,8 @@ export const projects = [
     stack: ['Drupal 7', 'Drupal Commerce', 'PHP 8.5', 'MariaDB', 'QuickBooks qbXML', 'SOAP', 'Gemini API', 'DigitalOcean', 'Nginx', 'Apache', 'HestiaCP'],
     visual: {
       layout: 'browser',
-      browser: { src: araksHome, alt: 'Araks homepage, full page', domain: 'araks.org', scroll: true },
-      phone: { src: araksCatalog, alt: 'Araks wholesale catalog on a phone' },
+      browser: { src: araksHome, width: 1200, height: 2999, alt: 'Araks homepage, full page', domain: 'araks.org', scroll: true },
+      phone: { src: araksCatalog, width: 600, height: 5231, alt: 'Araks wholesale catalog on a phone' },
     },
   },
   {
@@ -136,8 +136,8 @@ export const projects = [
     stack: ['WordPress', 'Beaver Builder', 'Custom BB modules', 'WPBakery', 'PHP', 'ACF', 'JavaScript', 'Yoast SEO', 'JSON-LD', 'hreflang', 'GA4', 'GTM', 'HubSpot'],
     visual: {
       layout: 'browser',
-      browser: { src: flsFull, alt: 'flstransport.com homepage, full page', domain: 'flstransport.com', scroll: true },
-      phone: { src: flsMobile, alt: 'flstransport.com on a phone' },
+      browser: { src: flsFull, width: 1200, height: 5000, alt: 'flstransport.com homepage, full page', domain: 'flstransport.com', scroll: true },
+      phone: { src: flsMobile, width: 600, height: 5231, alt: 'flstransport.com on a phone' },
     },
   },
   {
@@ -165,8 +165,8 @@ export const projects = [
     stack: ['WordPress', 'Custom theme', 'ACF Pro', 'PHP', 'WP-CLI', 'WP Rocket', 'JSON-LD', 'Search Console', 'Places API'],
     visual: {
       layout: 'browser',
-      browser: { src: memphisFull, alt: 'memphislaw.com homepage, full page', domain: 'memphislaw.com', scroll: true },
-      phone: { src: memphisMobile, alt: 'memphislaw.com on a phone' },
+      browser: { src: memphisFull, width: 1200, height: 3488, alt: 'memphislaw.com homepage, full page', domain: 'memphislaw.com', scroll: true },
+      phone: { src: memphisMobile, width: 600, height: 5231, alt: 'memphislaw.com on a phone' },
     },
   },
   {
@@ -194,8 +194,8 @@ export const projects = [
     stack: ['React', 'Vite', 'Tailwind CSS', 'TipTap / ProseMirror', 'Zustand', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT', 'Docker Compose', 'Nginx'],
     visual: {
       layout: 'browser',
-      browser: { src: tickdownDesktop, alt: 'Tickdown on desktop: folders, note list and a checklist', domain: 'tickdown.iglin.dev' },
-      phone: { src: tickdownMobile, alt: 'Tickdown note list on a phone' },
+      browser: { src: tickdownDesktop, width: 1200, height: 750, alt: 'Tickdown on desktop: folders, note list and a checklist', domain: 'tickdown.iglin.dev' },
+      phone: { src: tickdownMobile, width: 600, height: 1299, alt: 'Tickdown note list on a phone' },
     },
   },
   {
@@ -227,8 +227,8 @@ export const projects = [
     stack: ['WordPress', 'Block theme (FSE)', 'ACF blocks', '@wordpress/scripts', 'PHP', 'JavaScript', 'Alpine.js', 'Sass', 'Foundation', 'Gravity Forms', 'WP Engine', 'Figma'],
     visual: {
       layout: 'browser',
-      browser: { src: cullmanFull, alt: 'cullman.emfellows.com homepage, full page', domain: 'cullman.emfellows.com', scroll: true },
-      phone: { src: shiftMobile, alt: 'theshift.usacs.com blog on a phone' },
+      browser: { src: cullmanFull, width: 1200, height: 5000, alt: 'cullman.emfellows.com homepage, full page', domain: 'cullman.emfellows.com', scroll: true },
+      phone: { src: shiftMobile, width: 600, height: 5231, alt: 'theshift.usacs.com blog on a phone' },
     },
   },
   {
@@ -257,8 +257,8 @@ export const projects = [
     stack: ['WordPress', 'Beaver Builder', 'PHP', 'WP-CLI', 'Node.js', 'PostCSS', 'Python', 'Google Sheets API', 'Yoast SEO', 'hreflang', 'WP Engine'],
     visual: {
       layout: 'browser',
-      browser: { src: mxFull, alt: 'mx.signifyd.com homepage, full page', domain: 'mx.signifyd.com', scroll: true },
-      phone: { src: brMobile, alt: 'br.signifyd.com on a phone' },
+      browser: { src: mxFull, width: 1200, height: 4880, alt: 'mx.signifyd.com homepage, full page', domain: 'mx.signifyd.com', scroll: true },
+      phone: { src: brMobile, width: 600, height: 5231, alt: 'br.signifyd.com on a phone' },
     },
   },
   {
@@ -278,7 +278,7 @@ export const projects = [
     stack: ['React', 'WordPress', 'PHP', 'REST API', 'SCSS'],
     visual: {
       layout: 'video',
-      browser: { src: emeaImage, video: emeaVideo, alt: 'Signifyd EMEA homepage', domain: 'signifyd.com' },
+      browser: { src: emeaImage, width: 1440, height: 891, video: emeaVideo, alt: 'Signifyd EMEA homepage', domain: 'signifyd.com' },
     },
   },
 ]

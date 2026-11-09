@@ -24,7 +24,7 @@ function Browser({ shot, onOpen }) {
         </div>
       ) : (
         <button type="button" className="pf-browser__screen" onClick={() => onOpen(shot)} aria-label={`Open screenshot: ${shot.alt}`}>
-          <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" />
+          <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" decoding="async" />
         </button>
       )}
     </figure>
@@ -36,7 +36,7 @@ function Phone({ shot, onOpen, className = '' }) {
     <button type="button" className={`pf-phone ${className}`} onClick={() => onOpen(shot)} aria-label={`Open screenshot: ${shot.alt}`}>
       <span className="pf-phone__notch" aria-hidden="true" />
       <span className="pf-phone__screen">
-        <img src={shot.src} alt={shot.alt} loading="lazy" decoding="async" />
+        <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" decoding="async" />
       </span>
     </button>
   )
@@ -152,7 +152,7 @@ export function Lightbox({ shot, onClose }) {
       {shot && (
         <>
           <button type="button" className="pf-lightbox__close" onClick={onClose} aria-label="Close">✕</button>
-          <img src={shot.src} alt={shot.alt} />
+          <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
         </>
       )}
     </dialog>

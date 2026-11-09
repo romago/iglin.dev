@@ -24,6 +24,7 @@
 }
 
 .hero__name {
+  display: block;
   font-size: clamp(2.8rem, 8vw, 5.5rem);
   font-weight: 800;
   line-height: 1.05;
@@ -33,6 +34,7 @@
 }
 
 .hero__title {
+  display: block;
   font-size: clamp(2rem, 6vw, 4rem);
   font-weight: 700;
   line-height: 1.1;

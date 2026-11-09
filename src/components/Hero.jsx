@@ -10,8 +10,10 @@ export default function Hero() {
       <HeroArt />
       <div className="hero__inner">
         <p className="hero__greeting">&bull; open to work</p>
-        <h1 className="hero__name">Roman Iglin</h1>
-        <h2 className="hero__title">Full Stack Developer</h2>
+        <h1>
+          <span className="hero__name">Roman Iglin</span>
+          <span className="hero__title">Full Stack Developer</span>
+        </h1>
         <p className="hero__desc">
           {yearsExperience}+ years building websites and web apps end to end: custom WordPress and
           Drupal themes and plugins, React interfaces, PHP back ends, API integrations like

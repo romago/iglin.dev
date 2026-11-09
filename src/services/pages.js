@@ -6,9 +6,9 @@ export const nichePages = [
   {
     slug: 'quickbooks-website-integration',
     draft: false,
-    metaTitle: 'QuickBooks Desktop Website Integration Developer | Roman Iglin',
+    metaTitle: 'QuickBooks Desktop Website Integration | Roman Iglin',
     metaDescription:
-      'I connect your website or online store to QuickBooks Desktop through the Web Connector: products, prices, stock, customers and orders sync on a schedule. Real case: about 7,500 items synced every hour.',
+      'Connect your website or online store to QuickBooks Desktop: products, prices, stock, customers and orders sync on a schedule through the Web Connector.',
     service: 'QuickBooks Desktop website integration',
     eyebrow: 'QuickBooks Desktop integration',
     h1: 'QuickBooks Desktop integration for your website',
@@ -64,9 +64,9 @@ export const nichePages = [
   {
     slug: 'landing-page-speed-optimization',
     draft: false,
-    metaTitle: 'WordPress Landing Page Speed Optimization for Google Ads | Roman Iglin',
+    metaTitle: 'WordPress Landing Page Speed Optimization | Roman Iglin',
     metaDescription:
-      'Slow WordPress or Elementor landing page wasting ad spend? I make it load fast on phones without breaking GA4, Google Ads or Meta Pixel tracking. Real case: Lighthouse mobile 33 → 98, 17.7 MB → 0.9 MB.',
+      'Slow WordPress or Elementor landing page wasting ad spend? I make it fast on phones without breaking GA4, Google Ads or Meta Pixel tracking.',
     service: 'WordPress landing page speed optimization',
     eyebrow: 'Landing page speed',
     h1: 'Make your WordPress ad landing page load fast on phones',
@@ -112,7 +112,7 @@ export const nichePages = [
     draft: false,
     metaTitle: 'WPBakery to Beaver Builder Migration | Roman Iglin',
     metaDescription:
-      'Move your WordPress site off WPBakery Page Builder to Beaver Builder: pages rebuilt cleanly, custom modules your team can edit, no shortcodes left behind. Real case: a logistics company site with a French version.',
+      'Move your WordPress site off WPBakery to Beaver Builder: pages rebuilt cleanly, custom modules your team can edit and no shortcodes left behind.',
     service: 'WPBakery to Beaver Builder migration',
     eyebrow: 'Page builder migration',
     h1: 'WPBakery to Beaver Builder migration',
@@ -162,7 +162,7 @@ export const nichePages = [
     draft: false,
     metaTitle: 'White-Label WordPress Developer for Agencies | Roman Iglin',
     metaDescription:
-      'A senior WordPress developer your agency can bring in when the team is full: Figma to WordPress block themes and custom ACF blocks, page speed, migrations and VPS servers, delivered under your brand.',
+      'A senior WordPress developer your agency can bring in when the team is full: Figma to block themes and ACF blocks, speed and migrations, under your brand.',
     service: 'White-label WordPress development for agencies',
     eyebrow: 'For web agencies',
     h1: 'White-label WordPress developer for your agency',
@@ -214,7 +214,7 @@ export const nichePages = [
     draft: false,
     metaTitle: 'Drupal 7 to Drupal 10 / 11 Migration Service | Roman Iglin',
     metaDescription:
-      'Drupal 7 lost official support in January 2025. I move Drupal 7 sites to Drupal 11 with content, users, files and URLs intact, or keep your D7 site secure on modern PHP while you plan the move.',
+      'Drupal 7 lost official support in January 2025. I move Drupal 7 sites to Drupal 11 with content, users, files and URLs intact, or keep D7 safe meanwhile.',
     service: 'Drupal 7 to Drupal 11 migration',
     eyebrow: 'Drupal 7 end of life',
     h1: 'Drupal 7 to Drupal 11 migration',
@@ -270,9 +270,9 @@ export const nichePages = [
   {
     slug: 'law-firm-website-developer',
     draft: false,
-    metaTitle: 'Law Firm WordPress Website Developer & Technical SEO | Roman Iglin',
+    metaTitle: 'Law Firm WordPress Website Developer | Roman Iglin',
     metaDescription:
-      'WordPress developer for law firms: custom ACF themes, LegalService schema, Core Web Vitals and accessibility fixes, and a mobile layout that makes contacting you easy. Real case: a Memphis law firm, layout shift 0.59 → 0.001.',
+      'WordPress developer for law firms: custom themes, one page per practice area, LegalService schema, fast mobile pages and Google reviews on your own site.',
     service: 'Law firm WordPress website development',
     eyebrow: 'Law firm websites',
     h1: 'WordPress website developer for law firms',
@@ -321,9 +321,9 @@ export const nichePages = [
   {
     slug: 'legacy-php-upgrade',
     draft: false,
-    metaTitle: 'Upgrade an Old PHP Site to PHP 8 | Legacy PHP Developer | Roman Iglin',
+    metaTitle: 'Upgrade an Old PHP Site to PHP 8 | Roman Iglin',
     metaDescription:
-      'Your host is retiring old PHP and your WordPress, Drupal or custom PHP site may break. I upgrade it to PHP 8 with tested fixes, backups and a rollback plan. Real case: PHP 7.4 → 8.5 with 12 seconds of maintenance mode.',
+      'Host retiring old PHP? I upgrade WordPress, Drupal and custom PHP sites to PHP 8 with tested fixes, backups and a rollback plan, with seconds of downtime.',
     service: 'Legacy PHP upgrade to PHP 8',
     eyebrow: 'Legacy PHP',
     h1: 'Upgrade your old PHP site to PHP 8',
@@ -380,7 +380,7 @@ export const nichePages = [
     draft: false,
     metaTitle: 'Greenhouse Job Board WordPress Integration | Roman Iglin',
     metaDescription:
-      'Show your Greenhouse jobs on your own WordPress careers page, synced automatically: departments, offices, filters and apply links, with no copying. Built for Signifyd; the code is on GitHub.',
+      'Show your Greenhouse jobs on your own WordPress careers page, synced automatically, with team and office filters and apply links. No copying by hand.',
     service: 'Greenhouse job board WordPress integration',
     eyebrow: 'Greenhouse integration',
     h1: 'Greenhouse jobs on your WordPress careers page',
@@ -438,7 +438,7 @@ export const nichePages = [
     draft: false,
     metaTitle: 'Multilingual WordPress Sites with hreflang | Roman Iglin',
     metaDescription:
-      'Spanish, Portuguese and French versions of your WordPress site with correct hreflang, translated SEO meta and releases that do not break the live site. Real cases: Signifyd Mexico and Brazil, and a French (Canada) logistics site.',
+      'Spanish, Portuguese and French versions of your WordPress site with correct hreflang, translated SEO meta and releases that keep the live site safe.',
     service: 'Multilingual WordPress site development',
     eyebrow: 'Multilingual sites',
     h1: 'Multilingual WordPress sites that rank in each market',

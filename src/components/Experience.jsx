@@ -61,10 +61,10 @@ export default function Experience() {
               <div className="exp__content">
                 <div className="exp__header">
                   <div>
-                    <h3 className="exp__title">
-                      {job.title}
+                    <div className="exp__title">
+                      <h3>{job.title}</h3>
                       {job.type && <span className="exp__badge">{job.type}</span>}
-                    </h3>
+                    </div>
                     <p className="exp__company">
                       {job.company} <span>·</span> {job.location}
                     </p>
