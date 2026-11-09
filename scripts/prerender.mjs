@@ -89,7 +89,7 @@ if (target === 'portfolio') {
     'https://iglin.dev/',
     'https://iglin.dev/services/',
     ...ssr.nichePages.filter((p) => !p.draft).map((p) => `https://iglin.dev/services/${p.slug}/`),
-    'https://portfolio.iglin.dev/',
+    // portfolio.iglin.dev has its own sitemap; a sitemap lists URLs of its own host only.
   ]
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

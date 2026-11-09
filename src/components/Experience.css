@@ -66,6 +66,11 @@
   flex-wrap: wrap;
 }
 
+.exp__title h3 {
+  font: inherit;
+  color: inherit;
+}
+
 .exp__badge {
   font-size: 0.7rem;
   font-weight: 600;

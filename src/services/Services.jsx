@@ -234,7 +234,7 @@ export default function Services() {
           <div className="svc-order" id="order">
             <div className="svc-order__summary">
               <p className="svc-order__kicker">Your package</p>
-              <h3 className="svc-order__name">{pkg.name}</h3>
+              <h2 className="svc-order__name">{pkg.name}</h2>
               <p className="svc-order__service">{service.title} · {pkg.tier}</p>
               <p className="svc-order__price">{money(pkg.price)}</p>
               <ul className="svc-order__terms">

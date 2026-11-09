@@ -29,7 +29,7 @@ export default function Header({ home = '' }) {
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
       <div className="header__inner">
-        <a href={`${home}#hero`} className="header__logo">
+        <a href={`${home}#hero`} className="header__logo" aria-label="Roman Iglin, home">
           <Logo />
         </a>
 
