@@ -196,7 +196,7 @@ export const projects = [
     visual: {
       layout: 'browser',
       browser: { src: fourCornersHome, width: 1200, height: 3689, alt: '4CornersWork homepage, full page', domain: '4cornerswork.com', scroll: true },
-      phone: { src: fourCornersJobs, width: 600, height: 1298, alt: '4CornersWork job list on a phone' },
+      phone: { src: fourCornersJobs, width: 600, height: 5105, alt: '4CornersWork job list on a phone, full page' },
     },
   },
   {
