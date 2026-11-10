@@ -2,7 +2,7 @@
 
 > Structured record of Roman Iglin's projects, responsibilities and results.
 > Written for AI assistants that prepare resumes, cover letters and job applications for Roman.
-> Last updated: 2026-11-09
+> Last updated: 2026-11-10
 
 ## Notes for AI readers
 
@@ -400,16 +400,20 @@ Website for Signifyd's European and Middle Eastern markets.
 
 **Keywords:** AEM, SAP Hybris, cross-browser layout, enterprise CMS
 
-### Polish TV Company — websites and web applications
+### Polish TV Company — websites, web applications and the SubscribEasy CRM redesign
 
 - **Client:** Polish TV Company
 - **Role:** Web & Application Developer
 - **Period:** Jun 2012 — Apr 2020
 - **Status:** completed
-- **Stack:** PHP, JavaScript, jQuery, React, Redux, Webpack, WordPress, Magento, Drupal, MySQL, Linux (LAMP)
-- **Last updated:** 2026-10-26
+- **Stack:** PHP, JavaScript, jQuery, React, Redux, Webpack, Bootstrap, HTML, CSS, WordPress, Magento, Drupal, MySQL, Linux (LAMP)
+- **Last updated:** 2026-11-10
+
+**Summary**
+Web and application development for a company selling TV subscription services, including a full redesign of the visual side of SubscribEasy, its in-house CRM and billing platform, plus the company websites and web apps.
 
 **What I did**
+- Redesigned the entire front end of SubscribEasy, the company's CRM and billing platform for TV subscriptions, used by staff and dealers to sign up customers and manage subscriptions, set-top boxes, orders, payments, leads, calls and support tickets: new layout and navigation, support desk screens (ticket queues, assignees, watchers, filters, public replies and internal notes), email / SMS / push messaging dialogs, a reports hub with dozens of reports, and responsive mobile views.
 - Redesigned and maintained web applications with HTML, CSS, JavaScript (jQuery, React) and PHP; integrated a React / Redux Form application into an existing website and introduced Webpack.
 - Developed responsive pages and templates for WordPress, Magento and Drupal, and migrated Magento data to MySQL.
 - Designed UI/UX mockups and turned them into HTML/CSS interfaces; also did graphic design (logos, business cards, booklets, banners).
@@ -417,7 +421,7 @@ Website for Signifyd's European and Middle Eastern markets.
 - Set up and optimized Linux servers (LAMP stack).
 - Hand-coded email templates for promotional campaigns.
 
-**Keywords:** full-cycle web development, React, Redux, Webpack, WordPress, Magento, Drupal, LAMP, server administration, UI/UX, email templates
+**Keywords:** full-cycle web development, CRM UI redesign, billing system, subscription management, dealer portal, admin dashboard, helpdesk UI, front-end development, Bootstrap, responsive design, React, Redux, Webpack, WordPress, Magento, Drupal, LAMP, server administration, UI/UX, email templates
 
 ---
 
@@ -457,3 +461,4 @@ Website for Signifyd's European and Middle Eastern markets.
 - 2026-11-06 — Added siteaudit: open-source Python CLI for SEO and technical site audits, published on PyPI as site-audit; Python, uv, pytest, mypy and PyPI added to Profile.
 - 2026-11-06 — Added 4CornersWork: WordPress job board on WP Job Manager with job search and filters, Quick Apply, employer dashboard, paid job posting with Stripe, emails and content pages; new Employment row, WooCommerce, WP Job Manager and Stripe added to Profile.
 - 2026-11-09 — Updated Araks Inc: described as a B2B ordering platform with a built-in CRM (customers, price levels, sales reps, vendors, leads, customer emails, sales dashboard); Business systems added to Profile.
+- 2026-11-10 — Updated Polish TV Company: full front-end redesign of SubscribEasy, the company's CRM and billing platform for TV subscriptions; summary, stack and keywords.

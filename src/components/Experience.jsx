@@ -36,6 +36,7 @@ const jobs = [
     location: 'New York, NY',
     period: 'Jun 2012 — Apr 2020',
     bullets: [
+      'Redesigned the entire front end of SubscribEasy, the in-house CRM and billing platform for TV subscriptions: customers, subscriptions, set-top boxes, payments, support tickets and reports.',
       'Redesigned and maintained web applications using HTML, CSS, JavaScript (jQuery/React JS), and PHP.',
       'Developed responsive pages and templates for WordPress, Magento, and Drupal.',
       'Integrated React JS application with Redux form into an existing website; implemented Webpack.',

@@ -18,6 +18,10 @@ import cullmanFull from './shots/cullman-full.webp'
 import shiftMobile from './shots/theshift-mobile.webp'
 import tickdownDesktop from './shots/tickdown-desktop.webp'
 import tickdownMobile from './shots/tickdown-mobile.webp'
+import subscribeasyTickets from './shots/subscribeasy-tickets.webp'
+import fourCornersHome from './shots/4cornerswork-home-full.webp'
+import fourCornersJobs from './shots/4cornerswork-jobs-mobile.webp'
+import subscribeasyMobile from './shots/subscribeasy-mobile.webp'
 
 export const projects = [
   {
@@ -170,6 +174,32 @@ export const projects = [
     },
   },
   {
+    id: 'fourcornerswork',
+    title: '4CornersWork',
+    tagline: 'Local job board for trades and oilfield work, rebuilt on WordPress',
+    client: 'Job board for the Four Corners region (NM, CO, AZ, UT)',
+    role: 'Design · Development · Payments',
+    period: '2026 — present',
+    summary:
+      'A local job board for oilfield, electrical, construction and other trades jobs in the Four Corners area of New Mexico, Colorado, Arizona and Utah. I audited the old site and rebuilt it from a stock job board theme into a custom job site on WP Job Manager: search, job pages, applying, the employer side and paid job posting.',
+    bullets: [
+      'Brand and UI: a logo and a Four Corners states icon generated as SVG with Python, a steel and safety-orange palette, and a homepage with one search bar, trade cards and the latest jobs.',
+      'Job search with filters by trade, town (with live counts), job type and date posted, a mobile filter panel, and job cards with pay and New tags.',
+      'Job pages with labeled job facts, similar jobs, SEO titles and Google for Jobs (JobPosting) pay data, plus a Quick Apply that needs no account and emails the resume to the employer.',
+      'Employer side: a card-based dashboard (status, views, edit, mark filled, duplicate, renew), a simpler posting form, and town validation with geocoding limited to the four states.',
+      'Paid job posting with WooCommerce and Stripe, tested end to end with a real order, and every site email reworked into one branded template.',
+    ],
+    metrics: [
+      { value: '32 → 12', label: 'Fields in the job posting form' },
+    ],
+    stack: ['WordPress', 'WP Job Manager', 'WooCommerce', 'Stripe', 'PHP', 'JavaScript', 'CSS', 'JobPosting schema', 'Google Maps API', 'WP-CLI'],
+    visual: {
+      layout: 'browser',
+      browser: { src: fourCornersHome, width: 1200, height: 3689, alt: '4CornersWork homepage, full page', domain: '4cornerswork.com', scroll: true },
+      phone: { src: fourCornersJobs, width: 600, height: 1298, alt: '4CornersWork job list on a phone' },
+    },
+  },
+  {
     id: 'tickdown',
     title: 'Tickdown',
     tagline: 'Full-stack notes app with checklists that sort themselves',
@@ -262,6 +292,30 @@ export const projects = [
     },
   },
   {
+    id: 'subscribeasy',
+    title: 'SubscribEasy',
+    tagline: 'CRM and billing platform for TV subscriptions: full front-end redesign',
+    client: 'Polish TV Company (in-house platform)',
+    role: 'UI redesign · Front-end',
+    period: '2012 — 2020',
+    summary:
+      'SubscribEasy is the CRM and billing platform behind the company’s TV subscription services. Staff and dealers use it to sign up customers and manage their subscriptions, set-top boxes, orders, payments, calls and support tickets. I redesigned its whole visual side: layout, navigation, screens and the mobile version.',
+    bullets: [
+      'A new layout and navigation for every section: customers, subscriptions, set-top boxes, leads, sales, dealers, products, shipping, missed calls and notifications.',
+      'Support desk screens: ticket lists with queues, assignees, watchers, filters and grading, and ticket forms with public replies and internal notes.',
+      'Messaging and actions: email, SMS and push notification dialogs with templates, customer action history and surveys.',
+      'A reports hub with dozens of reports grouped by sales, calls, representatives, tickets, set-top boxes and finances.',
+      'Responsive views so staff can work with customers and tickets from a phone.',
+    ],
+    metrics: [],
+    stack: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'jQuery', 'UI/UX', 'Responsive design'],
+    visual: {
+      layout: 'browser',
+      browser: { src: subscribeasyTickets, width: 1356, height: 994, alt: 'SubscribEasy ticket list with queues and filters', domain: 'subscribeasy.com' },
+      phone: { src: subscribeasyMobile, width: 372, height: 812, alt: 'SubscribEasy customer action history on a phone' },
+    },
+  },
+  {
     id: 'signifyd-emea',
     title: 'Signifyd EMEA',
     tagline: 'Regional website for Europe and the Middle East',
@@ -295,7 +349,7 @@ export const earlier = [
     title: 'Polish TV Company',
     role: 'Web & Application Developer',
     period: '2012 — 2020',
-    text: 'Eight years of websites and web apps: redesigns, a React / Redux app inside an existing site, WordPress, Magento and Drupal templates, UI/UX mockups, email templates and LAMP servers.',
+    text: 'Eight years of websites and web apps: a full front-end redesign of SubscribEasy, the company’s subscription CRM and billing platform, a React / Redux app inside an existing site, WordPress, Magento and Drupal templates, UI/UX mockups, email templates and LAMP servers.',
     stack: ['PHP', 'React', 'Redux', 'WordPress', 'Magento', 'Drupal', 'MySQL'],
   },
 ]

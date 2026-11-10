@@ -490,6 +490,218 @@ export const nichePages = [
     ],
     related: ['greenhouse-wordpress-integration', 'wpbakery-to-beaver-builder-migration', 'law-firm-website-developer'],
   },
+  {
+    slug: 'b2b-wholesale-ordering-portal',
+    draft: true,
+    metaTitle: 'B2B Wholesale Ordering Portal Development | Roman Iglin',
+    metaDescription:
+      'A B2B ordering portal for wholesale distributors: each store sees its own prices, sales reps order for their customers, and orders go to QuickBooks Desktop.',
+    service: 'B2B wholesale ordering portal development',
+    eyebrow: 'B2B ordering portal',
+    h1: 'B2B ordering portal for wholesale distributors',
+    // Section headings (H2), written as searches.
+    headings: {
+      problems: 'Why distributors move ordering online',
+      steps: 'How I build a B2B ordering portal',
+      case: 'B2B portal case study: a wholesale food distributor',
+      pricing: 'B2B ordering portal cost',
+      faq: 'B2B wholesale ordering portal FAQ',
+    },
+    lead:
+      'Your stores should not have to call or email to place an order. I build ordering portals where each customer signs in, sees your catalog at their own prices and orders in minutes, while the orders land in QuickBooks on their own.',
+    problems: [
+      'Orders arrive by phone, text and email, and someone retypes every one of them.',
+      'Each store pays a different price, so a public price list or a regular online shop does not work.',
+      'Your sales reps write orders on paper or in spreadsheets and enter them later.',
+      'Ready-made B2B platforms charge per user or force your pricing into their rules.',
+    ],
+    steps: [
+      { title: 'Map your pricing and customers', text: 'Price levels, customer groups, minimums, deposits and who may order for whom. The portal follows the rules you already use, not the other way around.' },
+      { title: 'Build the catalog and ordering', text: 'A fast catalog with search by name and item code, saved carts and checkout. Each store signs in and sees only its own prices.' },
+      { title: 'Add sales reps and staff tools', text: 'Reps place orders for their stores from a phone or laptop; staff edit orders, see who is online and what is sitting in carts.' },
+      { title: 'Connect accounting', text: 'Items, prices and stock come from QuickBooks Desktop, and web orders go back as Sales Orders, so nobody exports or retypes anything.' },
+    ],
+    caseStudy: {
+      projectId: 'araks',
+      intro: 'A Los Angeles wholesale food distributor runs its store orders through a B2B portal I built and maintain on Drupal Commerce. Stores order from about 1,700 products at their own price levels, sales reps order for their stores, and every order goes to QuickBooks Desktop.',
+    },
+    review: {
+      text: 'Roman has been our web developer since 2017. He built and maintains our wholesale ordering site and the server it runs on. He connected the site to QuickBooks, so products, prices, stock and orders now sync automatically instead of by hand. Checkout went from 7–13 seconds to about half a second. He is responsive, explains things clearly, and keeps the site secure and backed up.',
+      author: 'Aram Arutyunyan',
+      role: 'Araks Inc (wholesale food distributor)',
+      source: { label: 'IONOS', url: 'https://partnernetwork.ionos.com/partner/roman.iglin#ratings' },
+    },
+    offer: {
+      kind: 'estimate',
+      title: 'Built around your catalog and price rules',
+      text: 'The cost depends on the size of the catalog, how prices are set per customer, the staff tools you need and the accounting connection. Describe your business for a ballpark price, or write to me and I will reply by email.',
+    },
+    faq: [
+      { q: 'Should I build a B2B ordering portal or use a ready-made platform?', a: 'A ready-made platform is faster to start. A portal of your own makes sense when your pricing rules do not fit theirs, when per-user fees add up, or when you want the system and the data to be yours.' },
+      { q: 'Can each wholesale customer see their own prices?', a: 'Yes. In the [Araks portal](#case) every store has a price level, and the catalog, cart and checkout all show that store’s prices after it signs in.' },
+      { q: 'Can sales reps place orders on behalf of customers?', a: 'Yes. Sales reps sign in with their own role and place orders for their stores; the order belongs to the store, so history and reports stay correct.' },
+      { q: 'Does a B2B portal work with QuickBooks Desktop?', a: 'Yes, through the QuickBooks Web Connector: items, prices and stock sync from QuickBooks and web orders go back as Sales Orders. More on the [QuickBooks Desktop integration](/services/quickbooks-website-integration/).' },
+      { q: 'How do new wholesale buyers get access?', a: 'They fill in a wholesale request form; you approve them, and the portal emails a one-time link to the price list. That is how leads are handled on the case above.' },
+      { q: 'Can the portal be built on WooCommerce?', a: 'Yes. The case above runs on Drupal Commerce, but customer price levels, rep ordering and the QuickBooks connection can be built on WooCommerce or a custom PHP app too.' },
+      { q: 'How much does a B2B ordering portal cost?', a: 'It depends on the catalog, the pricing rules and the integrations. [Get a quick estimate](/#estimate), then I confirm an exact quote by email.' },
+    ],
+    related: ['custom-crm-development', 'quickbooks-website-integration', 'drupal-7-migration'],
+  },
+  {
+    slug: 'custom-crm-development',
+    draft: true,
+    metaTitle: 'Custom CRM Development | Roman Iglin',
+    metaDescription:
+      'A web-based CRM built around how your team sells: customers, leads, sales reps, orders and reports in one system, connected to your website and QuickBooks.',
+    service: 'Custom CRM development',
+    eyebrow: 'Custom CRM',
+    h1: 'Custom CRM development',
+    headings: {
+      problems: 'When an off-the-shelf CRM stops fitting',
+      steps: 'How I build a custom CRM',
+      case: 'Custom CRM case study: a wholesale distributor',
+      pricing: 'Custom CRM development cost',
+      faq: 'Custom CRM FAQ',
+    },
+    lead:
+      'When your customers, orders and leads live in three tools that never quite agree, a CRM built around your business pulls them into one place. I build web-based CRMs for small and medium businesses that your staff actually use, connected to your website and your accounting.',
+    problems: [
+      'Customer data sits in a CRM, orders in the online store and invoices in QuickBooks, and they never match.',
+      'Your team pays per seat for features it does not use and still keeps spreadsheets on the side.',
+      'Leads from the website arrive by email and get lost before anyone follows up.',
+      'Your current CRM works, but it is so hard to use that people avoid it.',
+    ],
+    steps: [
+      { title: 'Learn how your team works', text: 'Who your customers are, how leads come in, who sells to whom and which reports the owner checks every week. The screens follow that, not a generic template.' },
+      { title: 'Build the core records', text: 'Customers with their prices and history, contacts, leads, sales reps, vendors and orders, with roles so each person sees what they need.' },
+      { title: 'Automate the follow-ups', text: 'Lead approval, branded emails with a send log, reminders about unsent orders and alerts like low margins, so nothing depends on memory.' },
+      { title: 'Report and connect', text: 'A sales dashboard with the numbers you ask for, and sync with your website and QuickBooks so the same data is never typed twice.' },
+    ],
+    caseStudy: {
+      projectId: 'araks',
+      intro: 'A Los Angeles wholesale distributor runs its business on one system I built and maintain: the store portal and a CRM for staff. Customers have their own price levels, sales reps order for their stores, vendors receive restocking orders, leads wait for approval, and a dashboard shows sales by year, top customers and sales by rep.',
+    },
+    review: {
+      text: 'Roman demonstrated exceptional technical expertise, strategic vision, and a strong understanding of user experience. He completely redesigned the system’s user interface, significantly improved its usability, and established an effective balance between frontend and backend logic and processes.',
+      author: 'Grigory Timofeev',
+      role: 'Product Manager on a web-based CRM project (now VP Product Manager at JPMorgan Chase)',
+      source: { label: 'LinkedIn', url: 'https://www.linkedin.com/in/roman-iglin/details/recommendations/' },
+    },
+    offer: {
+      kind: 'estimate',
+      title: 'Scoped to the screens you need',
+      text: 'A focused CRM for one team is a different job from a full system with portal, accounting sync and reports. Describe how you sell today for a ballpark price, or write to me and I will reply by email.',
+    },
+    faq: [
+      { q: 'When is a custom CRM better than Pipedrive or HubSpot?', a: 'When the CRM has to be the same system as your ordering and pricing, when per-seat fees grow with the team, or when your process does not fit their pipeline model. For a simple sales pipeline, a ready-made CRM is often enough.' },
+      { q: 'Can a CRM connect to QuickBooks Desktop?', a: 'Yes. On the [distributor’s system](#case) customers, vendors, items and orders sync with QuickBooks Desktop through the Web Connector. See the [QuickBooks integration](/services/quickbooks-website-integration/).' },
+      { q: 'Can you redesign the CRM we already have?', a: 'Yes. On a web-based CRM project I redesigned the whole interface and reworked how the front end and back end share the logic; the product manager’s recommendation is above.' },
+      { q: 'Can website leads go straight into the CRM?', a: 'Yes. On the case above a wholesale request form creates a lead, staff approve it, and the buyer gets a one-time link to the price list by email.' },
+      { q: 'Who owns the CRM and the data?', a: 'You do. It runs on your server or hosting, and the code and the database are yours, with no per-user subscription.' },
+      { q: 'What reports can a custom CRM show?', a: 'Whatever you look at today in spreadsheets: sales by year, top customers, sales by rep, open carts, low-margin items. The case dashboard is rebuilt every night so it opens instantly.' },
+      { q: 'How much does custom CRM development cost?', a: 'It depends on the records, roles, automations and integrations. [Get a quick estimate](/#estimate), then I confirm an exact quote by email.' },
+    ],
+    related: ['b2b-wholesale-ordering-portal', 'quickbooks-website-integration', 'ai-automation'],
+  },
+  {
+    slug: 'wordpress-job-board-developer',
+    draft: true,
+    metaTitle: 'WordPress Job Board Developer (WP Job Manager) | Roman Iglin',
+    metaDescription:
+      'A job board on WordPress that employers pay to post on and candidates find on Google: job search and filters, Quick Apply, employer dashboard, Stripe.',
+    service: 'WordPress job board development',
+    eyebrow: 'Job board websites',
+    h1: 'WordPress job board developer',
+    headings: {
+      problems: 'Why job boards on stock themes struggle',
+      steps: 'How I build a WordPress job board',
+      case: 'Job board case study: a regional trades job site',
+      pricing: 'WordPress job board cost',
+      faq: 'WordPress job board FAQ',
+    },
+    lead:
+      'A job board lives on two things: employers who post and pay, and candidates who find the jobs and apply. I build WordPress job boards on WP Job Manager that make both easy, from the search bar to the Stripe checkout.',
+    problems: [
+      'The stock job board theme looks like every other one and is hard to change.',
+      'Employers give up halfway through a long posting form.',
+      'Candidates must create an account before they can apply, so many never do.',
+      'Your jobs do not show up in Google’s job search.',
+    ],
+    steps: [
+      { title: 'Plan the two sides', text: 'What employers post and pay for, what candidates search by (trade, town, job type, date) and which emails each side gets.' },
+      { title: 'Build search and job pages', text: 'A search bar and filters with live counts, job cards with pay, job pages with clear facts, similar jobs and JobPosting markup for Google for Jobs.' },
+      { title: 'Make posting and applying short', text: 'A shorter posting form, an employer dashboard to edit, renew and mark jobs filled, and a Quick Apply that needs no account.' },
+      { title: 'Take payments and send emails', text: 'Job packages sold through WooCommerce and Stripe, tested with a real order, and every site email in one branded template.' },
+    ],
+    caseStudy: {
+      projectId: 'fourcornerswork',
+      intro: '4CornersWork is a local job board for oilfield, electrical, construction and other trades jobs in the Four Corners region of New Mexico, Colorado, Arizona and Utah. I audited the old site and rebuilt it as a custom job site on WP Job Manager.',
+    },
+    offer: {
+      kind: 'estimate',
+      title: 'Depends on what employers and candidates need',
+      text: 'A free job board with simple search is a smaller job than paid postings, resumes and an employer dashboard. Describe your board for a ballpark price, or write to me and I will reply by email.',
+    },
+    faq: [
+      { q: 'What is the best way to build a job board on WordPress?', a: 'WP Job Manager is a solid base: jobs are WordPress posts, and paid listings, resumes and applications are add-ons. The design and the flows are where a board stands out, so I build those in a custom child theme.' },
+      { q: 'How do I get my job posts into Google for Jobs?', a: 'Each job page needs JobPosting structured data with the title, location, dates and pay. The [4CornersWork board](#case) sends pay data in that markup.' },
+      { q: 'Can employers pay to post jobs?', a: 'Yes. Job packages are sold through WooCommerce with Stripe, and a job goes live when the order is paid; the case above was tested with a real order.' },
+      { q: 'Can candidates apply without creating an account?', a: 'Yes. Quick Apply takes a name, contact details and a resume and emails them to the employer, with spam protection.' },
+      { q: 'Can you connect jobs from an applicant tracking system instead?', a: 'Yes, for company careers pages. I built a plugin that syncs a careers site with Greenhouse: [Greenhouse jobs in WordPress](/services/greenhouse-wordpress-integration/).' },
+      { q: 'How much does a WordPress job board cost?', a: 'It depends on paid postings, resumes, the employer dashboard and design. [Get a quick estimate](/#estimate), then I confirm an exact quote by email.' },
+    ],
+    related: ['greenhouse-wordpress-integration', 'white-label-wordpress-developer', 'landing-page-speed-optimization'],
+  },
+  {
+    slug: 'ai-automation',
+    draft: true,
+    metaTitle: 'AI Automation for Business Websites and Stores | Roman Iglin',
+    metaDescription:
+      'AI built into your website: product titles and descriptions, article drafts, SEO meta, page translation and lead handling, checked before anything goes live.',
+    service: 'AI automation for business websites',
+    eyebrow: 'AI automation',
+    h1: 'AI automation for your website and online store',
+    headings: {
+      problems: 'Website work AI can take off your hands',
+      steps: 'How I add AI to a business website',
+      case: 'AI automation case study: a 1,700-product catalog',
+      pricing: 'AI automation cost',
+      faq: 'AI automation FAQ',
+    },
+    lead:
+      'Writing product descriptions, translating pages and answering the same inquiries take hours every week. I build AI into your own website and data, so that work gets done in minutes and still gets checked before it goes live.',
+    problems: [
+      'Hundreds of products have cryptic names from your accounting system and no descriptions.',
+      'The blog and SEO titles wait for months because nobody has time to write.',
+      'You need the site in a second language, but translating every page by hand is slow and expensive.',
+      'Every new inquiry needs the same first answer, and leads cool off while they wait.',
+    ],
+    steps: [
+      { title: 'Pick the jobs worth automating', text: 'We look at where your team spends hours on repeatable text work and start with the one that pays back fastest.' },
+      { title: 'Connect your data', text: 'The AI works from your catalog, accounting names, existing pages and brand rules, not from a blank prompt, so the output fits your business.' },
+      { title: 'Add checks and review', text: 'Every result is validated automatically and lands as a draft you can approve, edit or revert, so nothing wrong goes live on its own.' },
+      { title: 'Run it inside your site', text: 'The tool lives in your WordPress, Drupal or custom admin, with a choice of AI provider and a fallback when one is busy.' },
+    ],
+    caseStudy: {
+      projectId: 'araks',
+      intro: 'A wholesale distributor’s catalog of about 1,700 products carried raw item names from QuickBooks. I built a Drupal module on the Google Gemini API that rewrote them into clean product titles and descriptions for the whole catalog, with automated checks and a review and revert step.',
+    },
+    offer: {
+      kind: 'estimate',
+      title: 'Priced by the job you automate',
+      text: 'A one-time catalog rewrite is smaller than an ongoing content or translation pipeline built into your admin. Describe the work you want off your hands for a ballpark price, or write to me and I will reply by email.',
+    },
+    faq: [
+      { q: 'Can AI write product descriptions for my whole catalog?', a: 'Yes. On the [catalog above](#case) a module rewrote about 1,700 raw item names into titles and descriptions, checked each result and kept a way to revert. You review before anything is published.' },
+      { q: 'Can AI translate my website into another language?', a: 'Yes: pages, menus and SEO meta can be translated by AI and imported as drafts for a native speaker to review. Correct hreflang links then show each country its own version. See [multilingual WordPress sites](/services/multilingual-wordpress-sites/).' },
+      { q: 'Can AI write blog articles for my site?', a: 'It can draft them from your topics, notes and existing pages, as drafts for you to edit. Facts, numbers and your own experience still come from you; that is what makes an article worth ranking.' },
+      { q: 'Can AI answer website inquiries?', a: 'It can give a first answer right away. The project estimator on this site is an example: a visitor describes a project and gets a structured price, timeline and questions from AI in seconds, and I get the lead by email.' },
+      { q: 'Which AI models do you use?', a: 'Google Gemini, Anthropic Claude and Cloudflare Workers AI, often with one as a fallback for another. The choice depends on cost, quality and where your data may go.' },
+      { q: 'Is my data safe with AI?', a: 'I send only the data each job needs, keep keys on the server, and pick providers and settings that fit your rules. Nothing is published without a check.' },
+      { q: 'How much does AI automation cost?', a: 'It depends on the job, the volume and the review flow. [Get a quick estimate](/#estimate), then I confirm an exact quote by email.' },
+    ],
+    related: ['multilingual-wordpress-sites', 'custom-crm-development', 'b2b-wholesale-ordering-portal'],
+  },
 ]
 
 export const findNichePage = (slug) => nichePages.find((p) => p.slug === slug)
