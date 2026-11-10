@@ -158,6 +158,9 @@ export default function Services() {
       <main>
         <section className="svc-hero">
           <HeroArt />
+          <nav className="svc-crumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a> <span>/</span> <span aria-current="page">Services</span>
+          </nav>
           <p className="hero__greeting">&bull; Fixed-price packages</p>
           <h1 className="svc-hero__title">
             Pick a package, <span>get it done.</span>

@@ -11,7 +11,7 @@
 
 .np-crumbs a { color: var(--text-secondary); }
 .np-crumbs a:hover { color: var(--accent); opacity: 1; }
-.np-crumbs span { margin: 0 6px; opacity: 0.5; }
+.np-crumbs > span:not([aria-current]) { margin: 0 6px; opacity: 0.5; }
 
 .np-hero__actions {
   display: flex;
