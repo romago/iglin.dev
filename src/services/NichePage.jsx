@@ -108,13 +108,27 @@ export default function NichePage({ slug }) {
         <section id="case" className="section np-section">
           <h2 className="section-title">{page.headings.case}</h2>
           <p className="np-intro">{page.caseStudy.intro}</p>
+          {/* Projects that are not in the portfolio show a short list of facts and a link instead. */}
+          {page.caseStudy.points && (
+            <ul className="np-case-points">
+              {page.caseStudy.points.map((pt) => <li key={pt}>{pt}</li>)}
+            </ul>
+          )}
+          {page.caseStudy.link && (
+            <a className="np-case-link" href={page.caseStudy.link.url} target="_blank" rel="noopener noreferrer">
+              {page.caseStudy.link.label} ↗
+            </a>
+          )}
           {project && <CaseStudy project={project} index={0} onOpen={setOpenShot} />}
         </section>
 
         {page.review && (
           <section className="section np-section np-section--tight">
             <figure className="rev__card rev__card--featured">
-              <span className="rev__stars" aria-label="Rated 5.0 out of 5">★★★★★</span>
+              {/* LinkedIn recommendations have no rating, so no stars for them. */}
+              {page.review.source.label !== 'LinkedIn' && (
+                <span className="rev__stars" aria-label="Rated 5.0 out of 5">★★★★★</span>
+              )}
               <blockquote className="rev__quote"><p>{page.review.text}</p></blockquote>
               <figcaption className="rev__meta">
                 <span className="rev__author">
