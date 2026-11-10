@@ -11,6 +11,8 @@ export const nichePages = [
       'Connect your website or online store to QuickBooks Desktop: products, prices, stock, customers and orders sync on a schedule through the Web Connector.',
     service: 'QuickBooks Desktop website integration',
     eyebrow: 'QuickBooks Desktop integration',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'QuickBooks integration',
     h1: 'QuickBooks Desktop integration for your website',
     // Section headings (H2), written as searches.
     headings: {
@@ -69,6 +71,8 @@ export const nichePages = [
       'Slow WordPress or Elementor landing page wasting ad spend? I make it fast on phones without breaking GA4, Google Ads or Meta Pixel tracking.',
     service: 'WordPress landing page speed optimization',
     eyebrow: 'Landing page speed',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'Landing page speed',
     h1: 'Make your WordPress ad landing page load fast on phones',
     // Section headings (H2), written as searches.
     headings: {
@@ -115,6 +119,8 @@ export const nichePages = [
       'Move your WordPress site off WPBakery to Beaver Builder: pages rebuilt cleanly, custom modules your team can edit and no shortcodes left behind.',
     service: 'WPBakery to Beaver Builder migration',
     eyebrow: 'Page builder migration',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'WPBakery to Beaver Builder',
     h1: 'WPBakery to Beaver Builder migration',
     // Section headings (H2), written as searches.
     headings: {
@@ -165,6 +171,8 @@ export const nichePages = [
       'A senior WordPress developer your agency can bring in when the team is full: Figma to block themes and ACF blocks, speed and migrations, under your brand.',
     service: 'White-label WordPress development for agencies',
     eyebrow: 'For web agencies',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'White-label WordPress',
     h1: 'White-label WordPress developer for your agency',
     // Section headings (H2), written as searches.
     headings: {
@@ -217,6 +225,8 @@ export const nichePages = [
       'Drupal 7 lost official support in January 2025. I move Drupal 7 sites to Drupal 11 with content, users, files and URLs intact, or keep D7 safe meanwhile.',
     service: 'Drupal 7 to Drupal 11 migration',
     eyebrow: 'Drupal 7 end of life',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'Drupal 7 migration',
     h1: 'Drupal 7 to Drupal 11 migration',
     // Section headings (H2), written as searches.
     headings: {
@@ -275,6 +285,8 @@ export const nichePages = [
       'WordPress developer for law firms: custom themes, one page per practice area, LegalService schema, fast mobile pages and Google reviews on your own site.',
     service: 'Law firm WordPress website development',
     eyebrow: 'Law firm websites',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'Law firm websites',
     h1: 'WordPress website developer for law firms',
     // Section headings (H2), written as searches.
     headings: {
@@ -326,6 +338,8 @@ export const nichePages = [
       'Host retiring old PHP? I upgrade WordPress, Drupal and custom PHP sites to PHP 8 with tested fixes, backups and a rollback plan, with seconds of downtime.',
     service: 'Legacy PHP upgrade to PHP 8',
     eyebrow: 'Legacy PHP',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'PHP 8 upgrade',
     h1: 'Upgrade your old PHP site to PHP 8',
     // Section headings (H2), written as searches.
     headings: {
@@ -383,6 +397,8 @@ export const nichePages = [
       'Show your Greenhouse jobs on your own WordPress careers page, synced automatically, with team and office filters and apply links. No copying by hand.',
     service: 'Greenhouse job board WordPress integration',
     eyebrow: 'Greenhouse integration',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'Greenhouse integration',
     h1: 'Greenhouse jobs on your WordPress careers page',
     // Section headings (H2), written as searches.
     headings: {
@@ -441,6 +457,8 @@ export const nichePages = [
       'Spanish, Portuguese and French versions of your WordPress site with correct hreflang, translated SEO meta and releases that keep the live site safe.',
     service: 'Multilingual WordPress site development',
     eyebrow: 'Multilingual sites',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'Multilingual sites',
     h1: 'Multilingual WordPress sites that rank in each market',
     // Section headings (H2), written as searches.
     headings: {
@@ -498,6 +516,8 @@ export const nichePages = [
       'A B2B ordering portal for wholesale distributors: each store sees its own prices, sales reps order for their customers, and orders go to QuickBooks Desktop.',
     service: 'B2B wholesale ordering portal development',
     eyebrow: 'B2B ordering portal',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'B2B ordering portal',
     h1: 'B2B ordering portal for wholesale distributors',
     // Section headings (H2), written as searches.
     headings: {
@@ -555,6 +575,8 @@ export const nichePages = [
       'A web-based CRM built around how your team sells: customers, leads, sales reps, orders and reports in one system, connected to your website and QuickBooks.',
     service: 'Custom CRM development',
     eyebrow: 'Custom CRM',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'Custom CRM',
     h1: 'Custom CRM development',
     headings: {
       problems: 'When an off-the-shelf CRM stops fitting',
@@ -611,6 +633,8 @@ export const nichePages = [
       'A job board on WordPress that employers pay to post on and candidates find on Google: job search and filters, Quick Apply, employer dashboard, Stripe.',
     service: 'WordPress job board development',
     eyebrow: 'Job board websites',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'Job board websites',
     h1: 'WordPress job board developer',
     headings: {
       problems: 'Why job boards on stock themes struggle',
@@ -660,6 +684,8 @@ export const nichePages = [
       'AI built into your website: product titles and descriptions, article drafts, SEO meta, page translation and lead handling, checked before anything goes live.',
     service: 'AI automation for business websites',
     eyebrow: 'AI automation',
+    // Last breadcrumb, on the page and in the BreadcrumbList.
+    crumb: 'AI automation',
     h1: 'AI automation for your website and online store',
     headings: {
       problems: 'Website work AI can take off your hands',

@@ -72,7 +72,7 @@ export default function NichePage({ slug }) {
         <section className="svc-hero np-hero">
           <HeroArt />
           <nav className="np-crumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a> <span>/</span> <a href="/services/">Services</a> <span>/</span> {page.eyebrow}
+            <a href="/">Home</a> <span>/</span> <a href="/services/">Services</a> <span>/</span> <span aria-current="page">{page.crumb}</span>
           </nav>
           <p className="hero__greeting">&bull; {page.eyebrow}</p>
           <h1 className="svc-hero__title np-hero__title">{page.h1}</h1>

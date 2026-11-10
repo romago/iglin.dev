@@ -310,3 +310,9 @@
   .svc-order { padding: 24px 20px; }
   .svc-tab { padding: 14px; }
 }
+
+/* Breadcrumb trail, same look as on the niche pages. */
+.svc-crumbs { margin-bottom: 20px; color: var(--text-secondary); font-size: 0.85rem; }
+.svc-crumbs a { color: var(--text-secondary); }
+.svc-crumbs a:hover { color: var(--accent); opacity: 1; }
+.svc-crumbs > span:not([aria-current]) { margin: 0 6px; opacity: 0.5; }
