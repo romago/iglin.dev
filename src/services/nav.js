@@ -11,4 +11,8 @@ export const nicheNav = [
   { slug: 'legacy-php-upgrade', label: 'PHP 8 upgrade' },
   { slug: 'greenhouse-wordpress-integration', label: 'Greenhouse jobs in WordPress' },
   { slug: 'multilingual-wordpress-sites', label: 'Multilingual sites' },
+  { slug: 'b2b-wholesale-ordering-portal', label: 'B2B ordering portal' },
+  { slug: 'custom-crm-development', label: 'Custom CRM' },
+  { slug: 'wordpress-job-board-developer', label: 'Job board websites' },
+  { slug: 'ai-automation', label: 'AI automation' },
 ]
