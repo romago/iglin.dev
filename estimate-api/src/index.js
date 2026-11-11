@@ -98,9 +98,9 @@ export default {
 
     try {
       if (pathname === '/estimate') return json(await handleEstimate(body, env, ctx, ip, request))
-      if (pathname === '/contact') return json(await handleContact(body, env, ip))
-      if (pathname === '/order') return json(await handleOrder(body, env, ip))
-      return json(await handleSend(body, env))
+      if (pathname === '/contact') return json(await handleContact(body, env, ctx, ip, request))
+      if (pathname === '/order') return json(await handleOrder(body, env, ctx, ip, request))
+      return json(await handleSend(body, env, ctx, request))
     } catch (err) {
       if (err instanceof UserError) return json({ error: err.message }, 400)
       console.error(err)
@@ -162,18 +162,20 @@ async function handleEstimate(body, env, ctx, ip, request) {
   }
 
   const country = request.cf?.country || ''
-  ctx.waitUntil(
-    sendMail(env, {
-      subject: `Quick estimate: ${estimate.title} (${formatMoney(estimate.cost_min)}–${formatMoney(estimate.cost_max)})`,
-      html: leadHtml({ input, estimate, note: `Someone ran a quick estimate on iglin.dev${country ? ` from ${country}` : ''}. They have not sent their contact details yet.` }),
-    }).catch((e) => console.error('notify failed', e)),
-  )
+  await deliverLead(env, ctx, request, {
+    kind: 'estimate',
+    summary: `${estimate.title} (${formatMoney(estimate.cost_min)}–${formatMoney(estimate.cost_max)})`,
+    details: { input, estimate },
+  }, {
+    subject: `Quick estimate: ${estimate.title} (${formatMoney(estimate.cost_min)}–${formatMoney(estimate.cost_max)})`,
+    html: leadHtml({ input, estimate, note: `Someone ran a quick estimate on iglin.dev${country ? ` from ${country}` : ''}. They have not sent their contact details yet.` }),
+  }, { background: true })
 
   const ticket = await signTicket({ input, estimate, exp: Date.now() + TICKET_TTL_MS }, env.TICKET_SECRET)
   return { estimate, ticket }
 }
 
-async function handleSend(body, env) {
+async function handleSend(body, env, ctx, request) {
   const name = String(body.name || '').trim().slice(0, 100)
   const email = String(body.email || '').trim().slice(0, 200)
   const message = String(body.message || '').trim().slice(0, 1000)
@@ -183,7 +185,11 @@ async function handleSend(body, env) {
   const data = await verifyTicket(String(body.ticket || ''), env.TICKET_SECRET)
   if (!data) throw new UserError('This estimate has expired. Please run it again.')
 
-  await sendMail(env, {
+  await deliverLead(env, ctx, request, {
+    kind: 'send', name, email,
+    summary: `${data.estimate.title} (${formatMoney(data.estimate.cost_min)}–${formatMoney(data.estimate.cost_max)})`,
+    details: { message, input: data.input, estimate: data.estimate },
+  }, {
     subject: `New project from ${name}: ${data.estimate.title}`,
     replyTo: email,
     html: leadHtml({ ...data, contact: { name, email, message }, note: `${name} sent this project from the Quick Estimate on iglin.dev. Reply to this email to answer them.` }),
@@ -191,7 +197,7 @@ async function handleSend(body, env) {
   return { ok: true }
 }
 
-async function handleContact(body, env, ip) {
+async function handleContact(body, env, ctx, ip, request) {
   const name = String(body.name || '').trim().slice(0, 100)
   const email = String(body.email || '').trim().slice(0, 200)
   const message = String(body.message || '').trim().slice(0, 3000)
@@ -202,7 +208,11 @@ async function handleContact(body, env, ip) {
   const human = await verifyTurnstile(body.turnstileToken, ip, env)
   if (!human) throw new UserError('Bot check failed. Please reload the page and try again.')
 
-  await sendMail(env, {
+  await deliverLead(env, ctx, request, {
+    kind: 'contact', name, email,
+    summary: message.replace(/\s+/g, ' ').slice(0, 140),
+    details: { message },
+  }, {
     subject: `Message from ${name} via iglin.dev`,
     replyTo: email,
     html: `<div style="font-family:system-ui,sans-serif;font-size:15px;line-height:1.5;color:#111">
@@ -215,7 +225,7 @@ async function handleContact(body, env, ip) {
 }
 
 // POST /order  A fixed-price package from iglin.dev/services; emails Roman with the client's details.
-async function handleOrder(body, env, ip) {
+async function handleOrder(body, env, ctx, ip, request) {
   const found = findPackage(body.service, body.package)
   if (!found) throw new UserError('Please choose a package.')
   const { service, pkg } = found
@@ -230,7 +240,11 @@ async function handleOrder(body, env, ip) {
   const human = await verifyTurnstile(body.turnstileToken, ip, env)
   if (!human) throw new UserError('Bot check failed. Please reload the page and try again.')
 
-  await sendMail(env, {
+  await deliverLead(env, ctx, request, {
+    kind: 'order', name, email,
+    summary: `${service.title}: ${pkg.tier} · ${pkg.name} (${formatPrice(pkg.price)})`,
+    details: { service: service.id, package: pkg.id, website, details },
+  }, {
     subject: `Package order: ${pkg.name} (${formatPrice(pkg.price)}) from ${name}`,
     replyTo: email,
     html: `<div style="font-family:system-ui,sans-serif;font-size:15px;line-height:1.5;color:#111">
@@ -433,10 +447,38 @@ function normalize(raw, rate) {
 
 // ── Email (SMTP of the roman@iglin.dev mailbox) ──
 
+// ── Leads ──
+// Every submission is saved in D1 before the email goes out, so an email that fails or lands in spam
+// never loses a lead. If the email fails but the lead is saved, the visitor still gets a success reply.
+async function deliverLead(env, ctx, request, lead, mail, { background = false } = {}) {
+  let id = null
+  try {
+    const row = await env.DB.prepare(
+      'INSERT INTO leads (ts, kind, name, email, summary, details, country, email_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id',
+    )
+      .bind(Math.floor(Date.now() / 1000), lead.kind, lead.name || null, lead.email || null, lead.summary, JSON.stringify(lead.details), request.cf?.country || null, 'pending')
+      .first()
+    id = row?.id ?? null
+  } catch (e) {
+    console.error('lead save failed', e)
+  }
+  const mark = (status) => (id ? env.DB.prepare('UPDATE leads SET email_status = ? WHERE id = ?').bind(status.slice(0, 300), id).run() : null)
+  const send = sendMail(env, mail).then(
+    (sent) => mark(sent === false ? 'skipped: no SMTP password' : 'sent'),
+    async (e) => {
+      console.error('notify failed', e)
+      await Promise.resolve(mark(`failed: ${e?.message || e}`)).catch(() => {})
+      if (!id) throw e // neither saved nor emailed: let the visitor know
+    },
+  )
+  if (background) ctx.waitUntil(send.catch(() => {}))
+  else await send
+}
+
 async function sendMail(env, { subject, html, replyTo }) {
   if (!env.SMTP_PASSWORD) {
     console.log('SMTP_PASSWORD not set, email skipped:', subject)
-    return
+    return false
   }
   await WorkerMailer.send(
     {
