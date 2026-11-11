@@ -61,7 +61,7 @@ export const nichePages = [
       { q: 'How much does a custom QuickBooks Desktop integration cost?', a: 'It depends on what syncs and in which direction: a one-way price and stock sync is smaller than two-way orders, customers and inventory. [Get a quick estimate](/#estimate) in about 20 seconds, then I confirm an exact quote by email.' },
       { q: 'Do I have to open a port on the QuickBooks computer?', a: 'No. The Web Connector on the QuickBooks computer connects out to your website, so nothing on that computer is opened to the internet. Syncs run while that computer and QuickBooks are available, and queued jobs catch up after a break.' },
     ],
-    related: ['landing-page-speed-optimization', 'white-label-wordpress-developer', 'wpbakery-to-beaver-builder-migration'],
+    related: ['b2b-wholesale-ordering-portal', 'custom-crm-development', 'landing-page-speed-optimization'],
   },
   {
     slug: 'landing-page-speed-optimization',
@@ -109,7 +109,7 @@ export const nichePages = [
       { q: 'How much does landing page speed optimization cost?', a: 'Fixing one key page, like your homepage or an ad landing page, is a fixed-price package for $450 with before and after numbers. [See the speed packages](/services/?service=speed&package=standard). The whole site is $900.' },
       { q: 'Can you audit my site first?', a: 'Yes, for free. You get an audit of the whole site with a written report and a prioritized fix list, with no obligation to order the fixes. [Order the free audit](/services/?service=speed&package=starter).' },
     ],
-    related: ['white-label-wordpress-developer', 'wpbakery-to-beaver-builder-migration', 'quickbooks-website-integration'],
+    related: ['law-firm-website-developer', 'white-label-wordpress-developer', 'wpbakery-to-beaver-builder-migration'],
   },
   {
     slug: 'wpbakery-to-beaver-builder-migration',
@@ -275,7 +275,7 @@ export const nichePages = [
       { q: 'Should I move from Drupal 7 to WordPress instead?', a: 'If the site is mostly pages, news and forms, WordPress is often cheaper to run and easier for editors. For complex data, permissions or custom workflows, Drupal 11 is the better fit. The audit tells which one suits your site. [See my WordPress migration packages](/services/?service=migration).' },
       { q: 'How much does a Drupal 7 migration cost?', a: 'It depends on content types, custom modules and the number of unique page layouts. [Get a quick estimate](/#estimate) in about 20 seconds, then I confirm an exact quote by email.' },
     ],
-    related: ['wpbakery-to-beaver-builder-migration', 'quickbooks-website-integration', 'white-label-wordpress-developer'],
+    related: ['legacy-php-upgrade', 'b2b-wholesale-ordering-portal', 'quickbooks-website-integration'],
   },
   {
     slug: 'law-firm-website-developer',
@@ -447,7 +447,7 @@ export const nichePages = [
       { q: 'Can you do the same with Lever, Workable or another ATS?', a: 'Most applicant tracking systems publish jobs through an API, so the approach is the same, with a different connector. [Tell me which one you use](/#contact).' },
       { q: 'How much does a Greenhouse WordPress integration cost?', a: 'It depends on the filters, pages and roles you need. [Get a quick estimate](/#estimate), then I confirm an exact quote by email.' },
     ],
-    related: ['multilingual-wordpress-sites', 'white-label-wordpress-developer', 'quickbooks-website-integration'],
+    related: ['wordpress-job-board-developer', 'multilingual-wordpress-sites', 'white-label-wordpress-developer'],
   },
   {
     slug: 'multilingual-wordpress-sites',
@@ -506,11 +506,11 @@ export const nichePages = [
       { q: 'How do you update a live regional site without breaking it?', a: 'On the Mexico and Brazil redesign, old and new pages ran side by side behind page tags, and a go-live script with a dry run, snapshots and a rollback swapped them in one step.' },
       { q: 'How much does a multilingual WordPress site cost?', a: 'It depends on the number of languages, pages and templates. [Get a quick estimate](/#estimate), then I confirm an exact quote by email.' },
     ],
-    related: ['greenhouse-wordpress-integration', 'wpbakery-to-beaver-builder-migration', 'law-firm-website-developer'],
+    related: ['ai-automation', 'greenhouse-wordpress-integration', 'wpbakery-to-beaver-builder-migration'],
   },
   {
     slug: 'b2b-wholesale-ordering-portal',
-    draft: true,
+    draft: false,
     metaTitle: 'B2B Wholesale Ordering Portal Development | Roman Iglin',
     metaDescription:
       'A B2B ordering portal for wholesale distributors: each store sees its own prices, sales reps order for their customers, and orders go to QuickBooks Desktop.',
@@ -569,7 +569,7 @@ export const nichePages = [
   },
   {
     slug: 'custom-crm-development',
-    draft: true,
+    draft: false,
     metaTitle: 'Custom CRM Development | Roman Iglin',
     metaDescription:
       'A web-based CRM built around how your team sells: customers, leads, sales reps, orders and reports in one system, connected to your website and QuickBooks.',
@@ -627,7 +627,7 @@ export const nichePages = [
   },
   {
     slug: 'wordpress-job-board-developer',
-    draft: true,
+    draft: false,
     metaTitle: 'WordPress Job Board Developer (WP Job Manager) | Roman Iglin',
     metaDescription:
       'A job board on WordPress that employers pay to post on and candidates find on Google: job search and filters, Quick Apply, employer dashboard, Stripe.',
@@ -678,7 +678,7 @@ export const nichePages = [
   },
   {
     slug: 'ai-automation',
-    draft: true,
+    draft: false,
     metaTitle: 'AI Automation for Business Websites and Stores | Roman Iglin',
     metaDescription:
       'AI built into your website: product titles and descriptions, article drafts, SEO meta, page translation and lead handling, checked before anything goes live.',
