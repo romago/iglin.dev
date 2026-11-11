@@ -2,7 +2,7 @@
 
 > Structured record of Roman Iglin's projects, responsibilities and results.
 > Written for AI assistants that prepare resumes, cover letters and job applications for Roman.
-> Last updated: 2026-11-10
+> Last updated: 2026-11-11
 
 ## Notes for AI readers
 
@@ -287,7 +287,7 @@ Development, maintenance and server administration of Araks' B2B wholesale order
 - **Status:** active
 - **Stack:** WordPress, PHP, ACF Pro, WP-CLI, JavaScript, CSS, Bash, Git, Squirrly SEO, WP Rocket, Ninja Forms, Apache (.htaccess), schema.org / JSON-LD, Google Search Console, GA4, PageSpeed Insights API, Google Places API
 - **Link:** https://www.filingbankruptcymemphis.com, https://www.memphislaw.com
-- **Last updated:** 2026-10-26
+- **Last updated:** 2026-11-11
 
 **Summary**
 Development, technical SEO and maintenance of two WordPress sites for a Memphis law firm: filingbankruptcymemphis.com (bankruptcy) and memphislaw.com (bankruptcy, personal injury, workers' compensation).
@@ -297,14 +297,14 @@ Development, technical SEO and maintenance of two WordPress sites for a Memphis 
 - Improved navigation and mobile UX: rebuilt header and footer menus from Search Console data to reduce keyword cannibalization (a duplicated 18–19 item menu became 5 header items plus grouped footer menus), and added a sticky mobile header with an always-visible click-to-call button.
 - Built Git-based content mirrors and deploy tooling for both sites: page content, SEO meta and JSON-LD sync to WordPress over SSH and WP-CLI with dry-run diffs.
 - Built a Google reviews system: a WordPress plugin that syncs the Google Business Profile rating from the Places API weekly and shares it across both sites, plus a server-rendered, crawlable reviews shortcode that replaced a third-party slider.
-- Led technical SEO: a full audit (sitemap URLs, headers, redirects, indexing, Lighthouse) with fixes to indexing rules, sitemaps and caching headers, and schema.org JSON-LD (LegalService, Service, Person, BreadcrumbList, FAQPage).
+- Led technical and local SEO: a full audit (sitemap URLs, headers, redirects, indexing, Lighthouse) with fixes to indexing rules, sitemaps and caching headers, schema.org JSON-LD (LegalService, Service, Person, BreadcrumbList, FAQPage), and new landing pages for local searches on filingbankruptcymemphis.com.
 - Optimized Core Web Vitals and accessibility: page-specific critical CSS (with a WP-CLI script that completes WP Rocket's jobs), LCP-friendly font loading, tuned delayed-JS exclusions, reserved space for late-rendering forms, and link and tap-target fixes.
 - Hardened both sites: closed information leaks (public phpinfo, readable backups, REST API user enumeration) and removed unused plugins.
 - Set up analytics: GA4 lead conversion tracking, and read-only Search Console and GA4 access through a service account and MCP servers for automated SEO reporting.
 
 **Results**
 - memphislaw.com desktop layout shift (CLS) on internal pages: 0.52–0.59 → 0.00–0.04 (contact page 0.593 → 0.001).
-- filingbankruptcymemphis.com homepage (Lighthouse, mobile lab data): LCP 3.3 s → 2.6–2.9 s, accessibility 93 → 100.
+- filingbankruptcymemphis.com homepage (Lighthouse, mobile lab data): LCP 5.3 s → under 2.5 s, accessibility 80 → 100.
 
 **Keywords:** WordPress, technical SEO, Core Web Vitals, CLS, WP Rocket, critical CSS, schema.org, JSON-LD, Google Search Console, GA4, Google Places API, ACF, WP-CLI, custom WordPress plugin, website security, local SEO, law firm websites, PageSpeed Insights, accessibility, mobile UX, website redesign, custom WordPress theme, ACF flexible content
 
@@ -462,3 +462,4 @@ Web and application development for a company selling TV subscription services, 
 - 2026-11-06 — Added 4CornersWork: WordPress job board on WP Job Manager with job search and filters, Quick Apply, employer dashboard, paid job posting with Stripe, emails and content pages; new Employment row, WooCommerce, WP Job Manager and Stripe added to Profile.
 - 2026-11-09 — Updated Araks Inc: described as a B2B ordering platform with a built-in CRM (customers, price levels, sales reps, vendors, leads, customer emails, sales dashboard); Business systems added to Profile.
 - 2026-11-10 — Updated Polish TV Company: full front-end redesign of SubscribEasy, the company's CRM and billing platform for TV subscriptions; summary, stack and keywords.
+- 2026-11-11 — Updated Arthur Ray Law Offices: filingbankruptcymemphis.com LCP 5.3 s → under 2.5 s and accessibility 80 → 100 (corrected), new landing pages for local searches.
