@@ -114,24 +114,24 @@ export const nichePages = [
   {
     slug: 'wpbakery-to-beaver-builder-migration',
     draft: false,
-    metaTitle: 'WPBakery to Beaver Builder Migration | Roman Iglin',
+    metaTitle: 'WPBakery to Gutenberg / Beaver Builder | Roman Iglin',
     metaDescription:
-      'Move your WordPress site off WPBakery to Beaver Builder: pages rebuilt cleanly, custom modules your team can edit and no shortcodes left behind.',
-    service: 'WPBakery to Beaver Builder migration',
+      'Move your WordPress site off WPBakery to the Gutenberg block editor or Beaver Builder: pages rebuilt cleanly, blocks your team can edit, no shortcodes left.',
+    service: 'WPBakery to Gutenberg or Beaver Builder migration',
     eyebrow: 'Page builder migration',
     // Last breadcrumb, on the page and in the BreadcrumbList.
-    crumb: 'WPBakery to Beaver Builder',
-    h1: 'WPBakery to Beaver Builder migration',
+    crumb: 'WPBakery migration',
+    h1: 'WPBakery to Gutenberg or Beaver Builder migration',
     // Section headings (H2), written as searches.
     headings: {
       problems: 'Why move off WPBakery Page Builder',
-      steps: 'How the WPBakery to Beaver Builder migration works',
+      steps: 'How a WPBakery migration works',
       case: 'WPBakery migration case study: a logistics company',
-      pricing: 'WPBakery to Beaver Builder migration cost',
+      pricing: 'WPBakery migration cost',
       faq: 'WPBakery migration FAQ',
     },
     lead:
-      'WPBakery pages are hard to edit and leave shortcodes everywhere. I rebuild your site in Beaver Builder with a clean child theme and custom modules, so your team edits pages without breaking the layout.',
+      'WPBakery pages are hard to edit and leave shortcodes everywhere. I rebuild your site on the WordPress block editor (Gutenberg) with custom blocks, or in Beaver Builder with custom modules, so your team edits pages without breaking the layout.',
     problems: [
       'Editing a page in WPBakery breaks the layout, so small changes wait for a developer.',
       'Turning WPBakery off would leave shortcodes like [vc_row] all over your content.',
@@ -139,9 +139,9 @@ export const nichePages = [
       'You also need a second language or a server move and do not want three separate projects.',
     ],
     steps: [
-      { title: 'Audit the pages', text: 'I list every page, template and WPBakery element in use and decide what becomes a Beaver Builder layout, a reusable module or ACF content.' },
-      { title: 'Build the theme and modules', text: 'A Beaver Builder child theme and custom modules (PHP, JavaScript, CSS) for the repeating sections, so editors fill in content instead of rebuilding layouts.' },
-      { title: 'Rebuild the pages', text: 'Each page is rebuilt in Beaver Builder with the improved design, and the old shortcodes are gone from the content.' },
+      { title: 'Audit and pick the editor', text: 'I list every page, template and WPBakery element in use, then we choose: Gutenberg for a lighter site with no page builder to pay for, or Beaver Builder if your team wants drag-and-drop layouts.' },
+      { title: 'Build the theme and blocks', text: 'Gutenberg: a block theme with theme.json and custom ACF blocks. Beaver Builder: a child theme and custom modules. Either way, repeating sections become components that editors fill in.' },
+      { title: 'Rebuild the pages', text: 'Each page is rebuilt with the improved design on the new editor, and the old WPBakery shortcodes are gone from the content.' },
       { title: 'SEO and launch', text: 'Titles, meta descriptions and structured data are carried over and improved with Yoast SEO, then the new pages go live.' },
     ],
     caseStudy: {
@@ -154,12 +154,14 @@ export const nichePages = [
       text: 'The cost depends on how many pages and unique layouts your site has, and whether you also need a server move or a second language. Describe your site and get a ballpark price, or write to me and I will reply by email.',
     },
     faq: [
+      { q: 'Can I migrate from WPBakery to Gutenberg?', a: 'Yes. WPBakery layouts do not convert to blocks on their own, so the pages are rebuilt on a block theme with custom blocks for your repeating sections. I built that kind of block theme with theme.json and custom ACF blocks for a [healthcare website](/services/white-label-wordpress-developer/).' },
+      { q: 'Gutenberg or Beaver Builder: which should I choose after WPBakery?', a: 'Gutenberg is built into WordPress, loads less code and needs no extra license. Beaver Builder is easier for editors who want to drag sections around. If your team mostly fills in text and images, Gutenberg is usually the better choice.' },
       { q: 'How do I migrate from WPBakery to Beaver Builder?', a: 'There is no reliable one-click converter, so the pages are rebuilt: a child theme and custom modules for the repeating sections, then each page in Beaver Builder. That is how the [FLS site](#case) was done.' },
-      { q: 'What happens to WPBakery shortcodes when I deactivate it?', a: 'They show up as raw text like [vc_row] in your pages. Rebuilding the pages in Beaver Builder removes them from the content for good.' },
+      { q: 'What happens to WPBakery shortcodes when I deactivate it?', a: 'They show up as raw text like [vc_row] in your pages. Rebuilding the pages in Gutenberg or Beaver Builder removes them from the content for good.' },
       { q: 'Will I lose my SEO when switching page builders?', a: 'Not if URLs, titles and meta descriptions carry over. On the FLS rebuild I also improved titles, meta descriptions and schema.org JSON-LD with Yoast SEO.' },
       { q: 'Can you add a second language at the same time?', a: 'Yes. For FLS I built a custom localization plugin and added a French (Canada) version with /fr/ URLs, a language switcher and hreflang links (en-US, fr-CA, x-default).' },
       { q: 'Can you move the site to a new server too?', a: 'Yes. FLS moved from its previous hosting to a custom server as part of the same project. [See the migration packages](/services/?service=migration).' },
-      { q: 'How much does a WPBakery to Beaver Builder migration cost?', a: 'It depends on the number of pages and unique layouts. [Get a quick estimate](/#estimate) and I confirm an exact quote by email.' },
+      { q: 'How much does a WPBakery migration cost?', a: 'It depends on the number of pages and unique layouts, not on the editor you move to. [Get a quick estimate](/#estimate) and I confirm an exact quote by email.' },
     ],
     related: ['white-label-wordpress-developer', 'landing-page-speed-optimization', 'quickbooks-website-integration'],
   },

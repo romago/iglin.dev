@@ -5,7 +5,7 @@ export const nicheNav = [
   { slug: 'landing-page-speed-optimization', label: 'Landing page speed' },
   { slug: 'quickbooks-website-integration', label: 'QuickBooks integration' },
   { slug: 'drupal-7-migration', label: 'Drupal 7 migration' },
-  { slug: 'wpbakery-to-beaver-builder-migration', label: 'WPBakery → Beaver Builder' },
+  { slug: 'wpbakery-to-beaver-builder-migration', label: 'WPBakery → Gutenberg / Beaver' },
   { slug: 'white-label-wordpress-developer', label: 'White-label for agencies' },
   { slug: 'law-firm-website-developer', label: 'Law firm websites' },
   { slug: 'legacy-php-upgrade', label: 'PHP 8 upgrade' },
